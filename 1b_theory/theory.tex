@@ -1,0 +1,717 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+\chapter{Theory of Magnetic Fields in a Plasma} % top level followed by section, subsection
+\label{chapter:theory}
+
+\graphicspath{{1b_theory/figures/EPS/}{1b_theory/figures/}}
+
+%Reset all glossary terms
+\glsresetall
+
+%ABSTRACT-----------------------------------------------------
+\hrule height 1mm
+\vspace{0.5mm}
+\hrule height 0.4mm 
+\noindent 
+\\ {\it 
+In this chapter, theories explaining the dynamics and energetics of magnetised plasmas are discussed. Electrodynamic, fluid, and plasma equations leading to magnetohydrodynamics are described. Also, magnetic fields in the solar atmosphere, the magnetic energy release in flares, and the quantification of surface fields are explained. This chapter summarises the background theory of ideas presented throughout this thesis.
+}
+\\ 
+\hrule height 0.4mm
+\vspace{0.5mm}
+\hrule height 1mm 
+\vspace{1.5cm}
+%\newpage
+%END ABS---------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Plasma Physics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The material composing the Sun can be described as a plasma, which is defined as a gas in which a significant fraction of atoms are ionised. This ionisation is due to the enormous temperatures and pressures in the Sun. The fraction of ionisation varies with location and is described by the Saha equation,
+\begin{equation}
+%\frac{n_{I+1} n_e}{n_I} = \frac{G_{I+1} g_e}{G_I} \frac{(2 \pi m_e k_B T)^{3/2}}{h^3} \exp\left( -\frac{\chi_I}{k_B T} \right) \mbox{ ,}
+\frac{n_{i+1}}{n_i} = \frac{2 Z_{i+1}}{n_e Z_i} \frac{(2 \pi m_e k_B T)^{3/2}}{h^3} e^{( -\chi_i/k_B T)} \mbox{\,,}
+\end{equation}
+where, $n_{i}$ and $n_{i+1}$ are the number of ions in the ionisation state $i$ and $i+1$, respectively. The partition function of each state is given by $Z$ ($Z_{i} \approx 2$ and $Z_{i+1} \approx 1$), %$g_e=2$ for fermions, 
+and $\chi_i$ is the ionisation energy for a given state.
+For hydrogen this reduces to, 
+\begin{equation}\label{eqn:saha}
+\frac{(n^+/n)^2}{1-(n^+/n)}=\frac{4\times10^{-9}}{\rho} T^{3/2} e^{(-1.6 \times 10^5 / T)} \mbox{\,,}
+\end{equation}
+where $n^+$ is the number density of ions and $n$ is the summed number density of neutrals and ions, assuming macroscopic charge neutrality. This can also be written in terms of pressure,
+\begin{equation}\label{eqn:sahap}
+\frac{(n^+/n)^2}{1-(n^+/n)}=\frac{4\times10^{-9}}{\rho^{5/2}} {\frac{P\mu m_H}{k_B}}^{3/2} e^{(-1.6 \times 10^5 \rho k_B /\mu m_H P)} \mbox{\,,}
+\end{equation}
+Hydrogen transitions from nearly neutral to almost completely ionised over a narrow transition region in temperature centered at $\sim$10\,000\,K. This temperature occurs at outer layers of the solar convection zone. The Saha equation can not be applied in most of the solar atmosphere where local thermodynamic equilibrium does not hold. Also, in the core of the Sun, the pressure is so immense and the density so large that adjacent hydrogen atoms are close enough to effect each other's ionisation energies. Thus, in the core, the ionisation fraction approaches unity due to the added effect of ``pressure ionisation".
+%Deep in the solar interior, this fraction approaches unity, due to the added effect of pressure ionisation, which is not taken into account by Equation \ref{eqn:saha}. 
+
+The average random kinetic (thermal) energy for a plasma is given by,
+\begin{equation}
+\langle E \rangle = (3/2) k_B T \mbox{.}
+\end{equation}
+%while the random kinetic energy of electrons is given by,
+%\begin{equation}
+%\langle E \rangle = 1/2 k_B T_e \mbox{,}
+%\end{equation}
+%where $T_e$ is the electron temperature.
+The charged particles of a plasma are in constant motion, striving to cancel charge imbalance locally. The electron plasma oscillation frequency due to this motion is given by,
+\begin{equation}
+\omega = \sqrt{\frac{n e^2}{m_e \epsilon_0}} \mbox{\,,}
+\end{equation} 
+where $e$ is the charge of an electron, $m_e$ is the mass of an electron, and $\epsilon_0$ is the permittivity of free space. In \gls{cgs} this can be written,
+\begin{equation}
+f_p = \frac{\omega_p}{2 \pi} = 9\,000 \sqrt{n_e} \mbox{\,,}
+\end{equation}
+where the result is in Hz. 
+
+The Debye length is given by,
+\begin{equation}
+\lambda_D = \sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n_e}}  
+\end{equation}
+This is the distance over which an electron's charge is ``felt" by other charged particles. An electron's electric potential falls off exponentially outside of its Debye sphere. The plasma parameter is, 
+\begin{equation}
+\Lambda = 4 \pi n \lambda_D^3 \mbox{\,,}
+\end{equation}
+and indicates the number of particles within a Debye sphere. If $\Lambda >> 1$, the plasma is strongly coupled (regarding collective effects), or weakly coupled if $\Lambda << 1$. Generally, strongly coupled plasmas are ``cold" and dense (as in white dwarf and neutron star atmospheres), while weakly coupled plasmas are diffuse and hot (as in solar and space plasmas).
+In a ``collisional plasma"\footnote{Collisional plasmas include those in collisional equilibrium, such as the solar corona.}, the mean free path of particles within the plasma is small compared to the observational length scale\foornote{The observational length-scale determines the scale on which plasma phenomena are observed.} and is given by,
+\begin{equation}
+\lambda_{mfp} = 1/\sigma_{cs} n \mbox{\,,}
+\end{equation}
+where $\sigma_{cs}$ is the the collisional cross-section. For charged particles $\sigma_{cs}$ is much larger than for neutrals due to the Coulomb force,
+%\begin{equation}
+%\sigma_{cs} = \pi \left( \frac{e^2}{6\pi k_B \epsilon_0} \right) \frac{1}{T^2} \mbox{\,,}
+%\end{equation}
+%where $\sigma_{cs}$ is much larger for charged particles due to the Coulomb force,
+\begin{equation}
+F = \frac{1}{4\pi \epsilon_0}\frac{q_1 q_2}{r^2} \mbox{\,,}
+\end{equation}
+where $q_1$ and $q_2$ are the charges of each particle, and $r$ is the distance between the particles.
+The collision frequency is,
+\begin{equation}
+\nu \approx \frac{\sqrt{2} \omega_p^4}{64 \pi n_e} \left( \frac{k_B T}{m_e} \right)^{-3/2} \ln \Lambda \mbox{\,,}
+\end{equation}
+where $n_e$ is the electron number density. 
+In the absence of magnetic fields, disturbances in the plasma travel at the sound speed,
+\begin{equation}
+v_s = \sqrt{\frac{\gamma p}{\rho}} \mbox{\,,}
+\end{equation}
+where $\gamma$ is the ratio of specific heat at constant pressure ($C_P$) to that at constant volume ($C_V$).
+
+Magnetic and electric fields are ubiquitous on the Sun. %because of the significant ionisation fraction. 
+In general, these fields are governed by Maxwell's equations, the equations of electrodynamics,
+\begin{eqnarray}
+\nabla \cdot \vec{E} = \frac{1}{\epsilon_0}\rho_e & \mbox{ (Gauss's law),} \\
+\nabla \cdot \vec{B} = 0 & \mbox{ (solenoidal constraint),} \\
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} & \mbox{ (Faraday's law),} \\
+\nabla \times \vec{B} = \mu_0\vec{j} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} & \mbox{ (Amp\'ere's law),}
+\end{eqnarray}
+where $\vec{E}$ is the electric field, $\vec{B}$ is the magnetic field, $\vec{J}$ is the current, $\rho_e$ is the charge density, $\epsilon_0$ is the permittivity of free space, and $\mu_0$ is the permeability of free space. The equation of motion for a charged particle traveling through electric and magnetic fields is,
+\begin{equation}\label{eqn:lorenz}
+m_e \frac{\partial^2 \mathbf{x}}{\partial t^2} = \vec{F} = \underbrace{q\vec{E}}_{\mathrm{Coulomb}}+\underbrace{q\vec{v}\times\vec{B}}_{\mathrm{Lorentz}} \mbox{\,,}
+\end{equation}
+where $q$ is charge of the particle and $\vec{v}$ is the velocity of the particle moving through the field. In Section~\ref{sect:mhd} dynamics will be described in terms of a magnetised fluid, rather than of a single particle.
+ 
+The force on a charged particle due to a vertical magnetic field results in the particle revolving around the field in the horizontal plane. Considering an electron, the frequency at which this occurs is the electron gyrofrequency,
+\begin{equation}
+\omega_g = -\frac{e B}{m_e}  
+\end{equation}
+The gyroradius is then,
+\begin{equation}
+r_g = \frac{v_\bot}{\omega_g}  
+\end{equation}
+This motion results in gyro-synchrotron emission which is often observed in regions of strong magnetic field on the Sun at microwave wavelengths \citep{Gopalswamy:2012}. 
+%From this description of the properties of a plasma, the plasma criteria are,
+%\begin{eqnarray}
+%\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fluid Dynamics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In general, the Sun can be treated as a fluid. The fluid approximation allows one to model solar material as a continuous spatial distribution of fluid parcels, rather than a collection of particles. The principle fluid equations are,
+\begin{eqnarray}
+\label{eqn:mhdmasscont} \frac{\partial \rho}{\partial t}+\nabla\cdot(\rho \vec{v}) = 0 \mbox{ (mass continuity),} \\
+\label{eqn:fluidmotion} \rho \frac{D \vec{v}}{D t} = -\nabla P + \vec{F} \mbox{ (equation of motion),} \\
+\label{eqn:fluidenergy} \frac{D}{D t}\left( \frac{P}{\rho^{\gamma}} \right) = -\mathcal{L} \mbox{ (energy equation),} \\
+P=\frac{\rho k_B T}{m_p \overline{\mu}} = n k_B T \mbox{ (ideal gas law),}
+\end{eqnarray}
+where $\vec{F}$ denotes external forces on the fluid, $\mathcal{L}$ is the total energy loss rate, $\gamma$ is the ratio of specific heats (of constant pressure to constant volume), $m_p$ is the mass of a proton, $\overline{\mu}$ is the mean molecular weight, and
+\begin{equation}
+\frac{D}{D t} = \frac{\partial}{\partial t}+\vec{v} \cdot \nabla
+\end{equation}
+is the convective time derivative. The mean molecular weight is $\sim$0.6 for ionised solar plasma, but for small ionisation fractions $\mu$ is $\sim$unity.
+
+%VISCOUS / TURBULENCE -describes scales of convection?
+The Reynolds number indicates whether the inertial or viscous forces in a fluid dominate. The Reynolds number is given by, 
+\begin{equation}\label{eqn:magreynolds}
+R_{e} = \frac{V L}{\nu_{visc}} = \frac{\rho V L}{\mu_{visc}} \mbox{\,,}
+\end{equation}
+where, $V$ is a characteristic velocity in the fluid, $L$ is a characteristic length scale of the system, $\rho$ is the fluid density, $\nu_{visc} = \mu_{visc}/\rho$ is the kinematic viscosity, and $\mu_{visc}$ is the dynamic viscosity, a measure of how much the fluid resists an applied shearing force. Turbulence becomes an important form of energy transport for fluids of Reynolds number ($R_{e}$) greater than $\sim$5\,000. In the convection zone and lower photosphere $R_{e}$ is many orders of magnitude larger than this; in the granulation layer it is estimated to be $\approx$10$^9$ \citep{Cox:1991}. Turbulent flows are highly disorganised and exhibit a cascade of energy to smaller scales. At the smallest scales the kinetic energy of the flows is dissipated as heat through molecular diffusion and viscosity. The turbulent heat flux is
+\begin{equation}
+H_{k} = v \rho C_{P} T \mbox{\,,}
+\end{equation}
+where $v$ is the speed of a turbulent fluctuation, $C_{P}$ is the specific heat at constant pressure, and $T$ is the temperature of the fluctuation. The turbulent length scale where energy is dissipated as heat (the Kolmogorov scale) is given by,
+\begin{equation}\label{eqn:turbeta}
+\eta_k = \frac{\nu^3}{\epsilon_k} \mbox{\,,}
+\end{equation}
+where $\epsilon_k$ is the rate of energy dissipation.
+
+The distribution of energy with scale can be obtained by Fourier decomposing a given flow field and considering Equation~\ref{eqn:turbeta} and the scales of turbulence, $\eta_k << \ell_{k} << L$, where $\ell_{k}$ denotes the medium turbulent scales and $L$, the largest scales in the system. The scale of $\ell_{k}$ is defined somewhat arbitrarily, limited by the molecular scale $\eta_k$ and the observational length scale. The distribution of energy is then,
+\begin{equation}
+E(r) = C \epsilon_k^{2/3} k^{-5/3} \mbox{\,,}
+\end{equation}
+where $C$ is a universal scaling constant and the wavenumber, $k = 2\pi/\ell_{k}$. Kolmogorov thus derived a universal scaling law of $-5/3$ for the turbulent energy cascade over spatial scale. Many studies have tried to determine the scale dependence of features on the Sun \citep{Hewett:2008,parnell:2009}, relating their properties to turbulent phenomena.
+%DISTRIBUTION OF KE
+%On scales smaller than granulation, turbulence is important and results in an energy cascade over a range of scales. Kolmogorov described to distribution of energy with scale...He found a universal scaling of a power-law of $\alpha=5/2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Magnetohydrodynamics}\label{sect:mhd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To describe the dynamics of solar plasma, an electrically charged fluid, we utilize \gls{MHD}. This framework differs from electrodynamics in its fluid mechanics component. Maxwell's equations are altered using several assumptions. It is assumed that the plasma is in collisional equilibrium, which is true in the solar interior and lower atmosphere. It is also assumed that the plasma flow velocities are much less than the speed of light. 
+%This may be measured from doppler shift observations, helioseisomology, and by applying local correlation tracking (LCT) to photospheric magnetograms. In the latter case, \cite{Chae:2001} finds horizontal surface flow velocities of $~$$0.15$~km~s$^{-1}$. 
+We may then neglect the displacement current in Amp\'ere's law, which becomes,
+\begin{equation}\label{amperes}
+\nabla \times \vec{B} = \mu_0 \vec{j} \mbox{\,,}
+\end{equation}
+where $\vec{B}$, $\mu_0$, and $j$ are the magnetic field vector, magnetic permeability, and current density vector, respectively. Charge neutrality is also assumed, which implies that an electric field can only be induced by a changing $\vec{B}$ field and $\nabla\cdot \vec{E}=0$, since excesses of charge are not allowed to accumulate. Faraday's law governs this induced electric field,
+\begin{equation}\label{faradays}
+\frac{\partial \vec{B}}{\partial t} = - \nabla \times \vec{E}  
+\end{equation}
+Currents are generated in the plasma by a non-zero $\vec{E}$ or a changing $\vec{B}$ and are determined using the generalized Ohm's law,
+\begin{equation}  \label{ohms}
+\vec{j} = \sigma(\vec{E} + \vec{v} \times \vec{B}) \mbox{\,,}
+\end{equation}
+where $\sigma$ and $\vec{v}$ are the electrical conductivity and plasma velocity, respectively. 
+We can then solve for $\vec{E}$ in Equation~\ref{ohms} and substitute it into Equation~\ref{faradays},
+\begin{equation}
+\frac{\partial \vec{B}}{\partial t} = -\nabla \times \left( \frac{\vec{j}}{\sigma} - \vec{v}\times\vec{B} \right)  
+\end{equation}
+Thus, currents can be defined in terms of $\vec{B}$ alone.
+Equation~\ref{amperes} is then rearranged and substituted for $\vec{j}$,
+\begin{equation}\label{eqn:indprevecid}
+\frac{\partial \vec{B}}{\partial t} = \nabla \times (\vec{v}\times\vec{B}) - \nabla \times \left( \frac{\nabla\times\vec{B}}{\mu_0 \sigma} \right)  
+\end{equation}
+A vector identity,
+\begin{equation}\label{eqn:vecid11}
+\nabla\times\nabla\times\vec{A}=\nabla(\nabla\cdot \vec{A})-\nabla^2\vec{A} \mbox{\,,}
+\end{equation}
+is then applied to the second term,
+\begin{equation}
+\frac{\partial \vec{B}}{\partial t} = \nabla \times (\vec{v}\times\vec{B}) + \nabla^2 \left( \frac{B}{\mu_0 \sigma} \right) - \cancel{ \nabla\times\left(\nabla\left( \nabla \cdot \frac{\vec{B}}{\mu_0 \sigma} \right)\right) } \mbox{\,,}
+\end{equation}
+where the third term is cancelled using the solenoidal constraint ($\nabla \cdot \vec{B}=0$). Simplification is performed by assuming $\sigma$ is constant and defining magnetic diffusivity, $\eta\equiv1/\mu_0 \sigma$,
+\begin{equation}\label{induction}
+\frac{\partial \vec{B}}{\partial t} = \nabla \times (\vec{v} \times \vec{B}) + \eta \nabla^2 \vec{B}  
+\end{equation}
+This is known as the ``induction equation", and is fundamental in explaining the creation and destruction of magnetic fields in plasmas.
+
+The first term on the right-hand side is the advective term which describes magnetic field dynamics due to plasma flows, and the second is the diffusive term which describes diffusion of the field due to gradients in the magnetic field itself. The advective timescale (Equation~\ref{tadv}) is often much shorter than the diffusive (Equation~\ref{tdiff}), so flows tend to dominate the magnetic field dynamics. By dimensional analysis of Equation~\ref{induction}, characteristic timescales may be derived,
+\begin{equation}\label{tadv}
+\frac{\Delta \vec{B}}{\Delta t} = \frac{\vec{v}  \vec{B}}{\Delta l} ~\Rightarrow~
+\tau_{adv} = \frac{\Delta l \Delta \vec{B}}{\vec{v}  \vec{B}} \mbox{\,,}
+\end{equation}
+\begin{equation}\label{tdiff}
+\frac{\Delta \vec{B}}{\Delta t} = \eta \frac{\vec{B}}{\Delta l^2} ~\Rightarrow~
+\tau_{diff}= \frac{\Delta l^2 \Delta \vec{B}}{\eta \vec{B}} \mbox{\,,}
+\end{equation}
+where $\Delta l$ is a characteristic length scale and $\Delta \vec{B}$ is the difference in magnetic field between the start and end of the time-scale which is roughly equivalent to the characteristic field, $\vec{B}$. 
+
+When applied to a medium-sized sunspot at the photosphere, $\Delta l$ is of order 10\,Mm, $v$ is of order $10^{-4}$\,Mm\,s$^{-1}$, and $\eta$ is of order $10^{-9}$\,Mm$^2$\,s$^{-1}$. A $\tau_{diff}$ of $\sim$3\,000\,years and a $\tau_{adv}$ of $\sim$1\,day is determined. Sunspots are observed for days (the longest-lived last for months), not years; the advective term is clearly the more important for photospheric magnetic feature dynamics. Sunspot decay is thus due to convective (plasma flow) dispersion as discussed in \cite{Schrijver:2001}. Assuming the conductivity ($\sigma$) to be infinite results in ideal \gls{MHD}. In ideal MHD, Equation~\ref{induction} becomes,
+\begin{equation}\label{idealind}
+\frac{\partial \mathbf{B}}{\partial t} = \nabla \times (\vec{v} \times \vec{B})  
+\end{equation}
+
+The ratio of the diffusive and advective terms in the induction equation yield the magnetic Reynold's number,
+\begin{equation}\label{eqn:reynum}
+R_m = \frac{V L}{\eta} \mbox{\,,}
+\end{equation}
+where $V$ is a characteristic fluid speed and $L$ is a characteristic length scale.
+This number indicates the relative importance of fluid motions to magnetic diffusion in the evolution of the magnetic field. In most cases for the Sun $R_m >> 1$, so the magnetic diffusion term in Equation~\ref{induction} can be neglected. There are a few cases where this is far from true, such as in flares. In Ideal \gls{MHD} the frozen-in condition applies and magnetic field lines are permanently embedded in the plasma they inhabit. Thus the field is advected with plasma motions or plasma is constrained to flow along field lines.
+
+To complete the set of MHD equations, we rewrite the fluid equations, coupling some of them to the electrodynamic ones. Using the vector identity, 
+\begin{equation}
+\nabla\cdot(a\vec{A})=(\nabla a)\cdot \vec{A}+a(\nabla\cdot\vec{A}) \mbox{\,,} 
+\end{equation}
+we can rewrite Equation~\ref{eqn:mhdmasscont},
+\begin{equation} 
+\frac{\partial\rho}{\partial t}+(\vec{v}\cdot\nabla)\rho+\rho\nabla\cdot\vec{v} = 0  
+\end{equation}
+For an incompressible plasma, this becomes $\nabla\cdot\vec{v}=0$. Equation~\ref{eqn:lorenz} is substituted into Equation~\ref{eqn:fluidmotion} for $\vec{F}$, coupling the fluid and electrodynamic forces, 
+\begin{equation}\label{eqn:mhdforce}
+\rho\frac{D \vec{v}}{D t}=-\nabla P + \vec{J} \times \vec{B} + \rho \vec{g}  
+\end{equation}
+Assuming the fluid evolves adiabatically, no heat flows between fluid parcels and $\mathcal{L}=0$. Thus Equation~\ref{eqn:fluidenergy} and \ref{eqn:mhdmasscont} are combined to become,
+\begin{equation}
+\frac{\partial P}{\partial t}+\vec{v}\cdot\nabla P = -\gamma P \nabla \cdot \vec{v}  
+\end{equation}
+
+The energy density of a magnetic field is given by,
+\begin{equation}
+u_B = \frac{B^2}{2\mu_0}
+\end{equation}
+The total magnetic energy in a region of space is given by integrating over volume,
+\begin{equation}
+U_B = \int \limits_V \frac{B^2}{2\mu_0}\,dV  
+\end{equation}
+Considering the time evolution of the total energy and using a dot-product identity, 
+\begin{equation}
+\frac{d U_B}{d t} = \frac{1}{2\mu_0} \int \limits_V \frac{d}{dt}(\vec{B}\cdot\vec{B})\,dV  
+\end{equation}
+Using the product rule,
+\begin{equation}
+\frac{d U_B}{d t} = \frac{1}{2\mu_0} \int \limits_V \vec{B}\cdot\frac{d\vec{B}}{dt}+\frac{d\vec{B}}{dt}\cdot\vec{B}\,dV = \frac{1}{\mu_0} \int \limits_V \vec{B}\cdot\frac{d\vec{B}}{dt}\,dV 
+\end{equation}
+Equation~\ref{eqn:indprevecid} is then substituted for $d\vec{B}/dt$,
+\begin{equation}
+\frac{d U_B}{d t} = \frac{1}{\mu_0} \int \limits_V \vec{B} \cdot (\vec{\nabla} \times (\vec{v} \times \vec{B}) - \vec{\nabla} \times (\eta \vec{\nabla} \times \vec{B}))\,dV  
+\end{equation}
+The following equation can be derived from this by using a vector identity and substituting for current,
+\begin{equation}
+\frac{d U_B}{d t} = -\int \frac{j^2}{\sigma} dV - \int \vec{v} \cdot (\vec{j} \times \vec{B})\,dV  
+\end{equation}
+The left term represents energy lost through the dissipation of currents. This is also known as ohmic or Joule heating. The right term represents energy lost through work done on the plasma by the Lorentz force.
+
+%INSERT MAGNETIC TENSIION AND PRESSURE FORCE DERIVATION
+In addition to separating magnetic energy losses into components, the same can be done with magnetic forces. Combining Equation~\ref{amperes} and the Lorentz force in Equation~\ref{eqn:mhdforce} we can write, 
+\begin{equation}
+F_L = \frac{(\nabla\times\vec{B})\times\vec{B}}{\mu_0}  
+\end{equation}
+Using a vector identity (\,$(\vec{C}\times \vec{B})\times \vec{A} = \vec{A}\times (\vec{B}\times \vec{C})$\,) this can be rewritten,
+\begin{equation}
+F_L = \frac{\vec{B}\times(\vec{B}\times\nabla)}{\mu_0}  
+\end{equation}
+The force can then be split into two components using Equation~\ref{eqn:vecid11},
+\begin{equation}
+F_L = \underbrace{-\nabla \frac{B^2}{2\mu_0}}_{\mathrm{pressure}} + \underbrace{\frac{1}{\mu_0}(\vec{B}\cdot\nabla)\vec{B}}_{\mathrm{tension}}  
+\end{equation}
+Thus, the Lorentz force has a component acting perpendicular to the field, magnetic pressure\footnote{The magnetic pressure, $B^2/2\mu_0$ is numerically equivalent to the magnetic energy density.}, and a component acting along the field, magnetic tension. These forces can conveniently be attributed to many dynamic phenomena independently. Magnetic pressure is attributed to the apparent expansion of coronal loops as they reach higher into the atmosphere, while tension explains the restoring force that allows a coronal loop to spring back into place after it is disturbed by an external force. 
+
+The dominance of fluid forces over electrodynamic forces can be determined from the ratio of gas pressure to magnetic pressure,
+\begin{equation}\label{eqn:plasmabeta}
+\beta = \frac{P_G}{P_B} = \frac{n k_B T}{B^2/2\mu_0}  
+\end{equation}
+In the solar interior $\beta>>1$ and magnetic fields dynamics are dominated by plasma motions, while in the corona $\beta<<1$ and magnetic fields determine plasma motion. In sunspots $\beta\sim1$, and the dynamics become very complicated.
+%are advected with the plasma or are ``frozen in"
+
+Magnetic tension and pressure are restoring forces that allow oscillations to take place along magnetic field lines. There are several types of waves that may occur.
+Alfv\'en waves are incompressible transverse waves and only involve magnetic tension. The plasma motion due to the waves occurs perpendicularly to the wave vector and the magnetic field. The ``group" speed at which Alfv\'en wave energy travels along field lines is the Alfv\'en speed,
+\begin{equation}
+v_A = \frac{B}{\sqrt{\mu_0 \rho}} 
+\end{equation}
+When the ratio of gas to magnetic pressure, $\beta \ll 1$, then $v_A \gg v_s$. 
+The phase speed of the wave pattern is given by,
+\begin{equation}
+\frac{\omega}{k} = \pm v_A \cos \theta \mbox{\,,}
+\end{equation}
+where $\omega$ is the angular frequency of the wave, $k$ is the wave vector, and $\theta$ is the angle between $B$ and $k$.
+Alfv\'en waves allow for energy to be transported into the corona, as they are not affected by the acoustic cut-off frequency. They are thought to be partially responsible for the fast solar wind.
+
+Magnetoacoustic waves come in two forms: ``fast" and ``slow". Fast waves propagate isotropically and are governed by magnetic pressure in media where $\beta \ll 1$ or by gas pressure when $\beta \gg 1$. The phase speed is given by,
+\begin{equation}
+v_{p,f} = \frac{\omega}{k} = \left( \frac{1}{2} (v_A^2 + v_s^2) + \frac{1}{2}\sqrt{(v_A^2+v_s^2)^2 - 4 v_A^2 v_s^2 \cos^2 \theta} \right)^{1/2} \mbox{\,,}
+\end{equation}
+where $v_s$ is the speed of sound in the plasma. For waves propagating parallel to $\mathbf{B}$, $v_{p,f}=v_A$ or perpendicular to $\mathbf{B}$, $v_{p,f}=\sqrt{v_A^2+v_s^2}$.
+Slow waves mostly propagate along $\mathbf{B}$ and are governed by gas pressure when $\beta \ll 1$ or magnetic tension when $\beta \gg 1$. Their phase speed is given by,
+\begin{equation}
+v_{p,s} = \frac{\omega}{k} = \left( \frac{1}{2} (v_A^2 + v_s^2) - \frac{1}{2}\sqrt{(v_A^2+v_s^2)^2 - 4 v_A^2 v_s^2 \cos^2 \theta} \right)^{1/2}
+\end{equation}
+For waves propagating parallel to $\mathbf{B}$, $v_{p,s}=v_s$. They do not propagate perpendicular to $\mathbf{B}$.
+%are longitudinal along field lines and involve both magnetic pressure and tension forces. These waves are governed by,
+%\begin{equation}
+%\frac{\omega}{k} = \left( \frac{1}{2} (v_A^2 + c^2) \pm \sqrt{(v_A^2+c^2)^2 - 4 v_A^2 c^2 \cos^2 \theta} \right)^{1/2} \mbox{\,,}
+%\end{equation}
+%where the case of addition results in fast magnetoacoustic waves and the case of subtraction results in slow waves. Fast waves occur when $c > v_A$ and slow waves if $c < v_A$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dynamo Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.5\textwidth]{parkerglobalfield.eps}}
+\caption[A schematic of magnetic fields generated by the solar dynamo.]{A schematic of the large-scale magnetic fields generated by the solar hydromagnetic dynamo. The thick lines represent bands of migrating toroidal flux in the convection zone. Thinner lines represent the ambient toroidal and poloidal field \citep[from][]{Parker:1957}.}
+\label{fig:parkerdynamo}
+\end{figure}
+
+An important question in solar physics is how the large-scale magnetic field is generated. It is observed to change configuration over the solar cycle, so it must be time dependent. Also, sunspots are thought to be a manifestation of the large-scale field. The underlying process, responsible for the dynamic solar magnetic field and driven by internal flows, is called the dynamo. 
+ 
+In general, the main goal of a dynamo theory is to solve the induction equation (Equation~\ref{induction}) for a given velocity and magnetic field. Assuming a velocity field within the Sun do to large-scale flows, 
+\begin{equation}\label{eqn:dynamoflow}
+v(r,\theta) = \underbrace{ \vec{u}_p(r,\theta) }_{\mathrm{meridional}} + \underbrace{ \overline{\omega} \Omega(r,\theta) \hat{e}_{\phi} }_{\mathrm{rotational}} \mbox{\,,}
+\end{equation}
+where $\vec{u}_p$ is the meridional (poloidal) flow, $\overline{\omega}=r\sin{\theta}$, and $\Omega $ is the solar rotation, a differential toroidal flow that varies with depth and latitude.
+The magnetic field can be broken into a poloidal and toroidal component,
+\begin{equation}\label{eqn:dynamofield}
+\vec{B}(r,\theta,t) = \underbrace{ \nabla\times(A(r,\theta,t)\hat{e}_{\phi}) }_{\mathrm{poloidal}} + \underbrace{ B(r,\theta,t)\hat{e}_{\phi} }_{\mathrm{toroidal}} \mbox{\,,}
+\end{equation}
+where $A$ and $B$ are scalar functions that determine the field components.
+%WHAT IS A?!?!?!
+While the magnetic field varies with time, the large-scale flows are assumed to be static. Combining Equation~\ref{induction}, \ref{eqn:dynamoflow}, and \ref{eqn:dynamofield} we have a differential equation for the poloidal and toroidal components of the magnetic field,
+\begin{equation}\label{eqn:dadt}
+\frac{\partial A}{\partial t} = \eta \left( \nabla^2 - \frac{1}{\overline{\omega}^2}\right) A - \frac{\vec{u}_p}{\overline{\omega}} \cdot \nabla(\overline{\omega} A) \mbox{\,,} %& \mbox{ poloidal,} \\
+\end{equation}
+and,
+\begin{equation}\label{eqn:dbdt}
+\frac{\partial B}{\partial t} = \eta \left( \nabla^2 - \frac{1}{\overline{\omega}^2}\right) B + \frac{1}{\overline{\omega}} \frac{\overline{\omega}B}{\partial r}\frac{\partial \eta}{\partial r} - \overline{\omega}\nabla \cdot \left( \frac{B}{\overline{\omega}} \vec{u}_p \right) + \underbrace{ \overline{\omega}( \nabla \times (A\hat{\vec{e}}_{\phi}))\cdot\nabla\Omega }_{\mathrm{shear~term}} %\mbox{ .}%& \mbox{ toroidal.}
+\end{equation}
+where $\eta$ is the magnetic diffusivity. The shear term generates the toroidal field with a strength $\propto \nabla\Omega$.
+
+Crowling's theorem says that an axisymmetric flow cannot generate an axisymmetric magnetic field. Also, a field with an electric current limited to a finite volume cannot be maintained by a flow with finite amplitude. The fields decay because of the finite conductivity (magnetic diffusivity term). Because of this, most dynamo models use an extraneous source term to initialise the field. 
+
+\cite{Parker:1955} finds oscillatory solutions to Equations~\ref{eqn:dadt} and \ref{eqn:dbdt} in rectilinear coordinates that result in equatorward propagating dynamo waves. The waves take the form of bands of toroidal flux and are thought to explain the equatorward progression of sunspot group emergence over the solar cycle. A schematic of the process is shown in Figure~\ref{fig:parkerdynamo}. This result led to the formulation of many other dynamo models  \citep{Charbonneau:2010}.
+
+In the ``mean-field" model, small scale turbulence leads to macroscopic fields. This leads to another term in Equation~\ref{induction} that is related to the curl of an electromotive force generated by the combination of the Coriolis force (large scale) and turbulent diffusion (small scale). The electromotive force is given by, 
+\begin{equation}\label{eqn:epsmean}
+\varepsilon = \alpha \vec{B} + \beta \nabla \times \vec{B} \mbox{\,,}
+\end{equation}
+where $\alpha$ is proportional to (negative) kinetic helicity and $\beta$ is related to turbulent diffusion. 
+%By averaging the induction equation over space? we arrive at, ... (pg. 57 heliophys book 1) . The first term is the average electro motive force.
+Here, $\alpha$ is a coefficient of the source term that results in the ``$\alpha$-effect" where,
+\begin{equation}\label{eqn:alphamean}
+\alpha = -\frac{1}{3} \tau_c \langle \vec{v}' \cdot (\nabla \times \vec{v}) \rangle \mbox{\,,}
+\end{equation}
+in units of m\,s$^{-1}$, where $\vec{v}'$ represents turbulent flows, $\vec{v}$ represents large-scale flows, and $\tau_c$ is the correlation time scale for the diffusion. The coefficient governing the turbulent source term is given by, 
+\begin{equation}\label{eqn:betamean}
+\beta = \frac{1}{3} \tau_c \langle {\vec{v}'}^2 \rangle \mbox{\,,}
+\end{equation}
+in units of m$^2$~s$^{-1}$. The time scale governing turbulent diffusion is,
+\begin{equation}\label{eqn:taumean}
+\tau_{diff} = \frac{R_{\odot}^2}{\eta_e} \mbox{\,,}
+\end{equation}
+where $\eta_e$ is the diffusivity, dominated by turbulence, rather than microscopic magnetic diffusion. Assuming a $\eta_e$ of 10$^8$\,m$^2$s$^{-1}$ and a length scale of 10$^8$\,m, the turbulent decay time scale for the Sun is $\sim$3\,years, which is of the same order of magnitude as the solar cycle length.
+Equation~\ref{eqn:alphamean} and \ref{eqn:betamean} can be used to determine new equations for $\partial A/\partial t$ and $\partial B/\partial t$, with terms relating to magnetic induction due to the $\alpha$-effect and the ``$\Omega$-effect" (determined by the rotation of the convective zone), and magnetic diffusivity. 
+
+A simplified model, the ``linear $\alpha$-$\Omega$ dynamo" neglects the meridional flow. Linear equations for $B$ and $A$ can be obtained leading to a dynamo wave equation. The direction of the waves is determined by,
+\begin{equation}
+\vec{s} = \alpha \nabla \Omega \times \mathbf{\hat{e}}_{\phi} \mbox{\,,}
+\end{equation}
+where $\Omega$ is the differential rotation profile and $\alpha$ is a coefficient determining the strength of the $\alpha$-effect, as before. At the high-latitude regions of the tachocline, $\nabla \Omega$ points radially inward. With a positive $\alpha$ this results in an equatorward dynamo wave propagation. 
+
+There are also phenomenological models that reproduce the Babcock-Leighton dynamo, as discussed in Section~\ref{sect:introsolcyc}. \cite{Leighton:1964} first explored this numerically and more complete models followed \citep{Nandy:2001}. Here, the toroidal bands of magnetic flux erupt as localised bipoles. These bipoles are an artificial source term introduced to Equation~\ref{eqn:dadt}. This usually takes the form of a function with a prescribed operating range of toroidal magnetic field strengths. This means that once the critical field strength is reached, bipoles rise toward the surface through magnetic buoyancy. Also, the $\alpha$-effect causes a rotation in the bipoles due to the Coriolis force, in which kinetic helicity is acquired ($H_k = \mathbf{\omega} \cdot \mathbf{v}$). This rotation is the underlying reason for Joy's Law of sunspot tilt. After emerging at the surface, the bipoles begin to decay as their fields are dispersed by supergranulation. Net (signed) flux is dragged poleward from bipoles by the meridional flow. This process rearranges toroidal fields (bipoles) into poloidal fields and is described in more detail in Section\,\ref{section:sscycle}.
+%These fields realign with the rotational axis to the tachocline and sheared into a toroidal configuration again. 
+The development of these models still has a long way to go, as the necessity for artificial sources implies. Furthermore, it is still not possible to predict the strength of the next solar cycle. For instance, the extended minimum of cycle 23\,--\,24 was quite unexpected.
+
+%-mean field MHD dynamo theory (Parker solution)
+
+%-induction equation $+$ assumed velocity field $->$ dynamo
+
+%-rossby number
+
+%-dynamo waves
+
+%-magnetic SFT equation
+
+%poloidal to toroidal with alpha and omega effect...
+
+%Peter's astrophysical magnetic book
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Magnetic Fields in the Corona}\label{sect:magcorona}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.7\textwidth]{coronalloops.eps}}
+\caption[Coronal loops in an active region.]{An EUV image of coronal loops in an active region \citep[from][]{Reale:2010}.}
+\label{fig:coronalloops}
+\end{figure}
+
+A magnetic field line is a curve tangent to the magnetic field at each point and is described by,
+\begin{equation}
+\frac{\mathrm{d} \vec{r}}{\mathrm{d} \ell} = \frac{\vec{B}(\vec{r}(\ell))}{|\vec{B}(\vec{r}(\ell))|} \mbox{\,,}
+\end{equation}
+where $\vec{r}$ is a vector pointing from the origin to a point along the line and $\ell$ is the arc length along the line. A given line can be determined by integrating the equation from a given starting point. While field lines are not an actual physical entity, they are useful in describing the magnetic field topology of a given system. The density of field lines indicates the magnetic field magnitude in a given region.
+
+A coronal loop is often modeled as a thin magnetic \gls{fluxtube}, composed of a bundle of individual filaments. Since magnetic pressure should cause the loop to expand, the loop is thought to be twisted, causing magnetic tension to resist the expansion.
+%are defined as a bundle of field lines that are parallel to an enclosing cylindrical surface. 
+Coronal loops are rooted in the photosphere at either end, forming a closed field geometry. An \gls{EUV} image of coronal loops within an \gls{activeregion} is shown in Figure~\ref{fig:coronalloops}. In the photosphere, a \gls{fluxtube} is in magnetohydrostatic equilibrium, where the internal magnetic and gas pressure balances the external gas pressure. In the photosphere, flux tubes are constantly swept into down-draft regions between supergranules \citep{Simon:1964}. Within flux tubes, flows are confined to the direction of the field and this leads to an evacuation of the \gls{fluxtube}. These flows are shown to be $\lt$250\,m\,s$^{-1}$ \cite{Solanki:1986}. Since magnetic flux is frozen-in and total flux through a surface is conserved, any increase in external gas pressure leads to a compression of the \gls{fluxtube} and results in an increase in the internal magnetic field. This process is called convective collapse \citep{Roberts:2000}. A schematic of this situation is shown in Figure~\ref{fig:loopschem}.
+
+In \glspl{activeregion} with simple configurations, coronal loops are often observed to be stable structures on the scale of $\tau_{adv}$ (Equation~\ref{tadv}). Above the photosphere, \glspl{fluxtube} expand, as the ambient gas pressure drops off with height. This occurs rapidly within the chromosphere and more slowly in the corona as the pressure gradient levels off until the magnetic forces are in equilibrium. In the corona, $\beta << 1$ so plasma is confined to flow parallel to the field lines. A given coronal loop exhibits hydrostatic equilibrium along its curvature. Coronal loops are bright because they are hot and heating may be due to small flares (DC) or waves (AC) along the loop \citep{Reale:2010}. %The thin \gls{fluxtube} approximation is made when the cross-sectional scale is much less than the length scale. This greatly simplifies solving dynamical equations, such as wave equations.
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.8\textwidth]{loopsschem.eps}}
+\caption[A schematic of a coronal loop.]{A schematic of a coronal loop, with its foot points located at down-flow regions between supergranules. The combination of gas and magnetic pressure within flux-tubes at the photosphere are balanced by exterior gas pressure. In the corona, the gas pressure drops off, leaving the magnetic pressure and tension forces to define structures. Hydrostatic equilibrium is achieved along the curve of a coronal loop.}
+\label{fig:loopschem}
+\end{figure}
+
+The magnetic properties of coronal loops can be determined by extrapolating the magnetic field from magnetogram observations and comparing the result to loop observations. To obtain a static solution, the sum of forces included in Equation~\ref{eqn:mhdforce} cancel out, 
+\begin{equation}
+\sum F = -\nabla P + \vec{j} \times \vec{B} +\rho \vec{g} = 0  
+\end{equation}
+Additionally, the ``force-free" approximation is used, where each force is assumed to be negligible.  Dimensional analysis shows the gravitational force is small compared to the pressure force. The pressure gradient is not important if scales are considered that are much less than the pressure scale height ($H=k_B T/\overline{\mu} m_H g$), the distance over which the pressure drops by $1/e$. Since $\beta << 1$, the Lorentz force dominates over the other forces, 
+\begin{eqnarray}
+0 &=& \cancel{-\nabla P} + \vec{j} \times \vec{B} +\cancel{\rho \vec{g}} \mbox{\,,} \\
+0 &=& \vec{j} \times \vec{B}  
+\end{eqnarray}
+Two solutions to this are $\vec{j}=0$ or that $\vec{j} \parallel \vec{B}$. In the former case, from Equation~\ref{amperes} this leads to,
+\begin{equation}
+\nabla \times \vec{B} =0 \mbox{\,,}
+\end{equation}
+which is the current-free solution and results in ``potential fields" that are curl and divergence free.
+For the latter case, the currents are field-aligned and Equation~\ref{amperes} can be written,
+\begin{eqnarray}
+\label{eqn:getalph} \nabla \times \vec{B} &=& \mu_0 j \mathbf{\hat{B}} = \alpha B \mathbf{\hat{B}} \mbox{\,,} \\
+\label{eqn:alphb} \nabla \times \vec{B} &=& \alpha \vec{B} \mbox{\,,}
+\end{eqnarray}
+where $\alpha$ is a scalar derived from Equation~\ref{eqn:getalph},
+\begin{equation}
+\alpha = \frac{j \mu_0}{B}   %\equiv
+\end{equation}
+These fields can be ``non-potential" and result in a twist in the field. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 1.0\textwidth]{pfssextrap.eps}}
+\caption[An example of a potential field source surface extrapolation.]{An example of a spherical potential field source surface extrapolation using MDI line-of-sight magnetograms as input (courtesy of Marc DeRosa). Field lines are traced separately for closed (black), positive open (out of the Sun; green), negative open (into the Sun; magenta).}
+\label{fig:pfssextrap}
+\end{figure}
+
+For the potential case, $\alpha$ is set to 0, 
+\begin{equation}\label{eqn:currfree}
+\nabla \times \vec{B} = 0 \mbox{\,,}
+\end{equation}
+so $\vec{B}$ can be written as the gradient of some scalar potential field,
+\begin{equation}
+\vec{B} = \nabla \Psi   \label{eqn:bsclpot}
+\end{equation}
+It can be see that $\Psi$ satisfies Laplace's equation by taking the divergence of both sides of Equation~\ref{eqn:bsclpot},
+\begin{eqnarray}
+\nabla \cdot \vec{B} &=& \nabla \cdot \nabla \Psi \mbox{\,,} \\
+\nabla \cdot \vec{B} &=& 0 \mbox{\,,} \\
+\label{eqn:laplaces} \therefore \nabla^2 \Psi &=& 0  
+\end{eqnarray}
+A solution to Equation~\ref{eqn:laplaces} in spherical coordinates is the superposition of a series of spherical harmonics,
+\begin{equation}\label{eqn:phisum}
+\Psi(r,\theta,\phi) = \sum\limits_{\ell,m} \left( A_\ell^m r^\ell + B_\ell^m r^{-(\ell+1)}\right) Y^m_\ell(\theta,\phi) \mbox{\,,}
+\end{equation}
+where $r$  is the radius from solar centre, $A_\ell^m$ and $B_\ell^m$ are coefficients determining the importance of each harmonic, and $Y^m_\ell(\theta,\phi)$ are the pure harmonic modes. The subscripts $m$ and $\ell$ define the number of sectors in the longitudinal ($n_{\phi}=m+1$) and latitudinal ($n_{\theta}=\ell+1$) directions, respectively. The spherical harmonics are given by,
+\begin{equation}
+Y^m_\ell(\theta,\phi) = \mathcal{C}_m^\ell P_m^\ell(\cos{\theta}) e^{i m \phi} \mbox{\,,}
+\end{equation}
+where $P_m^\ell(\cos{\theta})$ are the Legendre polynomials and,
+\begin{equation}
+\mathcal{C}_m^\ell = (-1)^m \left[ \frac{2\ell+1}{4\pi} \frac{(\ell-m)!}{\ell+m)!} \right]^{1/2}  
+\end{equation}
+The boundary conditions are chosen so that at $r=R_{\odot}$, the magnetic field is determined by \gls{LOS} magnetic field observations and an upper boundary is determined by an arbitrary ``source surface" where the field becomes radial. Conventionally, this is usually $2.5\,R_{\odot}$. 
+These conditions stipulate a unique solution for the field. The coefficients can be solved by substituting Equation~\ref{eqn:phisum} into Equation~\ref{eqn:bsclpot} and applying the boundary conditions. An example spherical extrapolation\footnote{From \url{http://www.lmsal.com/\~derosa/pfsspack/\#usersguide}.} using potential field assumptions is shown in Figure~\ref{fig:pfssextrap}; this is called a \gls{PFSS} extrapolation.
+%FROM HELIOPHYSICS VOL 1
+%INCLUDE DEROSA STUFF OR FROM SMART PAPER 2??
+%-global extrapolation (spherical harmonics)
+
+%LFFF
+If $\alpha \neq 0$ in Equation~\label{eqn:alphb}, then field aligned currents may exist. Taking the divergence of Equation~\label{eqn:alphb}, 
+\begin{equation}
+\nabla \cdot (\nabla \times \vec{B}) = \nabla \cdot (\alpha \vec{B}) = 0 \mbox{\,,}
+\end{equation}
+due to the solenoidal constraint. So, the gradient of $\alpha$ along $\vec{B}$ can not vary. Thus,  a property of $\alpha$ is that it must be constant along a given field line, but can vary between field lines. Making the assumption that $\alpha$ is constant over all space, %from parnell notes 5.5.1
+\begin{equation}
+\nabla^2 \vec{B} = -\alpha^2 \vec{B} \mbox{\,,}
+\end{equation}
+can be derived. This relation defines a ``linear force-free" field.
+%NLFFF
+If $\alpha$ is not assumed constant over all space,
+\begin{equation}
+\nabla^2 \vec{B} + \alpha^2 \vec{B} = \vec{B} \times \nabla \alpha \mbox{\,,}
+\end{equation}
+and
+\begin{equation}
+\vec{B} \cdot \nabla \alpha = 0 \mbox{\,,}
+\end{equation}
+define the field. A field defined by these relations is termed ``non-linear force-free".
+
+%determine energy in potential, non-potential -> result is flare energy?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Magnetic Reconnection}\label{sect:magreconnect}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.9\textwidth]{flare_cartoon.eps}}
+\caption[The change in magnetic field configuration over the course of a flare.]{A cartoon illustrating the change in magnetic field configuration over the course of a flare \citep[from][]{Tanaka:1986}.}
+\label{fig:flarecartoon}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.7\textwidth]{sweet_petchek.eps}}
+\caption[A schematic of magnetic reconnection.]{A schematic of magnetic reconnection. Panels \emph{A}\,--\,\emph{C} show the 2D ``x-point" magnetic field configuration, a cross-section of the field across the current sheet, and the fluid flow directions for Sweet-Parker reconnection \citep[from][]{Sweet:1958}. Panel \emph{D} shows the contracted current sheet in the centre and the shocks at the left and right outflow regions of the ``x-point" in Petchek reconnection \citep[from][]{Fitzpatrick:2012}.}
+\label{fig:xpoints}
+\end{figure}
+
+Solar flares result in a rapid change in the 3D magnetic field topology of an \gls{activeregion}. Over the course of a large flare there is often an observable transition from a stressed to a simpler and more relaxed field configuration. A schematic of this transition is shown in Figure~\ref{fig:flarecartoon}. A common situation involves filament material suspended above sheared fields becoming unstable and lifting off or erupting. 
+
+There are a number of possible instabilities that could result within coronal magnetic structures and trigger a flare. The tearing mode instability results when the magnetic gradient within a small region becomes sufficiently large. The magnetic energy within strongly sheared magnetic fields is converted by ohmic heating due to currents. A kink instability results when a long flux tube's azimuthal magnetic field becomes large enough, compared to the magnetic field along its length. Depending on the type of magnetic field (i.e., linear force-free, non-linear force-free, etc.) the kink instability can occur after 1.65\,--\,3 turns. A pressure difference between the inner and outer parts of the kink enhances the instability.
+
+A common cartoon used to explain how flares are driven assumes that at the heart of the eruption is a region where fields of opposite orientation are compressed and form an ``X-point" and a strong current sheet, denoted by the thick line at the centre of the X, as shown in panel \emph{A} of Figure~\ref{fig:xpoints}. At some point this current sheet becomes unstable due to an instability (i.e., tearing mode) that causes the plasma resistivity to increase. Currents in the localised region are sufficiently large that the region surrounding the X-point is rapidly heated. The breakage of field lines within the ``diffusion region" of the current sheet allows the change in magnetic topology. In the end, magnetic energy is released in the resistive dissipation of the current sheet and the acceleration of electrons out of the diffusion region. 
+
+In 2D Sweet-Parker reconnection \citep{Sweet:1958,Parker:1957b}, plasma flows perpendicularly into the diffusion region along the x-axis and flows out parallel to it along the y-axis, as shown in panel \emph{C} of Figure~\ref{fig:xpoints}. The outflow length-scale is much smaller than the inflow length-scale. The z-axis is oriented out of the page. The magnetic field orientation and strength across the current sheet is shown in panels \emph{B} and \emph{C}. 
+
+The inflow speed of the plasma is approximated by $\vec{E}\times\vec{B}$ drift, 
+\begin{equation}
+v_{in} \sim \frac{E_{z}}{B_{y}} \mbox{\,,}
+\end{equation}
+where the electric field is perpendicular to the diffusion region (into the page) and the magnetic field is parallel to it. The electric field can be approximated from Ohm's law,
+\begin{equation}
+E_z \sim \frac{\eta B_y}{\mu_0 \delta} \mbox{\,,} 
+\end{equation}
+where $\delta$ is the width of the outflow region and $\eta$ is the magnetic diffusivity. Assuming the flows are incompressible, the flow speeds and length scales can be related using the mass continuity equation,
+\begin{equation}
+L v_{in} \sim \delta v_{out} \mbox{\,,}
+\end{equation}
+where $L$ is the length-scale of the inflow region, $v_{out}$ is the outflow speed. Assuming that the magnetic pressure in the outflow region is balanced by the gas pressure, the fluid equation of motion can be used to obtain:
+\begin{equation}
+\rho v_{out}^2 \sim \frac{B^2}{2 \mu_0}  
+\end{equation}
+The outflow speed can then be approximated by the Alfv\'en speed ($v_{out} \sim v_A$), leading to a Mach number for the inflow speed,
+\begin{equation}
+M_{in}=\frac{v_{in}}{v_A}  
+\end{equation}
+%The inflow speed is given by,
+%\begin{equation}
+%v_{in} = v_A L_u^{-1/2} \mbox{ ,}
+%\end{equation}
+%where $L_u$ is 
+The Lundquist number is roughly equivalent to the magnetic Reynolds number (as defined in Equation\,\ref{eqn:magreynolds}) and indicates the ratio of the strength of advection to diffusion of the magnetic field,
+\begin{equation}
+L_u = \frac{\mu_0 L v_A}{\eta} \mbox{\,,}
+\end{equation}
+where $v_A$ is the Alfv\'en speed. This can be written in terms of the Alfv\'en Mach number,
+\begin{equation}
+L_u = M_{in}^{-2}  
+\end{equation}
+In solar flares $L_u$ is estimated to be $\sim$10$^8$, $L$ is $\sim$10\,Mm, and $v_A$ is $\sim$100\,km\,s$^{-1}$. This leads to time scales of tens of days, which is much greater than actual flare time scales of minutes to hours. Sweet-Parker reconnection is too slow to account for flares due to the size of the Lundquist number in the corona. 
+
+\cite{Petschek:1964} was able to increase the reconnection rate by finding a way to decrease the current sheet length and allowing a shock at each end of the x-point, where outflow occurs. This field and flow configuration is shown in panel \emph{D} of Figure~\ref{fig:xpoints}. Processes within the current sheet are the same as in the Sweet-Parker model. While the width and speed of the outflow region is the same as Sweet-Parker, the length of the diffusion region is now determined from mass continuity, assuming an incompressible flow,
+\begin{equation}
+L_{P} = \frac{\delta}{M_{in}}  
+\end{equation}
+A maximum rate of reconnection can be derived, above which no Petschek solutions exist,
+\begin{equation}
+M_{in,max} = \frac{\pi}{ 8 \ln(L_u) } \mbox{\,,}
+\end{equation}
+and is generally orders of magnitude greater than the Sweet-Parker rate. While this solves the time-scale problem of Sweet-Parker, the model has never been successfully proven using self-consistent numerical simulations. On the other hand, Sweet-Parker reconnection has been successfully simulated and has also been observed in lab plasmas. 
+
+These models are both 2D and steady-state, which is obviously limiting since flares are very much time dependent and occur in 3D. Time-dependent 2D models have been considered, such as those relying on the tearing-mode instability within current sheets \citep{Forbes:2006}. More realistic models have also been explored by running numerical simulations in 3D \citep{Yamada:2010}. The precise mechanism for the release of magnetic energy during flares is still a major problem in solar physics. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quantifying Magnetic Fields at the Solar Surface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The work described throughout this thesis is concerned with investigating the nature of magnetic features observed at the solar surface. To study them, we must physically characterise them. In this section we summarise some physical properties that can be used to characterise the fields of solar features at the solar surface.
+
+Magnetic flux quantifies the amount of magnetic field normal to an open surface,
+\begin{equation}
+\Phi = \int\limits_S \vec{B} \cdot d\vec{A}  
+\end{equation}
+The magnetic area is defined by determining a boundary around strong magnetic field regions. This boundary is determined using image processing methods outlined in Chapter~\ref{chapter:method_SMART}.
+
+In this work we  assume the magnetic field direction to be perpendicular at the solar surface. Since we are using \gls{LOS} magnetic field observations, the inclination of the true field vector to the magnetic surface is not known. In weak-field plage regions and sunspot umbrae the field vector is mostly perpendicular at the surface, while in penumbrae, it is significantly inclined. Considering the schematic shown in Figure\,\ref{fig:loopschem}, plage flux tubes are compressed between vertical supergranule downdrafts; above the surface the fields expand parallel to the surface, in all directions. However, this happens above the $\tau=1$ surface where the fields are measured, as shown in Figure\,\ref{fig:gabmodel}. This assumption is not completely accurate; during a flare the inclination of plage fields has been shown to change by $\sim$$10^{\circ}$ \citep{Murray:2012}. The fields also expand outward above the surface of sunspots, so that umbrae are held vertical by a combination of magnetic pressure and tension. But around the periphery, the lack of magnetic pressure allows penumbrae to turn over. The larger penumbral field strengths, as compared plage, cause this to happen below the $\tau=1$ surface. The perpendicular field assumption leads to a significant underestimate of flux in penumbral regions near disk center. Near the limb,  the disk-ward portion of a sunspot's penumbra will point generally along the LOS and the limb-ward portion will point generally away from it. This results in two opposing effects which act to cancel each other. This often results in a false North-South polarity separation line to be observed within the sunspot.
+
+While the total flux observed at the photosphere may change with time, the net flux must be conserved due to the solenoidal constraint: there are no macroscopic magnetic monopoles\footnote{See: \citet{Mengotti:2010} for evidence of nano-scale magnetic monopoles.},
+\begin{equation}\label{eqn_gauss_law}
+\nabla\cdot\vec{B}=0  
+\end{equation}
+Net flux is defined as the sum of positive and negative flux,
+\begin{equation}
+\Phi_{\mathrm{net}}=\Phi_{+}+\Phi_{-}=\int{\vec{B_{+}}\cdot d\vec{A}} + \int{\vec{B_{-}}\cdot d\vec{A}} \mbox{\,,}
+\end{equation}
+where $\vec{B_{+}}$ is positive magnetic field and $\vec{B_{-}}$ is negative magnetic field. Locally on the Solar surface, non-zero positive (negative) net flux may exist as they may be connected to far-away negative (positive) flux concentrations, or may be quasi-open and balanced by non-local quasi-open negative (positive) flux concentrations.
+
+%P4 A combination of the above results in global flux imbalances, compare to flux of ephemeral regions. Does the hemispheric flux imbalance compare to the flux at the poles??
+Since net flux is conserved, the polarity-preferential transport of flux to high latitudes necessarily results in an local $\Phi_{\mathrm{net}}$ at lower latitudes. A fractional measure of $\Phi_{\mathrm{net}}$, flux imbalance, is given by,
+%EQN Flux imbalance
+\begin{equation}
+\Phi_{\mathrm{imb}} = \frac{\Phi_{\mathrm{net}}}{\Phi_{\mathrm{tot}}}  
+\end{equation}
+A $\Phi_{\mathrm{imb}}$ of zero is a region of equal parts $\Phi_{+}$ and $\Phi_{-}$, while $\Phi_{\mathrm{imb}}$ of unity is a region of completely unipolar flux. %In this paper we define unipolar regions as having a $\Phi_{imb}$ greater than 0.9 and bipolar regions less than 0.9. 
+
+While flux imbalances have implications for the global magnetic field configuration, helicity has implications for flare potential energy. It can indicate the amount of rotation in the magnetic field of a particular feature; a large twist indicates that a feature is highly non-potential, as discussed in Section~\ref{sect:magcorona}. Non-potential fields can carry currents, which are important for flaring, as discussed in Section~\ref{sect:magreconnect}. 
+
+%%%%
+%change V to gray
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.9\textwidth]{helicity_schem.eps}}
+\caption[A schematic of helicity within a sunspot.]{A schematic of a sunspot exhibiting helical magnetic fields (large curved black arrow) extending through the photosphere and into the corona. The gray circle represents the vertical sunspot magnetic field, while the red arrows show its vector potential field at the boundary of the sunspot.  The gray arrows indicate the surface flow field.}
+\label{fig:helicity_schem}
+\end{figure}
+
+Active regions are often composed of a flux rope with constituent sunspots indicating the interface between the flux rope and the photosphere. As such, sunspots are often observed to have twisted magnetic fields and a rapid rotation \citep[up to $200^\circ$ in 3\,--\,5 days;][]{Brown:2003}. It is not known whether the apparent rotation is due to the 3D flux rope rigidly passing through the solar surface as it emerges or remaining vertically stationary but exhibiting a change in twist due to magnetic or fluid forces. 
+
+Helicity is used to quantify the amount of twist the magnetic field contains. Total helicity is defined as,
+\begin{equation}\label{eqn:helictot}
+\mathcal{H} = \int \limits_V \vec{A}\cdot\vec{B}\,dV \mbox{\,,}
+\end{equation}
+where $\vec{A}$ is the vector potential of the magnetic field and is defined by,
+\begin{equation}
+\vec{B}=\nabla \times \vec{A}  
+\end{equation}
+The vector field $\vec{A}$ has the property that the gradient of an arbitrary scalar field can be added to it and the resulting $\vec{B}$ will not be altered. This is called a gauge transformation and can simplify certain problems. Provided that the magnetic field normal to the surface of the integrated volume vanishes, $\mathcal{H}$ is unaffected by the transformation. 
+For ideal \gls{MHD}, plasma motions can be related to $\vec{A}$ by,
+\begin{equation}\label{eqn:dadt}
+\frac{\partial \vec{A}}{\partial t} = \vec{v} \times \vec{B}  
+\end{equation}
+Figure \ref{fig:helicity_schem} shows a schematic of a sunspot with twisted magnetic fields in the presence of a helical flow field. Total helicity increases with the amount of magnetic field aligned with the vector potential field (shown by the red arrows).
+
+Helicity can also be written as the sum of the ``writhe" and ``twist" in the field, weighted by flux,
+\begin{equation}
+\mathcal{H} = \Phi^2 (T_{\mathcal{H}}+W_{\mathcal{H}})\mbox{,.}
+\end{equation}
+Topographically, twist can be thought of as the number of turns in a helical field in a given volume and writhe can be explained by the number times a field line crosses over itself when viewed from a particular direction.
+
+It can then be shown that the time derivative of $\mathcal{H}$ is 0 by substituting Equation~\ref{idealind} and \ref{eqn:dadt} into \ref{eqn:helictot},
+\begin{eqnarray}
+\frac{\partial \mathcal{H}}{\partial t} &=& \int \limits_V \frac{\partial}{\partial t} \vec{A}\cdot\vec{B}\,dV \mbox{\,,} \\
+ &=& \int \limits_V \vec{B}\cdot\frac{\partial \vec{A}}{\partial t} + \vec{A}\cdot\frac{\partial \vec{B}}{\partial t}\,dV \mbox{\,,} \\
+ &=& \int \limits_V \cancel{\vec{B}\cdot (\vec{v}\times\vec{B})} + \vec{A}\cdot (\nabla \times \vec{v} \times \vec{B})\,dV \mbox{\,,} \\
+ &=& \int \limits_V \cancel{\vec{A}\cdot (\nabla \times \frac{\partial \vec{A}}{\partial t})}\,dV = 0  
+\end{eqnarray}
+Thus, the total magnetic helicity in a closed volume is conserved, provided that the field is only subjected to plasma flows and infinite conductivity is assumed. Regardless, $\mathcal{H}$ cannot be measured in reality because the magnetic field throughout a volume of plasma on the Sun is not known. Additionally, there is no observable magnetic field structure on the Sun that has no normal component to a given closed volume.
+
+To work around this problem, a ``relative helicity" is defined, whereby the magnetic field can be normal to the boundaries of the volume,
+\begin{equation}
+\mathcal{H}_R = \int \limits_V \vec{A}\cdot\vec{B}\,dV - \int \limits_V \vec{A}_0\cdot\vec{B}_0\,dV  
+\end{equation}
+This can be rewritten as,
+\begin{equation}
+\mathcal{H}_R = \int \limits_V (\vec{B}-\vec{B}_0)\cdot(\vec{A}+\vec{A}_0)\,dV 
+\end{equation}
+The vector fields are related by,
+\begin{equation}
+(\vec{B}-\vec{B}_0)\cdot\hat{\vec{n}} = 0 \mbox{\,,}
+\end{equation}
+and
+\begin{equation}
+(\vec{A}-\vec{A}_0)\times\hat{\vec{n}} = 0  
+\end{equation}
+A gauge transformation is chosen to determine $\vec{A}_0$ and satisfy this equation. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.9\textwidth]{helicity_ar.eps}}
+\caption[An image of evolving magnetic features.]{An image of evolving magnetic features with the superposed arrows indicating (\emph{left}) the derived vector potential field and (\emph{right}) the resulting surface flow field \citep[from][]{Chae:2004}. The surface flow field vectors are only shown for regions above some magnetic strength (the author does not specify the value).}
+\label{fig:helicity_ar}
+\end{figure}
+
+Both plasma surface motions and the emergence of new flux can inject helicity ($\mathcal{H}$) into magnetic surface features. While the relative helicity itself cannot be measured, its time-rate of change, or helicity injection, can be determined by,
+\begin{equation}
+\frac{d \mathcal{H}_R}{dt} = 2 \int \limits_{S} (\vec{v}\cdot\vec{A}_0)B_n\,da - 2 \int \limits_{S} (\vec{B}\cdot\vec{A}_0)v_n\,da \mbox{\,,}
+\end{equation}
+where the integrals are performed over a surface. The field $B_n$ and $v_n$ are the magnetic and velocity field components normal to the surface.
+Considering helicity injection into the corona from the photosphere, the equation can be rewritten in terms of discrete magnetic flux tubes,
+\begin{equation}
+\frac{d \mathcal{H}_R}{dt} = - \underbrace{\frac{1}{2\pi} \sum \limits_{i} \phi_i^2\omega_i}_{\mbox{spinning}} - \underbrace{\frac{1}{2\pi} \sum \limits_{i} \sum \limits_{j \ne i} \phi_i \phi_j \omega_{ij}}_{\mbox{braiding}} \mbox{\,,}
+\end{equation}
+where $\phi_i$ and $\phi_j$ are a pair if flux tubes, $\omega_i$ is the angular rotation speed of the $i$th flux tube, and $\omega_{ij}$ is the angular rotation speed of the connecting line between the pair of flux tubes. The first term is called the spinning contribution, and results from the rigid rotation of individual magnetic flux elements. The second term is called the braiding helicity flux and results from pairs of flux elements circling around each other. Integrating over $t$ then yields the total accumulated relative helicity, $\mathcal{H}_R$. Figure \ref{fig:helicity_ar} shows a magnetogram with the vector potential and surface flow fields indicated by arrows.
+
+%Figure~\ref{fig:helicity_ar} shows an example of the $\vec{A}_{p}$ and $\vec{v}$ vector fields derived from a series of \gls{LOS} magnetograms using \gls{LCT}. In the case of \gls{LCT}, helicity injection simplifies to,
+%\begin{equation}
+%\frac{d \mathcal{H}}{d t}=-2 \oint \vec{v}_{LCT} \cdot \vec{A}_p B_{LOS} dS \mbox{ ,}
+%\end{equation}
+%where $\vec{v}_{LCT}$ and $\vec{A}_p$ are in the image plane, and $B_{LOS}$ is obtained directly from the magnetograms. 
+
+The observed rotation of a sunspot group's \gls{PSL} with respect to the line connecting the two main spots has been used as a proxy for helicity \citep{Morita:2005}. Although it is much faster to calculate, this proxy is much less stable than the \gls{LCT} helicity injection calculation \citep{Chae:2001,Verbeeck:2011}. This is because far fewer points in an image are used. However, both bipole rotation and $\mathcal{H}_R$ have both been shown to be important indicators of flare activity \citep{Morita:2005,Chae:2004}.
+
+
+% ---------------------------------------------------------------------------
+% ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------

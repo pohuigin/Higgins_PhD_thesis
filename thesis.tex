@@ -1,0 +1,432 @@
+% ----------------------------------------------------------------------
+%                   LATEX TEMPLATE FOR PhD THESIS
+% ----------------------------------------------------------------------
+
+% based on Harish Bhanderi's PhD/MPhil template, then Uni Cambridge
+% http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/ThesisStyle/
+% corrected and extended in 2007 by Jakob Suckale, then MPI-CBG PhD programme
+% and made available through OpenWetWare.org - the free biology wiki
+
+%: Style file for Latex
+% Most style definitions are in the external file PhDthesisPSnPDF.
+% In this template package, it can be found in ./Latex/Classes/
+\documentclass[twoside,11pt]{Latex/Classes/PhDthesisPSnPDF}
+
+%GLOSSARIES STUFF ----------------------------------------------------------------
+%\usepackage[acronym]{glossaries}
+%\usepackage[colorlinks]{hyperref}
+%\usepackage{/usr/local/texlive/2012/texmf-dist/tex/latex/etoolbox/etoolbox}
+%\usepackage{/home/phiggins/texmf/glossaries/mfirstuc}
+%\usepackage[toc,makeindex]{/home/phiggins/texmf/glossaries/glossaries}
+
+%TEMP!!
+%\usepackage[toc,makeindex]{glossaries}
+\usepackage{glossaries}
+
+%TEMP!!
+%\makeglossaries
+
+%GLOSSARY TERMS
+\newglossaryentry{angstrom}{name={\AA\ },description={a unit of length measuring $10^{-10}$ meters}}
+\newacronym{AR}{AR}{active region}
+\newglossaryentry{activeregion}{name={active region},description={magnetic structures often associated with flaring sunspot groups that usually have loop structures reaching into the corona}}
+\newacronym{CCD}{CCD}{charge-coupled device}
+\newacronym{CC}{CC}{correlation coefficient}
+\newacronym{CME}{CME}{coronal mass ejection}
+\newacronym{FITS}{FITS}{Flexible Image Transport System}
+\newglossaryentry{fluxrope}{name={flux rope},description={a twisted collection of flux tubes}}
+\newacronym{HMI}{HMI}{Helioseismic Magnetic Imager}
+\newacronym{HWHM}{HWHM}{half width at half maximum}
+\newacronym{HXR}{HXR}{hard X-ray}
+\newacronym{LCT}{LCT}{local correlation tracking}
+\newacronym{LCP}{LCP}{left-hand-circularly-polarised}
+\newacronym{LOS}{LOS}{line-of-sight}
+\newacronym{LTE}{LTE}{local thermodynamic equilibrium}
+\newacronym{MDI}{MDI}{Michelson Doppler Imager}
+\newacronym{MHD}{MHD}{magnetohydrodynamics}
+\newacronym{PFSS}{PFSS}{potential field source surface}
+\newacronym{protonproton}{PP}{proton-proton}
+\newacronym{PSL}{PSL}{polarity separation line}
+\newglossaryentry{quietsun}{name={quiet-Sun},description={regions on the solar surface characterised by weak magnetic fields and a lack of eruptive activity},plural={quiet Sun}}
+\newacronym{RCP}{RCP}{right-hand-circularly-polarised}
+\newacronym{SDO}{SDO}{Solar Dynamics Observatory}
+\newacronym{SEP}{SEP}{solar energetic particle}
+\newacronym{SFT}{SFT}{surface flux transport}
+\newacronym{SHILLELAgh}{SHILLELAgh}{Solar Wind-Heliosperic Imaging in Latitude and Longitude by Estimating Large-scale Attributes}
+\newacronym{SMART}{SMART}{SolarMonitor Active Region Tracker}
+\newacronym{SOHO}{SOHO}{Solar and Heliospheric Observatory}
+\newacronym{STEREO}{STEREO}{Solar-Terrestrial Relations Observatory}
+\newacronym{SXR}{SXR}{soft X-ray}
+\newglossaryentry{wlsg}{name={$WL_{SG}$},description={a sum of the horizontal gradient along a detected PSL}}
+\newglossaryentry{rvalue}{name={R-value},description={the total magnetic flux near a detected PSL}}
+
+\newacronym{GOES}{GOES}{Geostationary Operational Environmental Satellites}
+\newacronym{GSFC}{GSFC}{Goddard Space Flight Center}
+\newacronym{SPoCA}{SPoCA}{Spatial Possibilistic Clustering Algorithm}
+\newacronym{EUV}{EUV}{extreme ultraviolet}
+\newacronym{STARA}{STARA}{Sunspot Tracking And Recognition Algorithm}
+\newacronym{ASAP}{ASAP}{Automated Solar Activity Prediction}
+\newacronym{RHESSI}{RHESSI}{Reuven Ramaty High Energy Solar Spectroscopic Imager}
+\newglossaryentry{cgs}{name=cgs,description={the unit system using centimeters, grams, and seconds for length, mass, and time}}
+\newacronym{FIP}{FIP}{first ionisation potential}
+\newacronym{EIT}{EIT}{Extreme ultraviolet Imaging Telescope}
+\newacronym{BCL}{BCL}{bipole connecting line}
+\newacronym{FWHM}{FWHM}{full-width at half-max}
+\newacronym{IDL}{IDL}{Interactive Data Language}
+\newglossaryentry{umbra}{name=umbra,description={the dark center of a sunspot where the magnetic fields are nearly vertical at the solar surface},plural=umbrae}
+\newglossaryentry{penumbra}{name=penumbra,description={the boundary of a sunspot where the magnetic fields are highly inclined to the solar surface and exhibit a filamentary structure},plural=penumbrae}
+\newacronym{NGDC}{NGDC}{National Geophysical Data Center}
+\newacronym{NOAA}{NOAA}{National Oceanic and Atmospheric Association}
+\newglossaryentry{fluxtube}{name={flux-tube},description={an elongated structure with a magnetic field along the longer axis, strongest at the center and dying off rapidly at the edges},plural={flux-tubes}}
+\newglossaryentry{SSWIDL}{name={SSWIDL},description={a repository of routines written in IDL generally pertaining to the analysis of solar data},plural={flux-tubes}}
+
+%\include{0_frontmatter/glossary}
+%The Glossary terms should be in this include file but there is an error in the version of glossaries package I am using...
+
+%---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{lineno}
+\usepackage{amsbsy}
+\usepackage{xspace}
+\usepackage{wtmmPkg}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{url} 
+\usepackage{graphicx} 
+\usepackage{setspace} 
+
+\newcommand{\BibTeX}{\textsc{Bib}\TeX}
+\newcommand{\etal}{{\it et al.}}
+% Definitions for equations
+
+\newcommand{\rmd}{ {\ \mathrm d} }
+\renewcommand{\vec}[1]{ {\mathbf #1} }
+\newcommand{\uvec}[1]{ \hat{\mathbf #1} }
+\newcommand{\pder}[2]{ \f{\partial #1}{\partial #2} }
+\newcommand{\grad}{ {\bf \nabla } }
+\newcommand{\curl}{ {\bf \nabla} \times}
+\newcommand{\vol}{ {\mathcal V} }
+\newcommand{\bndry}{ {\mathcal S} }
+\newcommand{\dv}{~{\mathrm d}^3 x}
+\newcommand{\da}{~{\mathrm d}^2 x}
+\newcommand{\dl}{~{\mathrm d} l}
+\newcommand{\dt}{~{\mathrm d}t}
+\newcommand{\intv}{\int_{\vol}^{}}
+\newcommand{\inta}{\int_{\bndry}^{}}
+\newcommand{\avec}{ \vec A}
+\newcommand{\ap}{ \vec A_p}
+\newcommand{\bb}{ \vec B}
+\newcommand{\jj}{ \vec j}
+\newcommand{\rr}{ \vec r}
+\newcommand{\xx}{ \vec x}
+
+% Definitions for the journal names
+\newcommand{\adv}{    {\it Adv. Spa. Res.}}
+\newcommand{\annG}{   {\it Annales Geophysicae}}
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\araa}{   {\it Ann. Rev. Astron. Astrophys.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astronom. J.}}
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjs}{    {\it Astrophys. J. Suppl. Series}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Spa. Sci.}}
+\newcommand{\cjaa}{   {\it Chinese J. Astron. Astrophys.}}
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomag. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Sol. Terr. Phys.}}
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pra}{    {\it Phys. Rev. A}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Sov. Astronom.}}
+\newcommand{\ssr}{    {\it Space Sci. Rev.}}
+
+%ADDED BY P.A. HIGGINS---------------------------------------------------
+
+%Aliases for citations to my own papers in chapter abstracts (include journal and more authors)
+\defcitealias{Ahmed:2011}{Ahmed, Qahwaji, Colak \& Higgins \emph{et~al., Solar Physics}~(2011)}
+\defcitealias{higgins:2012a}{Higgins \emph{et~al., Astronomy~\&~Astrophysics}~(2012a)}
+\defcitealias{higgins:2012b}{Higgins \emph{et~al., Solar Physics}~(2012b)}
+\defcitealias{higgins:2011}{Higgins \emph{et~al., Advances in Space Research}~(2011)}
+%\defcitealias{Bloomfield:2012}{Bloomfield \& Higgins \emph{et~al., Astrophysical Journal Letters}~(2012)}
+\defcitealias{Bloomfield:2012b}{Bloomfield, Carley, Gallagher \& Higgins \emph{et~al., Astronomy~\&~Astrophysics}~(2012)}
+%\defcitealias{jon90}{Paper I}
+%\defcitealias{jon90}{Paper I}
+\defcitealias{Verbeeck:2011}{Verbeeck \& Higgins \emph{et~al., Solar Physics}~(2011)}
+
+%allow terms to be cancelled in equations
+\usepackage{cancel}
+
+%allow landscape pages
+%TEMP!!
+\usepackage{lscape}
+
+%turn off colors in hyperlinking
+%\usepackage[colorlinks=false]{hyperref}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}%draft=false}%hidelinks=true
+%set spacing between paragraphs to 0.
+\setlength{\parskip}{0pt}
+%allow multiline comments
+\newcommand{\comment}[1]{{!!!commented!!!}}
+
+%for smart methods property table
+%TEMP!!
+\usepackage{threeparttable}
+
+%for publications list
+%TEMP!!
+\usepackage{bibunits}
+
+
+%: Macro file for Latex
+% Macros help you summarise frequently repeated Latex commands.
+% Here, they are placed in an external file /Latex/Macros/MacroFile1.tex
+% An macro that you may use frequently is the figuremacro (see introduction.tex)
+\include{Latex/Macros/MacroFile1}
+
+
+
+
+%: ----------------------------------------------------------------------
+%:                  TITLE PAGE: name, degree,..
+% ----------------------------------------------------------------------
+% below is to generate the title page with crest and author name
+
+%if output to PDF then put the following in PDF header
+\ifpdf  
+    \pdfinfo { /Title  (PhD and MPhil Thesis Classes)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (Paul A. Higgins pohuigin@gmail.com)
+               /CreationDate (D:YYYYMMDDhhmmss)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:YYYYMMDDhhmm)
+               /Subject (xyz)
+               /Keywords (add, your, keywords, here) }
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+
+\title{Sunspot Group Evolution and the Global Magnetic Field of the Sun}
+
+
+
+% ----------------------------------------------------------------------
+% The section below defines www links/email for author and institutions
+% They will appear on the title page of the PDF and can be clicked
+\ifpdf
+  \author{\href{mailto:pohuigin@gmail.com}{Paul A. Higgins, BA}}
+%  \cityofbirth{born in XYZ} % uncomment this if your university requires this
+%  % If city of birth is required, also uncomment 2 sections in PhDthesisPSnPDF
+%  % Just search for the "city" and you'll find them.
+  \collegeordept{\href{http://www.tcd.ie/Physics/Astrophysics}{Astrophysics Research Group / School of Physics}}
+  \university{\href{http://www.tcd.ie}{University of Dublin, Trinity College}}
+
+  % The crest is a graphics file of the logo of your research institution.
+  % Place it in ./0_frontmatter/figures and specify the width
+  \crest{\includegraphics[width=4.125cm]{TCD_Crest.pdf}}
+  
+% If you are not creating a PDF then use the following. The default is PDF.
+\else
+  \author{Paul A. Higgins, BA (UC Berkeley)}
+%  \cityofbirth{born in XYZ}
+  \collegeordept{School of Physics}
+  \university{University of Dublin, Trinity College}
+  \crest{\includegraphics[width=5cm]{tcd_crest_astro.eps}}
+\fi
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degree{Philosophi\ae Doctor (PhD)}
+\degreedate{October 1, 2012}
+
+
+% ----------------------------------------------------------------------
+       
+% turn of those nasty overfull and underfull hboxes
+%\hbadness=10000
+%\hfuzz=50pt
+
+
+%: --------------------------------------------------------------
+%:                  FRONT MATTER: dedications, abstract,..
+% --------------------------------------------------------------
+
+\begin{document}
+
+%\language{english}
+
+% sets line spacing
+\renewcommand\baselinestretch{1.2}
+\baselineskip=18pt plus1pt
+
+\doublespacing
+%: ----------------------- generate cover page ------------------------
+
+\maketitle  % command to print the title page with above variables
+
+%
+%%: ----------------------- cover page back side ------------------------
+%% Your research institution may require reviewer names, etc.
+%% This cover back side is required by Dresden Med Fac; uncomment if needed.
+
+%\newpage
+%\vspace{10mm}
+%1. Reviewer: Name
+
+%\vspace{10mm}
+%2. Reviewer: 
+
+%\vspace{20mm}
+%Day of the defense:
+
+%\vspace{20mm}
+%\hspace{70mm}Signature from head of PhD committee:
+
+
+
+
+
+%: ----------------------- tie in front matter ------------------------
+
+\frontmatter
+%: Declaration of originality
+\singlespacing
+	\include{9_backmatter/declaration}
+
+%: ----------------------- abstract ------------------------
+
+% Your institution may have specific regulations if you need an abstract and where it is to be placed in the document. The default here is just after title.
+%\frontmatter
+\singlespacing
+	\include{0_frontmatter/abstract}
+
+% The original template provides and abstractseparate environment, if your institution requires them to be separate. I think it's easier to print the abstract from the complete thesis by restricting printing to the relevant page.
+% \begin{abstractseparate}
+%   \input{Abstract/abstract}
+% \end{abstractseparate}
+%\frontmatter
+\singlespacing
+	\include{0_frontmatter/dedication}
+
+%\frontmatter
+\singlespacing
+	\include{0_frontmatter/acknowledgement}
+
+%\frontmatter
+%TEMP!!!!! Have to comment out to run the rest of the thesis
+%\singlespacing
+%	\include{9_backmatter/publications}
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
+
+%: ----------------------- contents ------------------------
+
+\singlespacing
+	\setcounter{secnumdepth}{3} % organisational level that receives a numbers
+	\setcounter{tocdepth}{3}    % print table of contents for level 3
+	\tableofcontents            % print the table of contents
+% levels are: 0 - chapter, 1 - section, 2 - subsection, 3 - subsection
+
+
+%: ----------------------- list of figures/tables ------------------------
+
+\singlespacing
+	\listoffigures	% print list of figures
+
+\singlespacing
+	\listoftables  % print list of tables
+
+
+%: --------------------------------------------------------------
+%:                  MAIN DOCUMENT SECTION
+% --------------------------------------------------------------
+
+% the main text starts here with the introduction, 1st chapter,...
+\mainmatter
+
+	\renewcommand{\chaptername}{} % uncomment to print only "1" not "Chapter 1"
+
+
+%: ----------------------- subdocuments ------------------------
+
+% Parts of the thesis are included below. Rename the files as required.
+% But take care that the paths match. You can also change the order of appearance by moving the include commands.
+\doublespacing
+
+	\include{1_introduction/introduction}	% background information
+
+	\include{1b_theory/theory}	% background information
+
+	\include{3/data}				% Data
+
+	\include{2/method_SMART}		% Methods
+
+%	\include{2b/method_other}		%Other Methods (combined back into the work chapters they came from...)
+
+%	\include{4/results_uncert}			%SMART uncertainties and simulations (combined into smart method)
+
+	\include{5/results_activity}		%SMART Tracking and Flare association
+
+	\include{6/results_global}			%Global magnetic field results
+	
+	\include{7/results_diffusion}		%Diffusion tracking results
+
+	\include{8/discussion}			% discussion of results and future direction.
+
+
+
+% --------------------------------------------------------------
+%:                  BACK MATTER: appendices, refs,..
+% --------------------------------------------------------------
+\backmatter
+
+\singlespacing
+
+% the back matter: appendix and references close the thesis
+
+
+%: ----------------------- bibliography ------------------------
+
+% The section below defines how references are listed and formatted
+
+\bibliographystyle{Latex/Classes/jmb} % Title is link if provided
+\renewcommand{\bibname}{References} % changes the header; default: Bibliography
+
+\bibliography{9_backmatter/references} % adjust this to fit your BibTex file
+
+% --------------------------------------------------------------
+
+
+%: ----------------------- glossary ------------------------
+
+% Tie in external source file for definitions: /0_frontmatter/glossary.tex
+% Glossary entries can also be defined in the main text. See glossary.tex
+
+%TEMP!!
+%\singlespacing
+%	\printglossaries
+
+\appendix
+% Include a table of physical constants used
+\singlespacing
+	\include{9_backmatter/constants}
+
+\end{document}

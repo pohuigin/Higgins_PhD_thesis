@@ -1,0 +1,354 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+%: ----------------------- name of chapter  -------------------------
+\chapter{Instrumentation and Observations} % top level followed by section, subsection
+\label{chapter:data}
+
+%-----------Set path for figures-----------
+\graphicspath{{3/figures/}}
+%----------------------------------------------
+
+%Reset all glossary terms
+\glsresetall
+
+%ABSTRACT-----------------------------------------------------
+\hrule height 1mm
+\vspace{0.5mm}
+\hrule height 0.4mm 
+\noindent 
+\\ {\it 
+In this chapter, the background theory and instrumentation used to obtain magnetic observations of solar surface features and the large scale solar magnetic field are explained. The Zeeman effect and the instruments that take advantage of it to image the LOS field are discussed. Also, the event lists used %to associate flares with sunspot group detections 
+in Chapter~\ref{chapter:results_activity} and a catalog of detected active regions used %to compare with the detection system designed for this work 
+in Chapter~\ref{chapter:method_SMART} are described. 
+}
+\\ 
+\hrule height 0.4mm
+\vspace{0.5mm}
+\hrule height 1mm 
+\vspace{1.5cm}
+%\newpage
+%END ABS---------------------------------------------------------
+
+The investigations described throughout this thesis mainly rely on the analysis of data from two instruments designed to record images of the \gls{LOS} strength in the solar photosphere and the feature and event lists. Section~\ref{sect:magobsintro} includes a description of the theory behind the interaction between magnetic fields and light (Section~\ref{sect:zeeman}), previous methods used to determine the \gls{LOS} field (Section~\ref{subsect:magearly}), the \gls{MDI} instrument (Section~\ref{subsect:mdi}), and the \gls{HMI} instrument (Section~\ref{subsect:mdi}). Lastly, in Section~\ref{sect:eventlists}, the X-ray flare catalogs used to determine the activity of tracked sunspot groups and the NOAA active region catalog are described. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Solar Magnetic Field Observations}\label{sect:magobsintro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section the method by which magnetic fields are determined, and the instruments used to do so are described. The phenomena that allows one to determine the magnetic field of radiating material remotely, the Zeeman splitting of a spectral line, is put into theoretical context (Section~\ref{sect:zeeman}). The basic experimental set-up used to measure Zeeman splitting on the Sun is described using historical examples (Section~\ref{subsect:magearly}). Finally, the modern instruments used to magnetically image the photosphere of the Sun are described (Sections~\ref{subsect:mdi} and \ref{subsect:hmi}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Zeeman Effect}\label{sect:zeeman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.7\textwidth]{zeeman_energy_levels.eps}}
+\caption[A schematic of Zeeman energy level splitting.]{A schematic of the electron energy level splitting due to the Zeeman effect. Absorption lines are red shifted when $\mathbf{J}$ is oriented opposite to $\mathbf{B}$, blue shifted when the $\mathbf{J}$ and $\mathbf{B}$ are aligned, and not shifted at all when the $\mathbf{J}$ and $\mathbf{B}$ are perpendicular to each other.}
+\label{fig:zeemanlevels}
+\end{figure}
+
+In this section, we determine the effect that an external magnetic field has on radiating material. 
+The presence of a magnetic field alters the energy of a particular atomic energy state as given by,
+\begin{equation}
+H = H_{0}+V_{M} \mbox{\,,}
+\end{equation}
+where $H_{0}$ is the unperturbed Hamiltonian of the system and $V_{M}$ is the perturbation due to an external magnetic field. The perturbation is given by,
+\begin{equation}\label{eqn:energyperturb}
+V_{M}=-\mathbf{\mu}\cdot\vec{B} \mbox{\,,}
+\end{equation}
+where $\vec{B}$ is the external magnetic field vector and $\mathbf{\mu}$, the magnetic moment, is given by,
+\begin{equation}
+\mathbf{\mu}=-\mu_{B}g \vec{J}/\hbar \mbox{\,,}
+\end{equation}
+where $\mu_{B}$ is the Bohr magneton ($9.3$$\times$$10^{-21}$\,erg\,G$^{-1}$), $g$ is the ``$g$-factor'', $\vec{J}$ is the sum of the orbital ($\vec{L}$) and spin ($\vec{S}$) angular momenta, and $\hbar$ is Planck's constant divided by $2\pi$. The g-factor is a dimensionless term relating the magnetic moment of a particle to its angular momentum number, and the Bohr magneton.
+
+We can substitute for $\vec{J}$ obtaining,
+\begin{equation}\label{eqn:magmomls}
+\mathbf{\mu}=-\mu_{B}(g_l\vec{L}+g_s\vec{S})/\hbar \mbox{\,,}
+\end{equation}
+where $g_l = 1$ and $g_s \approx 2$\footnote{Using a classical derivation of angular momentum, $g=1$. For orbital angular momentum, the classical assumption gives the correct result and so $g_l=1$. However, the electron spin angular momentum must be derived in the framework of relativistic quantum mechanics. Fine structure splitting gives the deviation from 2, $g_s \approx 2.0023193$... }.
+%\begin{eqnarray}
+%g_S &=& -\vec{\mu_{S}}\hbar/\mu_B \vec{S} \\
+%g_L &=& -\vec{\mu_{L}}\hbar/\mu_B \vec{L} \mbox{\,,}
+%\end{eqnarray}
+For light atoms, the orbital and spin angular momentum of individual electrons ($\ell$ and $s$, respectively) may be summed,
+\begin{eqnarray}
+\vec{L} &=& \sum\limits_i^n \ell_i \mbox{\,,} \\
+\vec{S} &=& \sum\limits_i^n s_i
+\end{eqnarray}
+Also, $L$ and $S$ maybe summed to determine the total angular momentum, $J$,
+\begin{equation} 
+g \vec{J} = \langle g_l \vec{L} + g_s \vec{S} \rangle
+\end{equation}
+where the averaging is done over a state with a particular value for $\vec{J}$. It is said that the orbital and spin angular momentum are coupled ($\vec{L}$-$\vec{S}$ coupling). If the external magnetic field is small (such as on the Sun), the total angular momentum is conserved,
+\begin{equation}\label{eqn:jeqlpluss}
+\vec{J}=\vec{L}+\vec{S}
+\end{equation}
+The time-averaged orbital and spin angular momenta are given by,
+\begin{eqnarray}
+\langle \vec{S} \rangle &=& \frac{(\vec{S} \cdot \vec{J})}{J^2}\vec{J} \mbox{\,,} \\
+\langle \vec{L} \rangle &=& \frac{(\vec{L} \cdot \vec{J})}{J^2}\vec{J}
+\end{eqnarray}
+$\vec{L}$ and $\vec{S}$ precess around $\vec{J}$ over time, so the average vectors are projected onto $\vec{J}$.
+
+Rearranging Equation\,\ref{eqn:jeqlpluss} gives,
+\begin{eqnarray}
+\label{eqn:seqlj} \vec{S} &=& \vec{J}-\vec{L} \mbox{\, and} \\
+\label{eqn:leqsj} \vec{L} &=& \vec{J}-\vec{S}
+\end{eqnarray}
+Separately dotting $\vec{J}$ with Equation\,\ref{eqn:seqlj} and squaring both sides of Equation\,\ref{eqn:seqlj} gives,
+\begin{eqnarray}
+\label{eqn:seqjldotj} \vec{S}\cdot\vec{J} &=& J^2-\vec{L}\cdot\vec{J} \mbox{\, and} \\
+\label{eqn:seqjlsq} \vec{L}\cdot\vec{J} &=& -\left(\frac{S^2-J^2+L^2}{2}\right)
+\end{eqnarray}
+Combining Equation\,\ref{eqn:seqjldotj} and \ref{eqn:seqjlsq} gives,
+\begin{equation}
+\label{eqn:sdotj} \vec{S} \cdot \vec{J} &=& \frac{1}{2}(\vec{S}^2-\vec{L}^2+\vec{J}^2)
+\end{equation}
+Following the same procedure using Equation\,\ref{eqn:leqsj} gives,
+\begin{equation}
+\label{eqn:ldotj} \vec{L} \cdot \vec{J} &=& \frac{1}{2}(\vec{L}^2-\vec{S}^2+\vec{J}^2)
+\end{equation}
+
+The time-averaged energy perturbation can be obtained by combining these equations with Equation~\ref{eqn:magmomls} and \ref{eqn:energyperturb},
+\begin{equation}\label{eqn:eperturbavg}
+\langle V_m \rangle = -\frac{\mu_B}{\hbar J^2}(g_l \vec{L}\cdot \vec{J} + g_s \vec{S}\cdot\vec{J})\vec{J} \cdot \vec{B} \mbox{\,,}
+\end{equation}
+and substituting with Equations~\ref{eqn:sdotj} and \ref{eqn:ldotj},
+\begin{equation}\label{eqn:eperturbavg2}
+\langle V_m \rangle = -\frac{\mu_B}{2\hbar J^2 }(g_l (\vec{L}^2 -\vec{S}^2 + \vec{J}^2) + g_s (\vec{S}^2 - \vec{L}^2 + \vec{J}^2)\vec{J} \cdot \vec{B} \mbox{\,.}
+\end{equation}
+In terms of their quantum numbers the spin, orbital, and total angular momentum are, 
+\begin{eqnarray}
+\label{eqn:squant} \vec{S} =& \hbar^2s(s+1) & \mbox{ where } s=0\mbox{\,, }\frac{1}{2}\mbox{\,, }1\mbox{\,, }\frac{3}{2}\mbox{ ...} \\
+\label{eqn:lquant} \vec{L} =& \hbar^2l(l+1) & \mbox{ where } l=0\mbox{\,, }1\mbox{\,, }2\mbox{\,, }3\mbox{ ...} \\
+\label{eqn:jquant} \vec{J} =& \hbar^2j(j+1) & \mbox{ where } j=0\mbox{\,, }\frac{1}{2}\mbox{\,, }1\mbox{\,, }\frac{3}{2}\mbox{ ...\,.}
+\end{eqnarray}
+Taking the component of $\vec{J}$ along a vertical magnetic field, $J_z=\hbar m_j$, where $m_j$ is the total angular momentum along z, the time-averaged energy perturbation can then be rewritten,
+\begin{equation}
+\langle V_m \rangle_z = \mu_B m_j B g_j \mbox{\,,}
+\end{equation}
+where $g_j$ is the Land\'{e} $g$-factor,
+\begin{equation}
+g_j = \frac{-g_l(\vec{L}^2 -\vec{S}^2 + \vec{J}^2) + g_s (\vec{S}^2 - \vec{L}^2 + \vec{J}^2)}{2J^2} \mbox{\,.}
+\end{equation}
+The Land\'{e} $g$-factor indicates how sensitive a particular state is to an external magnetic field.
+Substituting with Equations~\ref{eqn:squant} and \ref{eqn:lquant} and evaluating $g_l=1$,
+\begin{equation}
+g_j = \frac{(1-g_s)l(l+1)+(g_s-1)s(s+1)}{2j(j+1)} + \frac{1+g_s}{2} \mbox{\,.}
+\end{equation}
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width = 0.7\textwidth]{zeeman_splitting_diagram.eps}}
+%\caption{A schematic of the Zeeman effect. }
+%\label{fig:zeemanschematic}
+%\end{figure}
+
+The main result of the Zeeman effect is that a given energy state in the presence of a magnetic field is split into three components with $\Delta m_j=-1,0,+1$, depending on the orientation of the total angular momentum vector to the magnetic field, as shown in Figure~\ref{fig:zeemanlevels}. When a particular energy state transition to the split state occurs, the change in $m_j$ between the two states must be $+1$, 0, or $-1$, regardless of which transition is involved. The wavelength shift between the perturbed states and the unshifted ($\Delta m_j=0$) state is given by,
+\begin{equation}\label{eqn:zeemanlineshift}
+\Delta \lambda = \pm 46.67 g_j \lambda_0^2 B \mbox{\,,}
+\end{equation}
+where $\Delta \lambda$ is the difference between the shifted wavelength and $\lambda_0$ and $\lambda_0$ is the wavelength of the unperturbed $\pi$ component. This holds for the ``normal" Zeeman effect when the $g_j$ of the initial and final states is the same. The ``anomalous" Zeeman effect occurs when this is not the case and more than three energy components are possible. In this case the $g$-factor of the initial and final states must be taken into account, 
+\begin{equation}
+\Delta \lambda = 46.67 (g_{j,i}m_{j,i} - g_{j,f}m_{j,f}) \lambda_0^2 B \mbox{\,,}
+\end{equation}
+where $i$ denotes an initial state and $f$ denotes a final state. 
+
+When considering the shift in a single component of a Zeeman-split spectral line as compared to its rest wavelength, the Doppler effect must be accounted for in determining the shift due to magnetic effects. When the \gls{LOS} velocity of radiating matter is much less than the speed of light ($v_{LOS}<<c$) the Doppler shift in wavelength is given by,
+\begin{equation}
+\frac{\Delta \lambda}{\lambda_0} = \frac{v_{LOS}}{c} \mbox{\,,}
+\end{equation}
+where $\Delta \lambda$ is the same as in Equation~\ref{eqn:zeemanlineshift}. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 0.8\textwidth]{zeeman_splitting_diagram.eps}}
+\caption[A comparison of the line splitting and polarisation do to the Zeeman effect.]{A comparison of the observed line splitting and polarised components for no magnetic field (\emph{top}), a LOS field (\emph{middle}), and a transverse field (\emph{bottom}). Circularly or linearly polarised split components are observed, depending on whether the magnetic field is along the LOS or transverse to it, respectively.}
+\label{fig:zeemanpolarisation}
+\end{figure}
+
+For absorption, the allowed polarisation of an incoming resonant photon is dependent on the orientation of the magnetic field to the observer and hence the orientation of the electron's magnetic dipole moment that aligns with it. Combinations of the observed polarised light components are used to determine the vector components of the magnetic field. The Stokes parameters \citep{Stokes:1851} define the polarisation of the spectral line profile. They are directly observable and provide a convenient way to determine the magnetic field vector. The four parameters are,
+\begin{eqnarray}
+I &=& \circlearrowright+\circlearrowleft \mbox{ or } \updownarrow+\leftrightarrow \mbox{\,etc.,} \\
+Q &=& \leftrightarrow - \updownarrow \mbox{\,,} \\
+U &=& \nearrow - \nwarrow \mbox{\,,} \\
+V &=& \circlearrowleft - \circlearrowright \mbox{\,.}
+\end{eqnarray}
+where $\circlearrowright$ and $\circlearrowleft$ represent right and left circularly polarised light, $\updownarrow$ and $\leftrightarrow$ represent linearly polarised light in the $90^\circ$ and $0^\circ$ directions, and $\nearrow$ and $\nwarrow$ represent polarisation in the $45^\circ$ and $135^\circ$ directions. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width = 1.0\textwidth]{zeeman_stokes_los.eps}}
+\caption[A comparison of Stokes parameters for different magnetic fields.]{A comparison of Stokes parameters for magnetic field directed toward and away from the LOS. The polarisation of the two split components switches depending on the orientation, as indicated by the sign of \mathbf{V}.}
+\label{fig:zeemanstokes}
+\end{figure}
+
+The comparison of modelled and measured I, Q, U, and V profiles can be used to determine the magnetic field vector at the source of the spectral line. Observers fit modeled versions to actual measurements of the Stokes parameters to determine the magnetic field strength and direction. The formation of a spectral line occurs over a range of heights in the solar atmosphere so a model of the atmosphere must be used. The process of fitting I, Q, U, and V may involve 10 parameters, even when making severe assumptions about the atmosphere, such as using the Milne-Eddington limit, whereby the atmosphere is assumed to be plane-parallel and only absorption effects are considered. 
+
+In this work, we only consider \gls{LOS} magnetic fields. Figure \ref{fig:zeemanstokes} compares the observed spectra and polarised components for a \gls{LOS} field toward and away from the observer. To determine the strength and direction of this field, only the Stokes V need be considered since the \gls{LOS} component of the magnetic field is manifested only in the circularly polarised light.
+
+The better resolved the observed spectral line is, the better the magnetic field measurement accuracy will be. Unfortunately, there is a trade-off between spatial resolution and spectral resolution due to the bandwidth and memory limitations of instruments. Also, to avoid mixing space and time in the  measurements, the time to make an observation must be less than the dynamic time-scale of the observed phenomena at the given spatial resolution. Instruments used to image the solar magnetic field must strike a balance between spatial resolution, spectral resolution, acquisition time, and memory usage.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Early Observations} \label{subsect:magearly}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[angle=-90,width = 1.0\textwidth]{hale_spectra.eps}}
+%\caption{One of Hale's first sunspot spectra used to determine whether sunspots are a magnetic phenomena (from \citet{Hale:1908}).}
+%\label{fig:halespectra}
+%\end{figure}
+
+\begin{figure}[t]
+\centerline{\includegraphics[clip=0, width = 1.0\textwidth]{magnetometer_schem.eps}}
+\caption[A schematic of Hale's magnetometer.]{A schematic diagram of the magnetometer used by Hale to measure the LOS magnetic field at a single point on the solar surface. Light emitted at the solar surface is split into right and left circularly polarised components using the combination of a Fresnel rhomb and Nicol prism. The spectrum is then dispersed by a slit for analysis.}\label{fig:magnetometer_schem}
+\end{figure}
+
+Although he interpreted his results as inconclusive, \cite{Hale:1908} is credited with the first direct measurement of the magnetic field within a sunspot. Using the Mount Wilson telescope, he constructed an apparatus to measure the Zeeman splitting in the 6\,000\,--\,6\,200\AA\ wavelength range. The light from the projected image of the Sun from the telescope was passed through a plane-polarising Fresnel rhomb\footnote{Fresnel rhombs are generally prisms with a parallelogram-shaped cross-section. Incident light undergoes two internal reflections before exiting the prism. Each reflection produces a $45^{\circ}$ phase delay between the two linearly polarised components of the light. This results in the conversion of a linear to circular, or in the case of a magnetometer, a circular to linear polarisation.} to convert the circular polarisation to plane-polarised light, differing by 90$^{\circ}$ in phase. A Nicol prism\footnote{Nicol prisms are traditionally made from Icelandic feldspar, a type of calcite. Light of different polarisations incident on this material experiences different refractive indices. The prism face is cut at an angle of $68^\circ$ to the crystal structure and is also cut diagonally and glued back together to create an internal interface. Light of one linear polarisation will experience total internal reflection at this interface, while light of the other polarisation will pass through the prism.} then allowed each polarisation to be isolated. Finally, a slit at the focal point of the optics dispersed the spectrum. The slit was partially covered to narrow the spatial extent of the observation. The slit opening could then be centred on a sunspot umbra, for instance. A schematic of this instrument is shown in Figure~\ref{fig:magnetometer_schem}. %Several of the sunspot spectra are shown in Figure~\ref{fig:halespectra}
+
+%\begin{figure}[t]
+%\centerline{
+%		\includegraphics[clip=0, width = 0.5\textwidth]{babcock_mag_detector.eps}
+%		\includegraphics[clip=0, width = 0.5\textwidth]{babcock_mag_scanner.eps}
+%}
+%\caption{Schematic diagrams of the (left) magnetograph detector and (right) scanning apparatus (from \citet{Babcock:1953}).}\label{fig:babcockapparatus}
+%\end{figure}
+
+Much later \citep{Babcock:1953} presented the Babcock magnetograph. This operated under the same principle as the apparatus used by Hale to measure the Zeeman effect by alternatively comparing the \gls{RCP} and \gls{LCP} light from a particular location on the Sun. The advance here is that two spectral slits are used to determine line shifts by amplifying the difference in the intensity at the wings of an absorption line, as shown in Figure~\ref{fig:babcockmagnetometer}. Phototubes are used to electronically measure the signals of each slit and their difference is amplified by a narrowband amplifier. This method of measuring the spectral shift results in the instrument having a sensitivity down to 1\,G, since the splitting of the line does not have to be resolved as in the case of Hale's instrument. The biggest leap forward was the addition of a scanning device to allow an automatic measurement of the magnetic field over the entire solar disk. Previously, the magnetic field of a single spot on the Sun could be analysed, but now a global analysis of the surface magnetic field of the Sun was possible. %A schematic of the apparatus used to measure the spectra and scan the solar disk is shown in Figure~\ref{fig:babcockapparatus}. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[angle=-90,width=0.6\textwidth]{babcock_magnetometer.eps}}
+\caption[A schematic of Babcock's Zeeman effect measurement.]{A schematic diagram of the Zeeman effect observed at one point on the focal plane using a Babcock magnetometer \citep[from][]{Babcock:1953}. The shifts are measured in the wing of a spectral line, allowing smaller magetic fields to be observed than in Hale's case.}\label{fig:babcockmagnetometer}
+\end{figure}
+
+This work paved the way for modern magnetographs that use tuneable Michelson-Morley interferometers in place of slits to simultaneously allow the spectral analysis of every point on the Sun. The instrument, called the Fourier Tachometer, employs narrowband filters to allow wavelength positions to be sampled across a given spectral line \citep{Dunn:1980}. The advantage of this is that a grid of points in the 2D plane-of-sky can be sampled simultaneously, but the disadvantage is that the filters introduce substantial noise \citep{Brown:1984}. Thus there is a tradeoff between noise, spatial resolution, and temporal resolution. The work presented in this thesis is concerned with the large spatial- and temporal-scale evolution of the Sun, for which Fourier Tachometer-type instruments are used.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Michelson Doppler Imager} \label{subsect:mdi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centering{\includegraphics[width = 1.0\textwidth]{scherrer_schem_grab.eps}}
+\caption[A schematic diagram of MDI.]{A schematic diagram of the MDI instrument \citep[from][]{Scherrer:1995}. The same basic method is used as in the Hale magnetometer to split up the polarised components. Here, Michelson-Morley interferometers allow a determination of the solar magnetic field in 2D.}
+\label{fig:mdidiagram}
+\end{figure}
+
+The methods described in in this work involve the image processing of full-disk \gls{LOS} magnetograms taken by the \gls{SOHO}/Michelson Doppler Imager \citep[MDI;][]{Scherrer:1995}. This instrument is a magnetograph which uses a complex array of optical equipment to take advantage of the Zeeman effect in order to determine the \gls{LOS} magnetic fields in the photosphere, as discussed in Section\,\ref{sect:zeeman}. 
+%The Zeeman effect occurs when light passes through a magnetic field and results in Fraunhofer line splitting. If the magnetic field points away from the observer (opposite to the light path) the light is left-hand circularly polarized and right-hand circularly polarized for the opposite case. The strength of the magnetic field may be determined by the amount of shift in the line profile.
+As well as being sensitive to the strong magnetic fields in sunspots, MDI is also sensitive to weak fields in \gls{quietsun} regions since it uses the same principles as the Babcock magnetometer (see Section \ref{subsect:magearly}).
+
+\begin{figure}[!t]
+\centering{\includegraphics[width = 0.6\textwidth]{scherrer_1995_tune_2.eps}}
+\caption[The instrument response of MDI.]{Bottom to Top: the response function of the Ni I line-centered filters (dotted line) and the Michelson interferometers (solid line); the resulting response of the filter and interferometers tuned to two different wavelengths (solid line) and the Ni I line profile \citep[dotted line; from][]{Scherrer:1995}.}
+\label{fig:mdiresponse}
+\end{figure}
+
+Figure~\ref{fig:mdidiagram} shows a diagram of the MDI optical path and Figure~\ref{fig:mdiresponse} shows the response functions of the main optical components. Incoming light passes through a series of narrowing filters which center on the Ni I 6\,768\,\AA\ absorption line. The observed  splitting of this line is used to measure the solar magnetic field. The light then passes through one Michelson interferometer, a series of tuning wave plates, a second Michelson interferometer, and re-imaging lenses. These components allow the tuning of the narrow instrument bandpass around the Ni I line. A linear polarizer and half-wave plate alternatively allow the passage of right and left circularly polarised light depending on the half-wave plate orientation.
+%emitted from regions of magnetic field pointing alternately toward and away from the observer. 
+Finally, the resulting image is collected at a $1\,024^2$\,pixel \gls{CCD} camera.
+
+A series of images are taken at several tuned wavelengths and combined to determine values which are proportional to actual magnetic fields. MDI takes filtergrams at 5 tuned wavelengths equally separated by 75\,m\AA: $F_{0}$ in the continuum, $F_{1}$ and $F_{4}$ in the wings of the line, and $F_{2}$ and $F_{3}$ in the core of the line. A unit-less measure of the line shift ($\alpha$) is determined for both left-hand ($\alpha_{LHC}$) and right-hand ($\alpha_{RHC}$) circularly polarized light independently, where,
+\begin{eqnarray}
+\alpha &=& (F_{1}+F_{2}-F_{3}-F_{4})/(F_{1}-F_{3}) \mbox{\,, if numerator} > 0 \\
+&=& (F_{1}+F_{2}-F_{3}-F_{4})/(F_{4}-F_{2}) \mbox{\,, if numerator} \le 0 \mbox{\,.}
+\end{eqnarray}
+The line depth is estimated by,
+\begin{equation}
+I_{depth} = \sqrt{2 ((F_1-F_3)^2 + (F_2-F_4)^2)} \mbox{\,,}
+\end{equation}
+using a discrete Fourier transform (DFT) of the line profile ($I_{cont}-I_{depth}\cos(2\pi (\lambda - \lambda_0))$) and assuming the filtergrams are evenly spaced over one period. The continuum intensity is given by,
+\begin{equation}
+I_c = 2F_0 + I_{depth}/2 + \langle F_{1-4} \rangle \mbox{\,,}
+\end{equation}
+where $\langle F_{1-4} \rangle$ is the average of the filtergrams in the absorption line.
+
+If unpolarised light was used, it would be impossible to tell whether the line shift, $\alpha$, was caused by the Zeeman effect or a Doppler shift. The shift due to the Zeeman effect alone is then,
+\begin{equation}
+\alpha_{Zeeman}=\alpha_{RHC}-\alpha_{LHC} \mbox{\,.}
+\end{equation}
+These values are calibrated to physical units using a look-up table, which is generated by a static solar atmosphere model. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Helioseismic and Magnetic Imager}\label{subsect:hmi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!t]
+\centerline{\includegraphics[clip=0,angle=0,width = 1.0\textwidth]{hmi_mdi_compare2.eps}}
+\caption[A comparison between MDI and HMI.]{A comparison of the specifications of HMI to MDI \citep[from][]{Schou:2012}. In the table FD stands for full-disk images, and HR stands for high-resolution images. Most importantly for HMI, the pixel size of is $\sim$$1/4$ that of MDI, all of the Stokes components can be obtained, the data rate is $\sim$300 times that of MDI.}
+\label{fig:hmimdicompare}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[angle=-90, width = 1.0\textwidth]{hmi_schematic.eps}}
+\caption[A schematic of HMI.]{A schematic diagram of the HMI instrument \citep[from][]{Schou:2012}. The overall setup is the same as that of MDI.}
+\label{fig:hmidiagram}
+\end{figure}
+
+The Helioseismic and Magnetic Imager \citep[HMI;][]{Scherrer:2012} on board the \emph{Solar Dynamics Observatory} (\emph{SDO}) is a magnetograph with essentially the same design to MDI, as shown in Figure~\ref{fig:hmidiagram}. One difference is that HMI uses the Fe I 6\,173\,\AA\  absorption line to measure the Zeeman effect. This line has a $g_{\mathrm{J}}$ of $\sim$2.5 giving it a better sensitivity to magnetic fields than the Ni line used for MDI with a $g_{\mathrm{J}}$ of $\sim$1.4. The most important difference between the two instruments is the four-fold increase in resolution of HMI and its ability to generate vector magnetic fields. \citet{Norton:2006} argue that HMI should produce reliable measurements for magnetic fields within umbrae and penumbrae. In this work, only the \gls{LOS} magnetic field data are used. The method of calibrating the \gls{LOS} magnetic field is very similar to the algorithm used by MDI. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[angle=-90,width = 0.7\textwidth]{hmi_tuning.eps}}
+\caption[A plot of the HMI filtergram bandpasses.]{An example of the filtergram bandpasses used to produce an HMI magnetogram relative to the Fe I absorption line \citep[from][]{Schou:2012}. Each color represents a different tuning of the filters; each part of the Fe I line is sampled.}
+\label{fig:hmituning}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[angle=-90,width = 0.7\textwidth]{hmi_line_splitting.eps}}
+\caption[An example of Zeeman splitting of the Fe I line.]{An example of Zeeman splitting in the Fe I absorption line measured by the IBIS ground-based spectropolarimeter instrument in a sunspot penumbra \citep[from][]{Norton:2006}.}
+\label{fig:hmisplitting}
+\end{figure}
+
+HMI uses six filtergrams with bandpasses centered at different wavelengths along the Fe I absorption line as shown in Figure~\ref{fig:hmituning}. An example of the possible line profile resulting from the magnetic field in a sunspot penumbra is shown in Figure~\ref{fig:hmisplitting}. Considering a single spatial position in the filtergrams, six discrete points along the actual line profile at a given location on the Sun are sampled. These points are used to determine the first two 
+sets of Fourier coefficients ($i=[1,2]$) of the Fe I line intensity profile \citep{Couvidat:2012},
+\begin{eqnarray}\label{eqn:fouriercoeff}
+a_i &\approx& \frac{2}{T}\int^{+\frac{T}{2}}_{-\frac{T}{2}} \cos \left( i 2\pi \frac{\lambda}{T} \right)\mathrm{d}\lambda \mbox{\,,} \\
+b_i &\approx& \frac{2}{T}\int^{+\frac{T}{2}}_{-\frac{T}{2}} \sin \left( i 2\pi \frac{\lambda}{T} \right)\mathrm{d}\lambda \mbox{\,,}
+\end{eqnarray}
+where $i$ is the order of the coefficient in the Fourier series decomposing the line profile, T is the ``period" of the wavelength range covered by the six filters ($T=412.8$\,m\AA), and $\lambda$ is wavelength.
+In practice DFT versions of Equation~\ref{eqn:fouriercoeff} are used,
+\begin{equation}\label{eqn:discfourcoeff}
+a_1 \approx \frac{2}{6}\sum\limits^5_{j=0}=I_j \cos \left( 2\pi \frac{2.5-j}{6} \right) \mbox{\,,}
+\end{equation}
+%\begin{eqnarray}
+%a_1 $\approx$ \frac{2}{6}\sum^5_{j=0}=I_j \cos \left( 2\pi \frac{2.5-j}{6} \right) \mbox{\,,} \\
+%b_1 $\approx$ \frac{2}{6}\sum^5_{j=0}=I_j \sin \left( 2\pi \frac{2.5-j}{6} \right) \mbox{\,,} \\
+%a_2 $\approx$ \frac{2}{6}\sum^5_{j=0}=I_j \cos \left( 4\pi \frac{2.5-j}{6} \right) \mbox{\,,} \\
+%b_2 $\approx$ \frac{2}{6}\sum^5_{j=0}=I_j \sin \left( 4\pi \frac{2.5-j}{6} \right) \mbox{\,,} \\
+%\end{eqnarray}
+where $j$ denotes each filtergram sampling point. These are determined separately for \gls{RCP} and  \gls{LCP} light. A line shift in terms of velocity is determined from each polarisation,
+\begin{equation}
+v= \frac{T}{2\pi} \frac{\mathrm{d}v}{\mathrm{d}\lambda} \tan^{-1}\left(\frac{b_1}{a_1}\right) \mbox{\,,}
+\end{equation}
+
+The filter bandpasses are not delta functions, so the Fourier coefficient determinations are not used directly. A theoretical Fe I line profile is convolved with each of the filter bandpasses for a range of velocities. The resulting sampled simulated intensities are used to construct a look-up table of Fourier coefficients. This is used to determine corrected shifts in terms of velocity ($V_{\mathrm{LCP}}$ and $V_{\mathrm{RCP}}$) from the Fourier coefficients determined from the measured line profile. Finally, these velocities are used to determine the \gls{LOS} magnetic field strength,
+\begin{equation}\label{eqn:hmilosmag}
+B=(V_{\mathrm{LCP}}-V_{\mathrm{RCP}})K_\mathrm{m} \mbox{\,,}
+\end{equation}
+where $K_\mathrm{m}$ is a calibration constant determined from Equation~\ref{eqn:zeemanlineshift},
+\begin{equation}
+K_{m}=2.0\times 4.67\times 10^{-5} \lambda_{0}\,g_\mathrm{j}\,c = 0.231 \mathrm{\,G\,m}^{-1}\mathrm{\,s} \mbox{\,,} 
+\end{equation}
+where $\lambda_{0}$ is the central Fe I line wavelength and $c$ is the speed of light.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Feature and Event Lists}\label{sect:eventlists}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The results of a number of investigations presented in this work are compared to a number of feature and event catalogues. For this work these catalogs are a useful for providing context to an event or to provide a ground truth which an automated algorithm can be tested against. In this work, a sunspot group catalog and two flare catalogs are used in this way.
+
+The catalogue of \gls{NOAA} sunspot group numbers and locations cataloged by the \gls{NOAA} Space Weather Prediction Center is used to benchmark the detections made by the SolarMonitor Active Region Tracker (SMART; see Chapter~\ref{chapter:method_SMART}) in magnetogram data. Sunspot groups are detected manually using ground-based white-light data. Thus, since magnetic fields are not used in the detection, the measured properties of \gls{NOAA} and SMART detections cannot be inter-compared. For instance, the sunspot area of a NOAA cataloged region can not be compared with the area of the same region detected by SMART because different physical structures are observed in white-light than magnetogram images.
+However, the observed numbers of \gls{NOAA} and SMART detections can be compared.
+
+To indicate the activity of sunspot groups, we use two flare lists. A list of flares observed by the Geostationary Operational Environmental Satellites \citep[GOES;][]{Hanser:1996} distributed by the \gls{NGDC} is used to statistically determine the characteristics of sunspot groups that produce flares. In case studies presented in Chapter~\ref{chapter:results_activity}, we associate observations of \gls{NOAA} 10365 and 10377 with flares observed and characterised by the Reuven Ramaty High Energy Solar Spectroscopic Imager \citep[RHESSI;][]{Lin:2002} team and distributed in the RHESSI flare list\footnote{see \url{http:\/\/sprg.ssl.berkeley.edu\/$\sim$jimm\/hessi\/hsi\_flare\_list.html}}.
+
+
+
+
+
+% ---------------------------------------------------------------------------
+%: ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------
+
