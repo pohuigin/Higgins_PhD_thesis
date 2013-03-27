@@ -1,0 +1,596 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+%: ----------------------- name of chapter  -------------------------
+\chapter{The Flare Productivity of Sunspot Groups} % top level followed by section, subsection
+\label{chapter:results_activity}
+
+%: ----------------------- paths to graphics ------------------------
+
+% change according to folder and file names
+\graphicspath{{X/figures/EPS/}{5/figures/}}
+
+%Reset all glossary terms
+\glsresetall
+
+%ABSTRACT-----------------------------------------------------
+\hrule height 1mm
+\vspace{0.5mm}
+\hrule height 0.4mm 
+\noindent 
+\\ {\it 
+The flare productivity of detected magnetic features is investigated in this chapter. We determine the magnetic properties that are most strongly associated with flaring. The methods described in Chapter~\ref{chapter:method_SMART} are used to detect and track features through time to determine the relationship between changes in property values and the onset of flaring. The resulting case studies, performed by Higgins, were first published in \emph{\citetalias{Verbeeck:2011}} and \emph{\citetalias{Bloomfield:2012b}}. Following this, the features are associated with flares over solar cycle 23, allowing magnetic property thresholds for different levels of flare activity to be determined. In the remainder of the chapter, the global flare productivity of the Sun is compared to disk-integrated property values of detected features over the solar cycle. Higgins performed the work included in this chapter (Section\,\ref{sect:casestudies}) that was first published in  Section\,4.3 of \emph{\citetalias{Verbeeck:2011} and Section\,3.1 of \emph{\citetalias{Bloomfield:2012b}}.
+%A strong correlation between PSL-related properties and flare occurrence is found.
+} \\ 
+\hrule height 0.4mm
+\vspace{0.5mm}
+\hrule height 1mm 
+\vspace{1.5cm}
+%\newpage
+%END ABS---------------------------------------------------------
+
+%: ----------------------- contents from here ------------------------
+
+\section{Introduction}
+
+Many metrics, postulated to be related to flaring, have been developed to characterise sunspot group magnetic fields. These metrics are generally treated as proxies for physical quantities or qualitative descriptions of magnetic field configurations that cannot be directly measured. Proxies for non-potentiality include measurements of strong horizontal magnetic gradients \citep{Gallagher:2002, Falconer:2008}. Those extrapolating the 3D topology include measurements of free magnetic energy \citep{Regnier_Priest:2007}, twist \citep{Conlon:2010b}, and multipolar moments \citep{Zhang:2009}.
+Proxies for complexity and polarity mixing include fractal indices \citep{mcateer:2005b,Conlon:2008,Conlon:2010a}, multi-scale power spectrum slope \citep{Hewett:2008}, and magnetic connectivity \citep{Georgoulis:2007}.
+%A number of algorithms have been developed to measure \gls{AR} magnetic characteristics postulated to be related to flaring: \cite{Gallagher:2002} measure gradients in the magnetic field of \glspl{AR}; \cite{mcateer:2005b} establish an \gls{AR} fractal dimension lower limit of 1.2 for M- and X-class flares  to occur; \cite{Georgoulis:2007} calculate the magnetic connectivity between fragments of an \gls{AR};  \cite{Conlon:2008,Conlon:2010a} measure the multifractal nature of \gls{AR} flux; \cite{Hewett:2008}  determine the multiscale power-law index;  \cite{Falconer:2008} establish a gauge of \gls{AR} non-potentiality (described by magnetic field components including shear, twist, and helicity); and \cite{Zhang:2009} determine basic field properties and the degree of \gls{AR} polarity (bipole, quadrupole, etc.). 
+The overall aim of these algorithms is to first extract a physically-motivated measure of the characteristics of a region of interest. Subsequently, this information is used to better understand the fundamental physics of \glspl{AR}, and to relate the properties of \gls{AR} magnetic fields to their flaring potential. A limitation of this is that if an AR has the potential to produce a flare, it means that a flare is possible, but not that one will definitely occur.
+
+%These properties are good indicators for an active region to have the potential for flaring. However, 
+A particular time-dependent phenomenon that is reliably known to lead to flaring must be identified to know when an active region will actually produce a flare. So far, the best known flare indicator is the occurrence of other flares \citep{Gallagher:2002,Wheatland:2005}. Flux emergence is also a good indicator \citep{Li:2000,Schrijver:2005}. \citet{Mason:2010} use superposed epoch analysis to show that various properties, such as a gradient-weighted PSL length, increase prior to flare occurrence and decrease afterward. Currently, sufficiently reliable flare indicators have not been identified and it remains impossible to predict when a flare will occur with any certainty \cite{Messerotti:2009}.
+
+In this chapter, the flare productivity of sunspot groups is investigated. The activity throughout the evolution of two sunspot groups is studied in detail (Section~\ref{sect:casestudies}) to identify flare indicators in the time dependence of their magnetic property values. A large sample of sunspot group detections is analysed to determine which properties are most indicative of the level of flaring to be expected and what minimum values of those properties are necessary for each flare magnitude to occur (Section~\ref{sect:statflr}). Finally, the solar cycle dependence of sunspot group properties is compared to the global flare productivity of the Sun (Section~\ref{sect:solcycflr}).
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+\section{Case Studies}\label{sect:casestudies}
+
+In this section, we analyse the time evolution and flare productivity of the sunspot groups that emerge as NOAA 10365 \citep{Verbeeck:2011}, a complex region, and NOAA 11226, which is related to the 7\,June\,2011 eruption \citep{Bloomfield:2012b}.  In both studies, we search for pre-flare signatures in the measured magnetic properties. 
+
+We investigate how activity in the corona results from changes in the photosphere in the study of NOAA 10365. Drawing a connection between photospheric and coronal sunspot group evolution is essential for flare prediction, since flares occur in the corona, within structures that are rooted in the photosphere. To perform this comparison, several automated detection and characterisation algorithms are used in addition to \gls{SMART}. Automated feature detections using observations of magnetic fields, photospheric continuum intensity, and \gls{EUV} have not been previously compared.
+
+The \gls{SPoCA} detects features in coronal images \citep{Barra:2009} using a fuzzy-clustering algorithm in pixel-intensity space. \gls{EIT} 171 and 195\,\AA\ \gls{EUV} images are combined to produce a plot of pixel intensity in one image versus the other. This allows the pixels to be clustered in to ``quiet", ``active", and ``coronal hole" classifications. Contiguous regions of each classification are grouped into detections. 
+
+Sunspot observations in the continuum around 6\,768\,\AA\ (\gls{MDI} intensitygrams) are characterised using \gls{STARA} \citep{Watson:2009} and \gls{ASAP} \citep{Colak:2009}. \gls{STARA} uses morphological image processing to detect features of above a certain size scale and below a certain intensity. \gls{ASAP} uses machine learning to detect regions in such a way as to match NOAA's grouping of sunspots. 
+
+For the study of NOAA 11226, in addition to analysing the energy build-up phase in evolution, I also compare properties determined just before and just after a large flare that occurred. These short time-scale changes have been observed in the strength \citep{Sudol:2005} and inclination \citep{Murray:2012} of magnetic fields for different sunspot groups. The work presented in this chapter is the first time that short time-scale changes have been investigated in both flux and magnetic connectivity.
+
+Observations of NOAA 10365 and 11226 are compared with flares characterised by the \gls{RHESSI} team and distributed in the \gls{RHESSI} flare list\footnote{\url{http://sprg.ssl.berkeley.edu/\~jimm/hessi/hsi_flare_list.html}}. The flares, which have been associated with the individual sunspot groups by the \gls{RHESSI} team, are represented as downward-pointing arrows in plots in the following sections, whose size is logarithmically proportional to their peak count rate. 
+
+%ISSI case studies in paper
+%\subsection{NOAA 10377}\label{noaa_10377}
+%\begin{figure}
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{detection_10377_examples.eps}}
+%\caption{A comparison of NOAA AR 10377 detections. ASAP sunspots are
+%represented by black crosses. The contours represent SMART in black (with NOAA
+%10377 outlined in red) for the magnetic features, SPoCA in dashed blue for
+%coronal features, and STARA in orange for sunspot penumbrae and magenta for
+%umbrae.}
+%\label{detection10377compare}
+%\end{figure}
+%\gls{NOAA} 10377 first emerges just before rotating onto the visible disk on 4 June
+%2003. It continues to gradually develop as it progresses across the disk
+%producing very little activity (only one B9.1 event is listed in the \gls{NOAA} events
+%catalogue\footnote{\url{http://www.swpc.noaa.gov/ftpdir/indices/events/README}}.
+%%{\bf
+%Some of the flares produced by 10377 may have been missed due to the
+%presence of 10375, which produced many large flares, swamping any signal that
+%could be attributed to 10377.
+%Figure \ref{detection10377compare} shows the \gls{SMART} detection of 10377 in red,
+%while other features are outlined in black. The extended dashed blue contours
+%are \gls{SPoCA} sunspot group detections and the small symbols and contours are sunspot
+%detections from \gls{ASAP} and \gls{STARA}, respectively. It is clear from Figure
+%\ref{detection10377compare} that positions of the \gls{SMART}, \gls{ASAP}, \gls{STARA}, and \gls{SPoCA}
+%detections agree quite well. Whereas the sunspots detected by \gls{ASAP} and \gls{STARA} are
+%well confined within the \gls{SMART} magnetic region boundary, the \gls{SPoCA} region most
+%often contains most of the \gls{SMART} detection. In the case of coronal loop structures forming between nearby
+%\glspl{AR}, adjacent \gls{SPoCA} detections will merge and the \gls{SMART} and \gls{SPoCA}
+%centroids will diverge. This is especially apparent near the solar limb, where
+%coronal structures extending above the solar surface will be
+%superimposed.
+%%}
+%\begin{figure}
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10377_position_area_nfrag.eps}}
+%\caption{Time series of position, area, and sunspot information characterising
+%the evolution of NOAA AR 10377. The legend indicates symbols and colors for each
+%of the detection algorithms. The axes of the area plot are split between left
+%({SPoCA} and SMART) and right (ASAP and STARA). The {SPoCA} areas have been divided
+%by three for display.}\label{10377evolve_area_pos_num}
+%\end{figure}
+%Figures~\ref{10377evolve_area_pos_num}\,--\,\ref{10377evolve_complexity} show the
+%evolution of NOAA 10377 as it progresses across
+%the disk. In the top panel of Figure \ref{10377evolve_area_pos_num}
+%the Stonyhurst longitudes of the region centroids from each algorithm are shown.
+%The vertical dotted lines indicate where the sunspot group magnetic bounding box edges
+%(dashed--dotted) and centroid (dashed) cross $-60$ and 60$^{\circ}$ longitude. The
+%cosine correction used to correct for line-of-sight effects on magnetic-field
+%properties is not sufficient outside of
+%this range. Also, beyond 60$^{\circ}$, sunspot visibility is below
+%$\approx$1$/$3 of that at
+%disk centre \citep{Watson:2009} due to the Wilson depression.
+%The top panel of Figure~\ref{10377evolve_area_pos_num} tracks the longitude of centroids over time. We see that \gls{ASAP} and \gls{STARA} curves are above the \gls{SMART} curve on this plot, suggesting that  the centroid of the magnetic footpoints (\gls{SMART}) follows behind the sunspot centroids (\gls{ASAP} and \gls{STARA}). Since the longitudinal speed of the white-light and
+%magnetic detections are the same, this implies that the following polarity of the
+%sunspot group extends beyond the embedded sunspots, while the leading polarity remains
+%compact. As the NOAA region 10377 is close to 10375, this last region affects the \gls{SPoCA}
+%detections. From 3\,--\,6 June, \gls{SPoCA} detects both \gls{NOAA} regions
+%within a single boundary. When this region splits into two parts on 6 June, the
+%\gls{SPoCA} longitude and area curves decrease abruptly, and can now be directly
+%compared to the photospheric structures. This changes when the two \gls{NOAA} regions
+%merge again on 11 June. Whenever the region detected by
+%\gls{SPoCA} corresponds to the region detected by the other algorithms, all four
+%longitudes agree well.
+%%The areas in this section are provided in Mm$^2$ and corrected for foreshortening.
+%The total sunspot area determined by \gls{ASAP} and \gls{STARA} (Figure \ref{10377evolve_area_pos_num}, middle) is very similar except for one data point near 12 June 2003. This is due to the \gls{MDI} image on 11 June 2003 at
+%1736 UT being distorted. Most of the distortion is visible on
+%the south limb of the image where this area is darker than the rest of the solar
+%disk. Because \gls{ASAP} detects the solar disk directly from the image, while \gls{STARA}
+%uses \gls{FITS} keywords, the determination of the solar disk by these two methods is
+%different. This explains why on this image the \gls{ASAP} sunspot area is much smaller
+%than the \gls{STARA} area: whereas the distorted area is detected by \gls{STARA} as a
+%large sunspot, it is completely discarded by \gls{ASAP}.
+%The \gls{SMART} and \gls{SPoCA} areas of photospheric magnetic regions and coronal active
+%regions obey the same general trend as the sunspot areas, although the absolute
+%scales are different. While the area measurements are stable, the total
+%number of sunspots is not. The total area is dominated by the largest
+%sunspots, while the total number of spots is affected by small transients
+%which \gls{ASAP} is especially sensitive to.
+%\begin{figure}
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10377_flux_euv_max.eps}}
+%\caption{Time series of (top) total magnetic flux, total EUV intensity, (bottom)
+%maximum magnetic field, and maximum EUV intensity for NOAA AR 10377. The axes of
+%the plots are split between left (magnetic-field properties, black crosses) and
+%right (coronal properties, blue squares). RHESSI flares associated with the \gls{AR}
+%are indicated by downward arrows.}\label{10377evolve_flux_bmax}
+%\end{figure}
+%In the top panel of Figure \ref{10377evolve_flux_bmax}, the emergence of the
+%magnetic structure of 10377 is clearly seen in measurements of its total flux. 
+%The \gls{AR} is stable until $\approx$\,8 June 2003 when a phase of rapid emergence begins,
+%lasting until $\approx$\,11 June when the total magnetic flux has more than
+%doubled.
+%Comparing Figure
+%\ref{10377evolve_area_pos_num} and Figure \ref{10377evolve_flux_bmax}, we see
+%that the total magnetic flux increases faster than the magnetic area, implying
+%that the sunspot group magnetic fields emerge relatively faster than they
+%diffuse. The same general smooth trend is observed in the \gls{SPoCA} total \gls{EUV} intensity
+%between 6 and 11 June. After \gls{NOAA} 10377 merges with 10375 on 11 June, we see a
+%clear decay of the total \gls{EUV} intensity in
+%this combined region. Note that both \gls{SMART} flux and \gls{SPoCA} total \gls{EUV}
+%intensity behave similarly to the region area time series.
+%In the bottom panel the maximum magnetic
+%field is much less stable than the flux, and shows no clear trend.
+%The maximum \gls{SPoCA} \gls{EUV} intensity does not change significantly between 6 and 11
+%June for
+%\gls{NOAA} region 10377, but exhibits three clear peaks afterwards which can be attributed to region 10375.
+%The first peak, on 11 June, can be attributed to \gls{SPoCA} merging with \gls{NOAA} 10375.
+%The peak on 12 June, near 1300, is probably associated with the M1.0
+%flare in 10375 at around 1358\,UT, whereas the 13 June 0700\,UT peak
+%is probably related to the M1.8 (0628\,UT) or C6.1 (0710\,UT) flares in 10375. These flares (appearing in the \gls{NOAA} events catalogue) are not indicated
+%by the \gls{RHESSI} arrows, since we have only displayed those flares attributed to 10377. 
+%This shows that \gls{SPoCA} maximum intensity is capable of indicating solar eruptions.
+%\begin{figure}
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10377_complexity.eps}}
+%\caption{Time series of (top) PSL orientation with respect to the bipole
+%separation line, (middle-top) bipole separation line length (crosses) and PSL
+%length (dashed), (middle-bottom)  $R$, and (bottom) Ising energy (crosses) and
+%Ising energy per pixel (dashed; multiplied by 1000 for display) for NOAA sunspot group
+%10377.}\label{10377evolve_complexity}
+%\end{figure}
+%Magnetic properties related to polarity mixing and complexity are shown in
+%Figure \ref{10377evolve_complexity}. In the top panel, the angle between the
+%bipole connection line and \gls{PSL} is presented.  Since 
+%the \gls{PSL} in this sunspot group is only  a few megameters (or pixels) long (middle-top panel), this angle cannot be measured in a reliable way. Indeed,  a small growth in the \gls{PSL} detection in any direction can cause the angle to change dramatically.
+%In the middle-bottom panel the total
+%flux near the \gls{PSL} (\gls{rvalue}) is very small until it begins to increase as a false \gls{PSL}
+%is detected due to the near-horizontal fields of the large leading polarity
+%sunspot approaching the west limb on 12 June.
+%Ising energy, a proxy for magnetic connectivity, is shown in the bottom panel.
+%This property increases during the main magnetic emergence phase ($\approx$\,8 to 10
+%June 2003) since it is dependent on the magnetic-field strength and inversely
+%dependent on the distance between individual magnetic elements. The Ising energy
+%per pixel (dashed line) appears to be very susceptible
+%to geometrical effects as the large decrease near the west limb and increase
+%near the east limb both coincide with the formation of false \glspl{PSL} in the leading
+%sunspot. It should be noted that this quantity was calculated without remapping
+%the data to disk-centre as done by \citet{Ahmed:2010}, giving the measurement an even
+%larger viewing-angle dependence.
+
+\subsection{NOAA 10365 (10386)}\label{noaa_10365}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.1\textwidth,clip=]{detection_10365_examples.eps}}
+\caption[NOAA 10365 detection contours.]{A comparison of detection contours for NOAA 10365. ASAP sunspots are represented by black crosses. The contours represent SMART in black (with the SMART detection of interest, NOAA 10365, outlined in red) for the magnetic features, SPoCA in dashed blue for coronal features, and STARA in orange for sunspot penumbrae and magenta for
+umbrae.}
+\label{detection10365compare}
+\end{figure}
+
+Active region NOAA 10365 rotates onto the visible solar disk on 19\,May\,2003 at
+heliographic latitude -5$^{\circ}$. At this point 10365 is mature and decaying,
+having emerged and evolved on the far side of the Sun. On 24\,May, a new
+bipolar structure rapidly emerges in the extended plage of the trailing
+(positive) polarity. \gls{NOAA} switches the 10365 designation to this newly emerged
+bipole several days later. As the bipole evolves it develops a strong double \gls{PSL}
+by merging with the decayed flux. It produces many C- and M-class flares
+and several X-class flares. The sunspot group progresses around the visible disk,
+eventually returning as NOAA 10386. The onset of decay occurs as C- and M-class
+flares are produced with decreasing frequency and the spot areas, magnetic flux,
+and field strengths decrease.
+
+Figure \ref{detection10365compare} shows a comparison of the heliographic
+positions and sizes of two sets of \gls{SMART}, \gls{ASAP}, \gls{STARA} and \gls{SPoCA} detections of NOAA 10365. We can see that positions of the \gls{SMART}, \gls{ASAP}, \gls{STARA} and \gls{SPoCA} detections overlap. The \gls{SPoCA} detection, however, includes coronal loops extending away from the footpoint boundary of NOAA 10365.
+Before 24\,May, \gls{SPoCA} merges NOAA 10367 with its detection of 10365. NOAA 10367 can be seen in the right panel of Figure\,\ref{detection10365compare} as the black contour trailing behind the red one. From 24\,--\,27 May it only detects 10365, on 27\,May at 1300\,UT there is a single data point where these regions are merged by \gls{SPoCA}, and from 29\,May at 0100\,UT onwards, \gls{SPoCA} merges them for the remaining observation period. The longitudes of all detections within 24\,--\,27 May agree well. After 27\,May the \gls{SPoCA} longitude drifts, reflecting changes in the merged coronal structures.
+The magnetic centroid of 10365 at first trails behind the sunspot
+centroid but then precedes it, as evidenced by the top panel in Figure
+\ref{10365evolve_area_pos_num}. This is because the new bipole, which develops
+many spots, emerges behind the existing weakly spotted bipole. The new emergence
+is clear in the plot of total sunspot area (middle panel), and is unclear in the
+magnetic and \gls{EUV} area plots since the new bipole emerges partially within the
+boundary of the old one. The area determined by \gls{SMART} is very sensitive to weak
+magnetic plage. This can be seen in the sudden jumps around May\,25 and
+28, which are due to nearby plage temporarily merging with the sunspot group.   
+%{\bf THERE ARE SOME SUDDEN JUMPS IN THE SMART AREA TIME SERIES. ANY CLUES? (vd:Those are related to the jumps in the Bipole separation length of Figure 16 }
+The jump in \gls{STARA} area on 27\,May can be attributed to a bad data file (note that there is no \gls{ASAP} data point at that time).
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.1\textwidth,clip=]{roi_10365_position_area_nfrag.eps}}
+\caption[NOAA 10365 property evolution.]{Time series of position, area, and sunspot information characterising
+the evolution of NOAA 10365. The legend indicates symbols and colors for each
+of the detection algorithms. The axes of the area plot are split between left
+(SPoCA and SMART) and right (ASAP and STARA). The SPoCA areas have been divided
+by three for display.}
+\label{10365evolve_area_pos_num}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.1\textwidth,clip=]{roi_10365_flux_euv_max.eps}}
+\caption[NOAA 10365 photosphere and coronal evolution.]{Time series of (top) total magnetic flux, total EUV intensity, (bottom)
+maximum magnetic field, and maximum EUV intensity for NOAA 10365. The axes of
+the plots are split between left (magnetic-field properties, black crosses) and
+right (coronal properties, blue squares). RHESSI flares associated with the AR
+are indicated by downward arrows.}
+\label{10365evolve_flux_bmax}
+\end{figure}
+
+From 25\,May onwards, the total magnetic flux increases gradually to over
+four-fold the initial value during development and levels off around 29\,May (see
+Figure~\ref{10365evolve_flux_bmax}). 
+The maximum magnetic field increases
+abruptly on 25\,May and also increases over time, albeit less smoothly
+than the magnetic flux.
+
+The time series of \gls{SPoCA} maximum intensity exhibits some peaks, which can be related to the following flares produced by NOAA 10365: the M\,1.9 flare at 0534\,UT on 26\,May, the
+M\,1.6 flare at 0506\,UT on 27\,May, the X\,1.2 flare at 0051\,UT
+on 29\,May, and the M\,9.3 flare at 0213\,UT on 31\,May.
+The last two flares are even visible in the total \gls{SPoCA} intensity, which shows
+a mostly gradual increase over time. The flares not picked up by \gls{SPoCA} likely occurred
+in between subsequent \gls{EIT} images. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.1\textwidth,clip=]{roi_10365_complexity.eps}}
+\caption[NOAA 10365 complexity evolution.]{Time series showing proxies for the complexity and polarity mixing in NOAA 10365. (middle-top) bipole separation line length (crosses) and PSL
+length (dashed), (middle-bottom)  $R$, and (bottom) Ising energy (crosses) and
+Ising energy per pixel (dashed; multiplied by 1\,000 for display)}
+\label{10365evolve_complexity}
+\end{figure}
+
+Signatures in the evolution of the magnetic configuration of NOAA 10365 precede its
+intense coronal activity, indicated by the associated \gls{RHESSI} flares in Figure
+\ref{10365evolve_complexity}. During 25\,May\,2003 the new emergence causes a jump in the main bipole separation line length.
+As the emergence continues and strong \glspl{PSL} develop, this length decreases,
+while the total \gls{PSL} length increases, as shown in the middle-top panel of Figure
+\ref{10365evolve_complexity}. Also, there are signs of gradual helicity
+injection
+as the angle between the main bipole connection line and the main \gls{PSL} grows from
+near perpendicular ($90^{\circ}$) to around $120^{\circ}$ (top panel). The flux
+near \gls{PSL} (\gls{rvalue})
+grows during this time, as does the Ising energy (middle-bottom and bottom
+panels, respectively). The increase in \gls{rvalue} around 26\,May is followed by a period of
+intense \gls{RHESSI} flaring. The flaring continues as \gls{rvalue} increases and reaches a peak on 28\,June. Examining the development of Ising energy, it appears that sharp increases in the property
+are followed by the most
+intense flaring.
+
+%POSSIBLY MOVE TO DISCUSSION/CONC.!!!
+%Comparing the evolution of the PSL angle in 10377 and 10365, we see that it
+%varies more smoothly in the more complex region 10365. In 10365, the PSL length
+%builds up to more than 3 times the values it reaches in 10377, testimony to the
+%higher magnetic energy involved in region 10365. Both the $R$ and Ising energy
+%time series for 10365 are smoother and reach up to five to ten times the maximum
+%values for 10377.
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10365_2_position_area_nfrag.eps}}
+%\caption{Time series of position, area, and sunspot information characterising
+%the decay phase of NOAA sunspot group 10365 (renamed 10386) during its second disk passage.
+%The legend indicates symbols and colors for each
+%of the detection algorithms. The axes of the area plot are split between left
+%(SPoCA and SMART) and right (ASAP and STARA). The SPoCA areas have been divided
+%by three for display.}\label{10365_2evolve_area_pos_num}
+%\end{figure}
+
+%NOAA 10365 returns for a second disk passage, renamed 10386. We are able to
+%observe its decay phase, as shown in Figures \ref{10365_2evolve_area_pos_num}\,--\,\ref{10365_2evolve_complexity}. As
+%no RHESSI data on flares is available for this period, no flare arrows were
+%added to these figures.
+%While the longitude of the \gls{SMART} magnetic centroid increases linearly with
+%time, the \gls{ASAP} and \gls{STARA} sunspot centroids show small departures from this line
+%between 19 and 21 June, preceding the magnetic centroid.
+%The \gls{SPoCA} detection of \gls{NOAA} 10386 merges with
+%10388 and 10389, so a direct comparison with the other algorithms cannot be
+%made.
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10365_2_flux_euv_max.eps}}
+%\caption{Time series of (top) total magnetic flux, total EUV intensity, (bottom)
+%maximum magnetic field, and maximum EUV intensity for NOAA 10365 on its
+%second disk passage as 10386. The axes of
+%the plots are split between left (magnetic-field properties, black crosses) and
+%right (coronal properties, blue squares).}\label{10365_2evolve_flux_bmax}
+%\end{figure}
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{roi_10365_2_complexity.eps}}
+%\caption{Time series showing proxies for the complexity and polarity mixing in
+%NOAA 10386. (top) PSL orientation with respect to the bipole
+%separation line, (middle-top) bipole separation line length (crosses) and PSL
+%length (dashed), (middle-bottom)  $R$, and (bottom) Ising energy (crosses) and
+%Ising energy per pixel (dashed; multiplied by 1000 for display)}\label{10365_2evolve_complexity}
+%\end{figure}
+
+%The magnetic area does not change significantly, but the total sunspot area
+%clearly
+%decreases (middle panel, Figure~\ref{10365_2evolve_area_pos_num}), and has already decreased substantially since the
+%previous
+%disk passage (as \gls{NOAA} 10365).
+%The total magnetic flux decreases (top panel, Figure
+%\ref{10365_2evolve_flux_bmax}) as its magnetic fields diffuse and weaken.
+%Comparing the values to Figure~\ref{10365evolve_flux_bmax}, we notice that the
+%flux had already decreased significantly since the previous solar rotation.
+%The total \gls{EUV} intensity does not change substantially, regardless of the
+%weakening magnetic footpoints, although it has decreased since the previous
+%solar rotation. Its increase on 22 June is due to the detection
+%merging with a large region near the limb.
+%The maximum magnetic-field value shows a gradual, although not very smooth
+%decrease, and has also decreased since the previous passage.
+%The maximum \gls{EUV} intensity does not show a clear trend, and although several jumps
+%are detected, the intensity levels are much less than those associated with flares
+%over the previous passage. The peak on 18 June at 0100\,UT, for instance,
+%can likely be associated to the M6.8 flare produced by region 10386 at
+%2227\,UT on 17 June.
+%The \gls{PSL} length has decreased since the previous solar rotation, and shows a
+%further gradual decrease in Figure~\ref{10365_2evolve_complexity}.
+%The same is true for both \gls{rvalue} and the Ising energy.
+
+%----------------------------------------------------------------------------------
+%JUNE 7th Event case study in paper
+\subsection{NOAA 11226}\label{sect:noaa_11226}
+
+%Higgo - SMART Method shite
+An M\,2.5 flare, followed by a fast \gls{CME}, is released from NOAA 11226 on 7\,June\,2011. The region is beyond 50$^{\circ}$ longitude at the time of the flare, making it impossible to reliably measure any magnetic properties involving gradients. However, the interval over which the region evolves prior to the eruption ($\sim$29\,May\,--\,7\,June) is well observed by SDO/HMI. The magnetic flux and connectivity of the region is also measured at the time of the eruption.  
+ 
+\gls{SMART} is used to track and characterise the physical properties of NOAA 11226 throughout its disk passage\footnote{See the supplementary movie: \url{http://dx.doi.org/10.6084/m9.figshare.96174}.}. 
+%In addition to the magnetic property determinations described in the above reference, several additional modules were used in the present work. A measurement of the orientation of the primary polarity separation line is included, as well as a measurement of magnetic connectivity ($B_{\mathrm{eff}}$). 
+For the properties shown in Figure \ref{smart_overview}, the sunspot group bounding contours are dynamic, having been extracted for each magnetogram independently. However, in Figure \ref{smartprepostflare} the detection contour detected by \gls{SMART} nearest to the time of the 7\,June flare is differentially rotated to each time prior to and following the flare, and is used in determining each of the properties shown in the plot. This helps to isolate changes in measured properties caused by the flare and to avoid having the feature detection method cause any changes in the properties.
+%A supplementary movie shows this static contour for each magnetogram during the timerange of interest.
+
+% Higgo
+\begin{figure}[!t]
+%\sidecaption
+\centerline{\includegraphics[width=1.1\textwidth,clip=]{time_plot_flux_r_final.eps}}
+\caption[Long-term NOAA 11226 magnetic evolution.]{NOAA 11226 evolution using SMART algorithm detections. \emph{a}:  Polarity separation line orientation (black crosses), 5-point smoothing (solid black curve), and heliographic latitude (gray). \emph{b}: Total magnetic flux (black) and area (gray). \emph{c}: $B_{\mathrm{eff}}$ (black). Vertical dashed red lines indicate times that the active region crossed $-60^\circ$, $-30^\circ$, $30^\circ$, and $60^\circ$ longitude. The vertical dotted red line indicates the GOES flare time. Flares from the GSFC RHESSI flare list are indicated by downward arrows with color and size being logarithmically proportional to total photon counts.}
+\label{smart_overview}
+\end{figure}
+
+%% Higgo
+%\begin{figure}[!t]
+%%\sidecaption
+%\centerline{\includegraphics[width=0.9\textwidth,clip=]{time_plot_conn_psl_ising.eps}}
+%\caption{A plot of (top) PSL angle with respect to the main bipole connecting line, (middle) $B_{eff}$, (bottom) Ising energy (black), and Ising energy per pixel. Longitude crossings and flares are indicated as in Figure~\ref{smart_overview}.}
+%\label{smart_nonpot}
+%\end{figure}
+
+% Higgo - Full disk passage of AR 11226 using SMART and various property modules
+In Figure~\ref{smart_overview} the magnetic evolution of the active region is tracked from $\sim$$-60^\circ$ to $60^\circ$ longitude. On 1\,June\,2011 the active region centroid begins to drift southward by $\sim$$1^\circ$, as indicated by the latitude centroid (panel \emph{a}; gray curve). This is cotemporal with a leveling off of the decay in total magnetic flux and with an increase in area (panel \emph{b}; black and gray curves, respectively). At the same time, a rotation of the polarity separation line is observed (top panel; black curve). A movie\footnote{See supplementary movie: \url{http://dx.doi.org/10.6084/m9.figshare.96173}.} of the active region disk passage reveals the emergence of a negative flux concentration on the south west side of the region very close to the positive pole. This explains the polarity separation line evolution on 3\,June\,2011 that is followed by a cluster of flares.
+
+The angle of the polarity separation line with respect to the bipole connecting line is shown in panel \emph{a}. An apparent rotation of over $30^\circ$ occurs on 3\,June\,2011, resulting in two significant \gls{RHESSI} flares (large red arrows); this rotation may indicate helicity injection \citep{Morita:2005}. The aforementioned flux concentration is observed to progress northward along the main polarity separation line after its initial emergence. The curve indicating $B_{\mathrm{eff}}$ exhibits an increase on 2\,June\,2011 and 3\,June\,2011, the second of which is cotemporal with the polarity separation line rotation. This event is followed by clusters of events in the \gls{GSFC} \gls{RHESSI} flare list\footnote{\url{http://hesperia.gsfc.nasa.gov/hessidata/dbase/hessi\_flare\_list.txt}} (downward arrows).
+
+%time_plot_turbulence.eps
+%In Figure \ref{smart_turb}, the slope of the wavelet spectral power of the sunspot group is plotted over the disk passage. There is a strong line-of-sight dependence, and only measurements near disk-center should be trusted (between the inner vertical red lines). There appear to be abrupt periodic changes in slope which correspond to periods of enhanced flare activity.
+
+When NOAA 11226 first rotates onto the visible disk it is in a state of decay, as shown by the plot of total magnetic flux. However, the above analysis suggests that after several days on disk the active region becomes destabilized prior to the eruption. A compact negative polarity flux element emerges directly adjacent to the largest leading (positive) spot. The flux element moves northward injecting shear and helicity into the system. These observations suggest that the observed de-stabilisation is the cause of the eruptive phenomena on 7\,June\,2011 at $\sim$06:00\,--\,07:00\,UT.
+
+
+%Higgo - SMART PRE/POST Flare property changes
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.9\textwidth,clip=]{time_plot_flux_r_wflare.eps}}
+\caption[Short-term evolution of NOAA 11226]{Evolution of the magnetic field in NOAA 11226. \emph{a}: Area of differentially rotated static contour (black) and summed area of pixels above 90\,G (gray). \emph{b}: Total magnetic flux (black crosses), positive flux (red diamonds), negative flux (green triangles). \emph{c}: $B_{\mathrm{eff}}$ (black crosses) and 5-point smoothed $B_{\mathrm{eff}}$ (gray curve). The horizontal red lines denote the mean $B_{\mathrm{eff}}$ for times before and after the flare, respectively. Flares are displayed as in Figure~\ref{smart_overview}. A vertical red dotted line indicates the time of the flare of interest.}
+\label{smartprepostflare}
+\end{figure}
+
+%Slopes of property curves from Figure: \ref{smartprepostflare}
+%AREA pre:    -0.0028599778
+%AREA post:    -0.0044326855
+%AREA THRESH pre:     -0.013201238
+%AREA THRESH post:     -0.032569581
+%FLUX pre:     -0.076229020
+%FLUX post:      -0.15935190
+%FLUX POS pre:     -0.027663540
+%FLUX POS post:     -0.085349605
+%FLUX NEG pre:     -0.048565479
+%FLUX NEG post:     -0.074002289
+%BEFF pre:       0.17791039
+%BEFF post:       -3.7390637
+
+In Figure~\ref{smartprepostflare} the thresholded area is shown (top panel; gray crosses) before and after the time of the M-class flare (7\,June\,2011 06:16\,UT). The area decreases gradually over $\sim$16\,hr time range but an abrupt decrease of about 6\% occurs near the flare time. The area of the differentially rotated static contour is shown for comparison (black crosses). The observed gradual decrease of $\sim$5\% over the entire time range can be attributed to the remapping algorithm as well as an imperfect line-of-sight correction.
+
+The total magnetic flux (middle panel; black crosses) does not exhibit a clear change at the time of the flare. However, the difference between the positive (red diamonds) and negative (green triangles) magnetic flux increases by $\sim$30\%. The amount of positive flux is greater than the negative flux during the entire time range, and increases by $\sim$$5\times10^{20}$\,Mx, while the negative flux decreases by $\sim$$5\times10^{20}$\,Mx. This may be due to changes of orientation with respect to the line-of-sight of fluxtubes within the active region. In this case, flux-tubes with positive (negative) footpoints must become more (less) parallel to the line-of-sight. Alternatively, positive (negative) flux must emerge (submerge) or condense (disperse) to increase (decrease) the amount of flux included in the 90\,G contours. Upon reviewing a 12\,min-cadence movie of the active region near the time of the flare,
+%\footnote{See: FILL IN MOVIE URL HERE!!}, 
+an isolated negative flux concentration in the northern portion of the active region can be seen to fall below the threshold, simultaneously with parts of the main negative flux concentration.
+
+A measurement of magnetic inter-connectivity within the active region, $B_{\mathrm{eff}}$ (panel \emph{c}; black crosses), is shown to decrease by $\sim$30\%. The measurements are smoothed by 5 data points (gray curve). Linear fits (black lines) are shown separately for points prior to and following the flare. The horizontal red lines indicate the mean value of  $B_{\mathrm{eff}}$ for points before and after the flare start time (06:16\,UT). The decrease of $B_{\mathrm{eff}}$ at the flare time is due to a combination of a decrease of the line-of-sight magnetic field magnitudes and the distance between magnetic flux elements of opposing polarities. After a large eruptive event the magnetic configuration of the host active region would be expected to exhibit decreased non-potentiality. In the corona, the fields have been seen to relax to a state of lower energy  \citep{Conlon:2010b}. In the photosphere the effect is small, but has been observed \citep{Sudol:2005,Murray:2012}. %Additionally, the submergence of magnetic flux elements may occur, leading to decreases in photospheric flux. 
+
+Each of the properties begins to decay at a faster rate after the flare than before the flare, except for $B_{\mathrm{eff}}$ which is increasing slightly prior to the flare. This indicates that after the flare, the active region begins to diffuse and decay faster or that the magnetic fields become oriented further from the line-of-sight direction more quickly. The overall increase of $B_{\mathrm{eff}}$ prior to the flare is indicative of an increase in polarity mixing within the \gls{AR}, which has been shown to be related to flaring \citep{Georgoulis:2007}. 
+
+\section{Properties of Flaring Sunspot Groups}\label{sect:statflr}
+%Probability of \gls{AR} properties WRT flarin
+
+Currently, flares can not be reliably forecasted. This is partially because the mechanisms behind flaring can not be directly observed and are not well understood. Also, since the magnetic field can not be reliably measured in the corona, we must rely on photospheric fields and extrapolations to determine the magnetic structure in the corona. This lack of direct knowledge of what is really going on has resulted in the common use of proxies to indicate the build up of flare energy in a sunspot group \citep{Schrijver:2007,Falconer:2008}. So, determining the statistical relationship between sunspot group properties and flaring has become essential for any flare forecasting system. 
+
+In this section, the properties of \gls{SMART} sunspot group detections are associated with flares observed by \gls{GOES}, which measures the disk integrated X-ray flux in a 1 to 8\,\AA\ bandpass. Locations are obtained from the Latest Events Archive\footnote{\url{http://www.lmsal.com/solarsoft/latest\_events\_archive.html}}. The data coverage includes flares from 2002 through 2009 and the flare locations in the catalogue are determined by differencing sequential \gls{EUV} images to detect coronal brightenings. The \gls{SMART} detections cover the same time period and one observation per day is chosen from the 96\,minute maximum cadence of \gls{MDI} observations. We filter the associated sample to only include sunspot groups within 60$^\circ$ longitude of disk center to avoid large errors in property determinations due to \gls{LOS} effects.
+
+Each flare-sunspot group association is performed by overlaying each flare on the full-disk \gls{SMART} detection mask attributed to the magnetogram closest in time to the catalogued flare start time. This association method uses flares as a base rather than the \gls{SMART} detections. This avoids a bias in the sunspot group property distributions based on their lifetime and is instead on their flare productivity. The counting statistics are then based on numbers of flares rather than numbers of magnetic feature detections.
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.9\textwidth,clip=]{plot_ars_flares_area_dist.eps}}
+\caption[Flaring AR area distributions.]{Distributions of sunspot group $\log($area$)$ for the entire population (gray) and those associated with C- (blue), M- (green), or X-class flares (red).}
+\label{fig:minareaflr}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.9\textwidth,clip=]{plot_ars_flares_bflux_dist.eps}}
+\caption[Flaring AR flux distributions.]{Distributions of sunspot group $\log($total flux$)$ with the same color coding as in Figure~\ref{fig:minareaflr}.}
+\label{fig:minfluxflr}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.9\textwidth,clip=]{plot_ars_flares_rval_dist.eps}}
+\caption[Flaring AR R-value distributions.]{Distributions of sunspot group $\log($R-value$)$ with the same color coding as in Figure~\ref{fig:minareaflr}.}
+\label{fig:minrflr}
+\end{figure}
+
+\begin{table}[t!]
+\caption[Minimum AR property values for flaring.]{The minimum total flux and R values for a sunspot group to have the potential to produce a flare of each GOES class.}\label{table:minprop}
+\centerline{\begin{tabular}{lc|lc}
+\hline \hline
+\multicolumn{2}{l|}{Minimum $\Phi_{TOT}$}&\multicolumn{2}{l}{Minimum R-Value} \\
+\hline
+C  & $ > 8.7\times10^{21}$\,Mx & C  & $> 5.7\times10^{10}$\,Mx \\
+M  & $> 1.8\times10^{22}$\,Mx & M  & $> 3.9\times10^{11}$\,Mx \\
+X  & $> 3.9\times10^{22}$\,Mx & X  & $> 4.3\times10^{12}$\,Mx \\
+\hline
+\end{tabular}}
+\end{table}
+
+In Figure~\ref{fig:minareaflr}, the distribution of areas for the complete sample of detections is shown in gray (both associated and not associated with flares). The distribution of detections associated with C-class flares is shown in blue and for the largest areas, the number of C-class detections is greater than the whole population of detections. This is due to the association method, since if multiple flares are produced from the same sunspot group close in time, the \gls{SMART} detection best matched in time will be the same for each flare and will thus be counted multiple times. The area dependence of detections associated with flares shows that there is a most probable range of areas for producing flares ($\sim$2-$4\times10^{20}$\,cm$^2$). Beyond a certain size, large flares are not expected. This effect could indicate that the largest features detected by \gls{SMART} (complexes of mature sunspot groups) are not as unstable as the more compact and isolated groups. Detections associated with M- and X-class flares are indicated by the green and red lines, and exhibit a similar area dependence to the C-class flares, but with a more limited extent. The most important information we can glean from the plots is the minimum property value needed to produce a flare. 95\% of each population lies above the vertical dotted lines in Figure~\ref{fig:minareaflr}.
+
+Figure~\ref{fig:minfluxflr} shows the distribution of total magnetic flux for each distribution. Compared to area, the drop off in the number of flares associated with detections of large flux is even more stark. As with area we can determine the minimum flux necessary for a sunspot to produce each class of flare, as listed in Table~\ref{table:minprop}. In this case the three flare class minimum values for flaring  have a larger relative separation than for area. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.7\textwidth,clip=]{rval_vs_bflux.eps}}
+\caption[AR R-value versus flux.]{A plot of sunspot group $\log($R-value$)$ versus $\log($total magnetic flux$)$.}
+\label{fig:flxvsrval}
+\end{figure}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=0.7\textwidth,clip=]{rval_vs_wlsg.eps}}
+\caption[AR R-value versus $WL_{SG}$.]{A plot of sunspot group $\log($R-value$)$ versus $\log(WL_{SG})$.}
+\label{fig:rvswlsg}
+\end{figure}
+
+Distributions of sunspot group \gls{rvalue} are shown in Figure~\ref{fig:minrflr}. The relative separation between the minimum flaring values is greater again for \gls{rvalue} than for flux. These values are listed in Table~\ref{table:minprop}. The \gls{rvalue} and flux of the sample populations are plotted against eachother in Figure~\ref{fig:flxvsrval}. The property values that result in the largest flares lie at the apex of the 2D sample distribution. This is not surprising since the distributions indicate that the largest flares occur in the detections exhibiting the largest property values.
+
+Figure~\ref{fig:rvswlsg} shows \gls{rvalue} against \gls{wlsg}. Again, those associated with the largest flares are clustered at the largest property values. In this case, another population of detections is also visible: detections that are not associated with flares, but have a larger \gls{wlsg} value than those that are associated with flares, for a given \gls{rvalue}. This is likely caused by \gls{LOS} effects. \gls{wlsg} is directly related to the magnitude of gradients which are significantly over-estimated away from disk center, while \gls{rvalue} is directly related to flux and is much more reliable away from disk center. This indicates that using a combination of properties can more effectively discriminate between flaring and non-flaring sunspot group detections. This idea has been taken further using many properties with linear discriminate analysis \citep{Leka:2003a,Leka:2003b}. 
+
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width=0.7\textwidth,clip=]{wlsg_vs_bflux.eps}}
+%\caption{...}
+%\label{fig:flxvsr}
+%\end{figure}
+
+\section{Solar Cycle Dependence of Flaring Sunspot Groups}\label{sect:solcycflr}
+
+%TEMP!!!
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.0\textwidth,clip=]{wlsg_butterfly.eps}}
+\caption[AR butterfly diagram showing PSL strength.]{Top: Butterfly diagram of all AR detections (gray), over-layed
+with regions of greater than 10$^{20}$\,Mx flux (dark gray) and  $>15\,000$\,G\,Mm$^{-1}$ WLsg (orange),
+and M- and X-class flares (black). Right: Marginalized butterfly diagrams.}
+\label{fig:flarebutterfly}
+\end{figure}
+
+In this section, the solar cycle dependence of sunspot group flare productivity is investigated. As in the previous section, \gls{SMART} detections are associated with flares. As before, one set of sunspot group detections is produced per day. Here, the \gls{NGDC} flare list is used, as described in Chapter~\ref{chapter:data}, since it covers all of solar cycle 23. This list is less complete than the Latest Events Archive (used in the previous section), especially for the smaller, more frequent flares. This is because ground-based H$\alpha$ observations are used to determine the flare locations (as opposed to \gls{EUV} images). The observations are affected by atmospheric seeing, weather, and less consistent observations. 
+
+The following investigation is more concerned with the occurrence of larger flares at different times in the solar cycle. The aim is to determine if there is a quantitative difference in the properties of emerging sunspot groups over time, and how strongly flaring is determined by those properties. Flares are known to be a random stochastic process \citep{Wheatland:2002}, but some properties of the sunspot groups, such as area, are shown to be qualitatively predictable over a solar cycle \citep{Hathaway:2009}. 
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.0\textwidth,clip=]{time_series_n_s2.eps}}
+\caption[Sun-averaged AR property time series.]{Top: Time-series of R-value (blue) and $WL_{SG}$ (orange) in the south hemisphere. Flare index (green) and the number of M- and X-class flares (black) is over-plotted. Time-series are normalized by their maxima. Bottom: Similar time-series for the north hemisphere.}
+\label{fig:flrcmplxtsers}
+\end{figure}
+
+In addition to investigating the number of large flares produced, we quantify the flaring index of the visible disk \citep{Antalova:1996},
+\begin{equation}
+F = (1 \times \sum_n I_C + 10 \times \sum_n I_M + 100 \times \sum_n I_X )/\Delta t \mbox{ ,}
+\end{equation}
+where $I_C$, $I_M$, and $I_X$ are the numerical magnitude of each flare (i.e. 7 is the magnitude of a M7 class flare) occurring during $\Delta t$. This index is weighted toward the largest flares, and is treated as a proxy for the time integrated flare energy released.
+
+%1 detection set/day
+%timeseries -> 2week bins
+
+Figure~\ref{fig:flrcmplxtsers} shows a time-latitude map of \gls{SMART} detection centroids for different property thresholds and all M- and X-class flares produced over the solar cycle. The flare locations are generally co-spatial and co-temporal with the sunspot group detections of \gls{wlsg} $>15\times10^3$\,G\,Mm$^{-1}$. A histogram of each population of daily detections is shown in the panel to the right. The populations of largest \gls{wlsg} and total flux $>10^{22}$\,Mx are more confined in latitude than those of smaller flux. Although a coincidence, the number of M- and X-class flares is remarkably close to the number of daily detections above the \gls{wlsg} threshold.
+
+The daily detections are then binned by 2\,weeks and summed over latitude. Figure~\ref{fig:flrcmplxtsers} shows the arbitrarily normalised\footnote{Normalisation was chosen to highlight time dependent features in each curve. Each curve was divided by its maximum, and then multiplied by an arbitrary factor: 1.2 for \gls{rvalue} and \gls{wlsg}, 0.6 for flare index, and 0.5 for the number of M- and X-class flares.} curves for \gls{rvalue}, \gls{wlsg}, flare index, the number of M- and X-class flares. Many features are present in each curve. Most of the time, when a peak in summed \gls{rvalue} and \gls{wlsg} is observed, a peak in flare index and the number of large flares is also seen.
+
+The time-series of each curve is then compared. Figure~\ref{fig:fltcmplxcorr} shows the flare and property time-series plotted against each other and the correlation coefficient between each combination. For all three properties, there is better agreement with the number of M- and X-class flares than with flare index. Also, \gls{wlsg} exhibits the largest correlation with the number of flares of the three properties, although \gls{rvalue} exhibits a larger correlation with flare index than \gls{wlsg}. It makes sense that the number of large flares would be better correlated than flare index with sunspot group properties that are related to strong \glspl{PSL}. As shown in Section~\ref{sect:statflr}, small flares are produced by detections of a wide range property values, but large flares are only associated with detections of the largest property values.
+
+\begin{landscape}
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.5\textwidth,clip=0]{correlation_n_s_mxflare.eps}}
+\caption[Correlation between AR property time series and flaring.]{\emph{Left}: Correlation between flare index and total flux, R-value, and $WL_{SG}$. \emph{Right}: Correlation between the number of M- and X-class flares and total flux, R-value, and $WL_{SG}$.}
+\label{fig:fltcmplxcorr}
+\end{figure}
+\end{landscape}
+
+%normalisation factors
+%sr=1.2, swlsg=1.2
+%nr=1.2, nwlsg=1.2
+%sfindx=0.6, snflr=0.5
+%nfindx=0.6, nnflr=0.5
+%We aim to show that polarity separation line (PSL) strength in an \gls{AR} is a better indicator of flare productivity than magnetic flux. Also, activity in one solar hemisphere does not mirror the activity in the other.
+%SMART is run on magnetogram data from 1997 to 2009. \gls{AR} properties, total magnetic flux (), Schrijver's R value, Falconer's WLsg proxy for non-potentiality, and flare productivity are compared over cycle 23.
+%PSL strength is a much better predictor of solar flare activity than flux.
+%\begin{figure}[!t]
+%\centerline{\includegraphics[width=0.7\textwidth,clip=]{modulate_bflux_n.eps} \\\includegraphics[width=0.7\textwidth,clip=]{modulate_r_n.eps}}
+%\caption{ ... }
+%\label{fig:modulate}
+%\end{figure}
+%The emergence of highly non-potential, flare-productive sunspot groups are found to be more confined in latitude than sunspot groups in general, with little dependence on the phase of the solar cycle. The global flare index is better correlated to the global \gls{rvalue} than \gls{wlsg} or magnetic flux.
+
+\section{Conclusions}
+
+In this chapter, the relationship between the flare productivity and magnetic properties of sunspot groups has been explored. 
+\begin{itemize}
+\item Individual sunspot groups are shown to undergo both long-term changes prior to flaring \citep[Section~\ref{noaa_10365}][]{Verbeeck:2011} and short-term changes at the time of flaring \citep[Section~\ref{sect:noaa_11226}][]{Bloomfield:2012b}. This is the first time properties determined by different detection algorithms using both photospheric and coronal data have been compared over time. Also, this is the first time $B_{\mathrm{eff}}$ has been compared just before and after a flare.
+\item A large-scale statistical comparison of measured properties and associated flares has allowed the determination of thresholds in the property values for flares of different classes to occur (Section~\ref{sect:statflr}). This is the largest sample of magnetic detections ever used to study flaring and it is the first time the magnetic area, flux, \gls{rvalue}, and \gls{wlsg} of detections has been directly compared to study flaring. 
+\item The comparison of global flare productivity and the disk integrated magnetic properties of \gls{SMART} detections shows that properties involving strong \glspl{PSL} are well correlated (\glspl{CC} of $\sim$70\,--\,90) to flare activity (Section~\ref{sect:solcycflr}). This is the first time that these magnetic properties have been compared over the solar cycle.
+\end{itemize}
+The following sections provide more detail on these points.
+
+\subsection{Case Studies}
+%CASE STUDIES
+Through the time-series analysis of two \gls{AR} case studies (Section \ref{sect:casestudies}), we have observed the emergence of new magnetic flux, sunspots, and coronal loop structures within the boundaries of a decaying region (Section \ref{noaa_10365}). Increases in non-potentiality are observed, followed by the onset of flaring (Sections~\ref{noaa_10365} and \ref{sect:noaa_11226}). Finally, differences in flux and $B_{\mathrm{eff}}$ are observed over short time-scales just before and after an M-class flare. 
+
+We find that the detection algorithms show good correspondence between centroid positions and areas, but significant divergence is seen in other properties. For example, the total number of detected sunspots fluctuates much more than other measured properties, especially near the limbs, as transient spots rapidly emerge and disappear. This is partly due to the visibility curve since the area of small spots is highly impacted by the observer's viewing angle \citep{Dalla:2008,Watson:2009}.  
+
+In terms of the usefulness of different properties, sunspot area is more indicative of the emergence and decay of an \gls{AR} than coronal or magnetic area, which do not necessarily decrease during decay, as this is dependent on arbitrary detection thresholds. As a basis for long-term \gls{AR} tracking, magnetic flux is more useful than the sunspot area, since sunspots are much more transient than their magnetic footprints, or maximum magnetic field value, since it is affected by the \gls{MDI} saturation problem \citep{Liu:2007}. Also, the maximum magnetic-field value is unstable since different positions in the active region will over-take each other in field magnitude as they develop, causing the location that the value is sampled from to vary wildly. Finally, the total \gls{EUV} intensity determined by \gls{SPoCA} has a smooth behaviour over time and is closely linked to area. The maximum \gls{EUV} intensity peaks when the active region emits a large flare, and appears to be a useful indicator of eruptions in the corona.
+
+The case study of complex, flaring \gls{NOAA} 10365 (Section \ref{noaa_10365}) shows that flaring can happen both in periods of flux emergence as well as non-potentiality enhancement in an active region. Following the initial flaring during the emergence phase of evolution, further flaring occurs as the main \gls{PSL} rotates with respect to the bipole connection line. This may be a sign of helicity injection and is coincident with increases of other properties related to polarity mixing. Helicity injection has been established as a method of increasing non-potentiality and may be caused by the emergence of subsurface twisted flux ropes, as seen in \citet{Dun:2007}.
+
+%As \gls{NOAA} 10365 returns after one solar rotation, decay is seen in the strength of its magnetic footprint. However, the area is not seen to decrease significantly, since supergranular diffusion causes a radial dispersal of magnetic elements. Coronal structures do not appear to decay readily, either. This result agrees with \cite{Lites:1995}, where it is reasoned that if the coronal magnetic structure is closed, it may be in a state of quasi-static equilibrium, whereby the magnetic buoyancy of the loops is cancelled by the weight of plasma trapped at the bottom of the closed structure.
+
+Flares detected by the \gls{RHESSI} satellite are used to determine the activity of sunspot groups over time. Since it is Earth orbiting, it periodically enters regions in which it can not make reliable observations. These periods include eclipses, when the Sun is occulted by the Earth, and passes through the south Atlantic anomaly (SAA), a region near the east coast of South America which exhibits an irregular geomagnetic field. These drop-out periods are short lived on the timescale of a large flare (hours) so they should not cause a large flare to be missed, although some small flares could be missed. However, flaring is random and the frequency of small flares during a period of enhanced activity is large. Although some individual flares may be missed, it will be clear that enhanced activity is taking place, as the repeated occurrence of small flares will never be co-temporal with a sequence of eclipse periods.
+
+\subsection{Statistical Analysis}
+
+The results of the large scale investigation into the relationship between sunspot group properties and flaring in Section~\ref{sect:statflr} indicate the minimum property value for a flare of given \gls{GOES} class to occur. This work cannot predict whether a sunspot group will produce a flare. However, it can be used to predict an ``all-clear"-- that no flare above a given magnitude will occur as long as no sunspot groups are observed to have properties above the threshold values. This is useful information for airline flight controllers and astronaut flight surgeons concerned with the human impact of dangerous radiation from solar eruptive events.
+
+\subsection{Solar Cycle Dependence}
+
+In Section~\ref{sect:solcycflr} we investigate the solar cycle dependence of global solar flare production. We also determine the relationship between global flare productivity and the properties of detected sunspot groups. It is found that large sunspot groups exhibiting strong \glspl{PSL} are more confined in latitude than large sunspot groups without strong \glspl{PSL}. \gls{PSL} strength generally indicates complexity, as the mixing of polarities results in opposite-aligned fields in close proximity, and thus a larger \gls{PSL} length is detected. Since more complex sunspot groups emerge at lower latitudes, the underlying toroidal magnetic field structures must also be more complex at lower latitudes. This could indicate either that the toroidal flux production mechanism is less organised at lower latitudes, or that the evolution of the magnetic structure encounters less regular flows.
+
+The majority of large flares occur cospatially with sunspot groups exhibiting strong \glspl{PSL}. The global value \gls{wlsg} is a better indicator of the potential for large flares to occur, while \gls{rvalue} is a better indicator of the global flare index. The relationship between global flare productivity and sunspot group properties could allow for long-term global flare forecasts. %The correlation between flaring and sunspot groups appears to hold for time-scales of weeks. This has not been shown before.
+
+
+% ---------------------------------------------------------------------------
+%: ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------
+
