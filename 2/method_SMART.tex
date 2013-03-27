@@ -160,7 +160,7 @@ The aim of \gls{SMART} is to characterize \glspl{AR} in a manner which does not 
 The \gls{SMART} characterization process utilizes the feature mask ($IGM_{t}$) retrieved by the methods outlined in the previous section, following the procedure detailed in Figure~\ref{flow_char}. This mask contains all of the features visible on the solar disk at a given time. The property measurements are derived from the magnetogram taken at time, $t$ which is processed in the manner detailed below. We subscript the mask containing all features by $i$ to extract a single feature mask, $IGM_{t,i}$. A cosine-corrected pixel-area map, $A_{cos,t,i}$,  is constructed that contains pixel areas corrected to solar surface area rather than plane-of-sky area, and is summed to yield total feature area, $A_{tot,t,i}$. 
 
 \begin{table}[!t]
-\centerline{\begin{threeparttable}
+\centerline{
 \begin{tabular}{lcl}
 \hline
 Data Type&Identifier&Explanation\\
@@ -170,24 +170,27 @@ Feature Array&$M_{PSL,t,i}$ & polarity separation line mask \\
 \hline
 Property Value&$L_{PSL,t,i}$ & $\sum_{pix}{M_{PSL,thin,t,i}}$ \\
 &$L_{sg,t,i}$ & $L_{PSL,t,i} > 50$\,G\,Mm$^{-1}$ \\
-&$R_{t,i}$ & $R$-value\tnote{1} \\ %\footnotemark[1] \\
+&$R_{t,i}$ & $R$-value: flux near a PSL \\ %\tnote{1}\footnotemark[1] \\
 &$R^{*}_{t,i}$ & $\sum_{pix}{(M_{PSL,t,i} \ast Gauss_{2D})\times B_{t,i}} $ \\
-&$WL_{sg,t,i}$ & non-potentiality gauge\tnote{2} \\ %\footnotemark[2]\\
+&$WL_{sg,t,i}$ & non-potentiality gauge \\ %\tnote{2}\footnotemark[2]\\
 &$WL^{*}_{sg,t,i}$ & $\sum_{pix}{M_{PSL,t,i} \times \nabla B_{t,i}} $ \\
 \hline
-\end{tabular}
-\begin{tablenotes} \footnotesize
-\item[1] Schrijver (2007)
-\item[2] Falconer \emph{et al.} (2008)
-\end{tablenotes}
-\end{threeparttable}}
+\end{tabular}}
+\caption[A list of PSL-related physical properties.]{Feature magnetic properties derived from polarity separation line characterization.}
+\label{tablehighorder}
+\end{table}
+
+%\begin{threeparttable}
+%\begin{tablenotes} \footnotesize
+%\item[1] Schrijver (2007)
+%\item[2] Falconer \emph{et al.} (2008)
+%\end{tablenotes}
+%\end{threeparttable}}
 %\protect\citet{Schrijver:2007}
  %\protect\citet{Falconer:2008}
 %\footnotetext[1]{\citet{Shj07}}
 %\footnotetext[2]{\citet{Fal08}}
-\caption[A list of PSL-related physical properties.]{Feature magnetic properties derived from polarity separation line characterization.}
-\label{tablehighorder}
-\end{table}
+
 
 Full-disk magnetograms $B_{t-\Delta t}$ and $B_{t}$ are processed as in Section \ref{dataproc} (thresholding, LOS correction, $B_{t-\Delta t}$ differentially rotated to time $t$), but without smoothing. Single features are extracted for magnetic property determination using the indexed grown mask,
 \begin{equation}\label{eqn_ardata}{%
