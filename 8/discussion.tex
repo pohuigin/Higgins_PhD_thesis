@@ -1,0 +1,162 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+\chapter{Conclusions and Future Work} % top level followed by section, subsection
+\label{chapter:discussion}
+
+% ----------------------- paths to graphics ------------------------
+
+% change according to folder and file names
+
+    \graphicspath{{8/figures/EPS/}{8/figures/}}
+
+%Reset all glossary terms
+\glsresetall
+
+% ----------------------- contents from here ------------------------
+
+%ABSTRACT-----------------------------------------------------
+\hrule height 1mm
+\vspace{0.5mm}
+\hrule height 0.4mm 
+\noindent 
+\\ {\it 
+In this chapter, the results of each of the investigations presented in this thesis (Chapters~\ref{chapter:method_SMART}, \ref{chapter:results_activity}, \ref{chapter:results_global}, and \ref{chapter:results_diffusion}) are summarised. The novel findings are highlighted and the prospects for future work on each topic are discussed.  
+}
+\\ 
+\hrule height 0.4mm
+\vspace{0.5mm}
+\hrule height 1mm 
+%\newpage
+\vspace{1.5cm}
+%END ABS---------------------------------------------------------
+
+\section{Conclusions}
+
+%NUMBERS/BULLET POINTS!!
+
+The investigations presented in this thesis focus on examining the life-cycle of magnetic flux originating in sunspot groups, later dispersing to become part of the global field. The methods used to determine the properties of magnetic features are characterised (Section~\ref{chapter:method_SMART}). Then, the evolution and properties of sunspot groups are compared to flare productivity (Section~\ref{chapter:results_activity}). Following this, the configuration of the global magnetic field of the Sun was compared to the properties of sunspot groups in the active latitudes over cycle 23 (Section~\ref{chapter:results_global}). Finally, the mechanisms resulting in magnetic flux dispersal from decaying sunspot groups are characterised (Section~\ref{chapter:results_diffusion}). The main results of each study are summarised below.
+\begin{enumerate}
+\item \emph{Detecting and Tracking Solar Active Regions:} In Chapter~\ref{chapter:method_SMART}, the reliability of measurements using automated detection methods on \gls{LOS} magnetic field observations is explored. It is clear that the measured magnetic field magnitudes are not representative of the true magnetic field strength. Also, it is not clear how much of an effect the nonlinearities in \gls{MDI} data affect our results. We have shown that flux is a more reliable indication of the magnetic field than magnetic field strength. The stability of \gls{SMART} detections over time is shown to be excellent relative to position and flux measurements. From our simple simulations, we see that area and flux measurements are not significantly affected by \gls{LOS} effects out to $60^{\circ}$ longitude. However, measurements involving magnetic gradients, such as \gls{PSL} length and \gls{wlsg}, become dubious well before $60^{\circ}$ longitude. Similar to much of the contemporary work in solar physics, the physical characteristics of the solar magnetic field determined here can only be compared with other work using the \gls{MDI} instrument due to uncertainties involved in the instrument's design and calibration. {\bf The need for a pair of space borne instruments with the sole purpose of providing regular spectropolarimetric observations of the vector magnetic field across the entire solar surface is absolutely clear.}
+\item \emph{The Flare Productivity of Sunspot Groups:} In Chapter~\ref{chapter:results_activity}, the evolution of individual sunspot groups is compared with the occurrence of flares. Specific behaviours of the magnetic field strength and configuration are identified that lead to flaring in the cases presented. A large sample of detections associated with flares are analysed to determine the values of measured physical properties that are necessary for flares of different magnitudes to be produced. While this work cannot be used to predict flares on its own, it could be combined with knowledge of the occurrence of behaviors observed in the case studies to determine when a flare is expected to occur. For instance if the pre-flare behaviors are observed in a sunspot group that is below a given flaring threshold, no flare would be expected, but if the sunspot is above the threshold, a flare \emph{would} be expected. The prospects for this kind of forecasting capability are described in Section~\ref{fig:june7thzoom}. Additionally, the full-Sun flare productivity over cycle 23 is investigated. It is clear that on a global scale, the summed properties of individual sunspot group detections are highly indicative of the total flare production. 
+\item \emph{Sunspot Groups and the Global Magnetic Field of the Sun:} In Chapter~\ref{chapter:results_global}, the properties of sunspot groups are compared to the global magnetic field configuration. A statistical analysis of sunspot group detections indicates that in addition to the solar cycle dependence of the detection rate, the properties of sunspot groups also depend on the solar cycle. There is an excess of sunspot groups with large flux in the plateau phase of the cycle, while the distributions of sunspot group flux appear to be very similar for the rise and decay phases of cycle 23. Using magnetic butterfly diagrams, it is apparent that the large-scale flux imbalance measured from sunspot group detections matches that from the raw magnetograms. At high latitudes the flux imbalance is opposite to that at low latitudes and  the magnitudes of the imbalances at high and low latitudes  have similar magnitudes, during the first half of the solar cycle. This supports the idea that flux is transported from low to high latitudes, as per the Leighton-Babcock mechanism. Using \gls{PFSS} extrapolations we find the configuration of the global magnetic field, indicated by the spherical harmonic coefficients, qualitatively matches the polarity banding pattern observed in the magnetic butterfly diagrams, that occurs due to the decay and transport of sunspot group magnetic fields. Thus, it is reasonable to say that the global magnetic field configuration of the Sun is determined in large part due to the life-cycle of sunspot groups.
+\item \emph{Characterising the Transport of Diffuse Magnetic Flux:} In Chapter~\ref{chapter:results_diffusion}, the mechanism by which decaying sunspot group magnetic fields are dispersed is characterised. We find that as a first-order approximation, the continuous ordinary gas diffusion model for surface magnetic field diffusion is acceptable to describe large scale magnetic field observations. However, previous work has shown repeatedly that determining the diffusion coefficient by tracking individual flux elements does not match that determined by global \gls{SFT} simulations. For the first time, we have directly matched the results of tracking diffusion from large-scale observations with a data-driven \gls{SFT} simulation. We attain a diffusion coefficient much closer to the global simulation studies than what has been found in the small scale studies. It is likely that the tracking methods used and the temporal and spatial coverage of the observations are responsible for the difference in diffusion coefficient for small-scale studies. Future  studies should determine the diffusion coefficient using high resolution \gls{HMI} data. Also, kinematic models of flux element dispersion should be investigated as an alternative to the continuous model.
+\end{enumerate}
+The over-arching conclusion of this work is that the properties of localised magnetic features determine both the eruptive activity on the Sun, as well as the configuration of the global magnetic field. By studying the statistical properties of emergent magnetic features, the internal processes resulting in the magnetic solar cycle may eventually be characterised.
+
+\section{Future Work}
+
+I will continue to investigating each of the areas presented in this thesis. Each study presented here has answered one or more questions about the life-cycle of magnetic flux on the Sun. Often, more unanswered questions emerge, provoked by the results of each study. In the following sections, the prospects for future work in each area of investigation are described, leading on from the results presented in this thesis. 
+
+\section{Detecting and Tracking Solar Active Regions}\label{sect:detecttracksolarar}
+
+Following on from the point-in-time statistical studies of sunspot groups presented in this thesis, we seek to characterize the time-dependent behavior of magnetic and coronal sunspot group properties using morphological tracking and time-series analysis. Patterns in the time dependence of sunspot group properties will be detected. Some of the properties to be investigated include rapid changes (increases and decreases) in magnetic flux, PSL development and rotation, helicity injection, coronal loop development, and previous flare history. The automated detection of sunspot group evolutionary behaviors has not been performed previously. 
+
+The time-series analysis of sunspot group evolution requires the tracking of sunspot groups throughout their entire life-cycle. The current tracking module used by \gls{SMART} is a simple algorithm that allows multiple observations of the same sunspot group to be associated. It is novel since it allows groups to be tracked through multiple disk passages. This is important in allowing the complete evolutionary history to be characterized, as well as knowing when to expect the return of previous sunspot groups. However, the algorithm is limited in only matching detections adjacent in time by their centroids and is not robust when adjacent groups merge and split. More complex systems are available, such as Yet Another Feature Tracking Algorithm \citep[YAFTA;][]{Welsch:2003}, and take morphology into account to solve these issues. A new tracking algorithm able to robustly handle merging and splitting as well as multiple disk passage tracking will be developed for this project.
+
+
+\section{The Flare Productivity of Sunspot Groups}
+
+\begin{figure}[!t]
+\centering{\includegraphics[width=0.7\textwidth]{june7th.eps}}
+\caption[The 7 June 2011 eruption.]{The 7 June 2011 eruption imaged by the AIA and HMI instruments onboard SDO.}
+\label{fig:june7thzoom}
+\end{figure}
+
+\begin{figure}[!t]
+\centering{\includegraphics[width=1.0\textwidth]{flare_predict_flow_chart.eps}}
+\caption[A block diagram of a flare prediction system.]{A block diagram of a flare prediction system incorporating the complete history of a tracked sunspot group.}
+\label{fig:flareblock}
+\end{figure}
+
+Following this work, the multi-scale, multi-layer investigations of sunspot group life-cycles presented in this thesis will be continued. As discussed in Section~\ref{sect:detecttracksolarar}, this will include tracking magnetic field detections, allowing for merging and splitting, which will allow more reliable analyses of their dynamics. This new catalog of detections will allow a large-scale statistical study of their \emph{evolution} with respect to flaring, which has not been explored in any detail previously. Sunspot evolution will be determined, not only from photospheric observations, but also from coronal observations, where flares \emph{actually} occur. The 7 June 2011 eruption will be used as one case study for these investigations (Figure~\ref{fig:june7thzoom}). The eventual goal is to determine a set of reliable time dependent behaviors in the detection properties to combine with our knowledge of a sunspot group's potential to flare. This will be used to construct a more reliable flare prediction system than is currently available. Such a system would include short time-scale information (the last few observations of a feature) as well as the full history of the feature's evolution. A block diagram of such a system is shown in Figure~\ref{fig:flareblock}.
+
+The completion of this catalog will result in a large data-set of sunspot group detections and their associated coronal and magnetic characteristics. This data set will be analyzed to determine how the characteristics of a magnetic structure relate to the observed characteristics of structures in the corona above a sunspot group. This has previously been studied by generating a 3D extrapolation of surface magnetic field observations and determining how well it matches structures in the corona \citep{Conlon:2010b}. In our case we will be comparing coronal and magnetic properties, such as proxies of complexity and twist, to determine the association between them as well as the occurrence of flares. Twist in directly-observed coronal structures has not been extensively studied and the comparison of coronal and footpoint evolution is in its infancy.
+
+The distribution of some sunspot group properties observed at a point in time have been studied \citep{zhang:2010} as well as comparisons between photospheric and coronal properties \citep{Fisher:1998}. However, the connection between the evolution of a sunspot group in both the photosphere and corona is not well known \citep{Verbeeck:2011}. Using time dependent characterizations a large sample of tracked sunspot groups, we will determine the connection between photospheric and coronal evolution. The relationship between the characteristics of early development (or evolutionary properties) and the properties at some later time are also not known.  In characterizing the emergence phase of sunspot groups we will determine if the nature of sunspot groups can be predicted at the time of emergence or if their long term evolution is chaotic, and thus inherently unpredictable in nature. 
+
+The Hale sunspot group magnetic classification system has proven to scale well with overall flare productivity \citep{Kunzel:1960} as well as the largest magnitude of flare produced. It is found that the delta classification (both magnetic polarities within a single sunspot penumbra)  is responsible for the vast majority of X-class flares \citep{sammis:2000}. In this work, delta-spots will be automatically identified by detecting sunspot contours in white-light images and overlaying them on magnetic field observations. Additionally, the flux within detected delta spots will be determined. Automated delta-spot detection has not previously been investigated for a large sample of sunspot groups.
+
+\begin{figure}[!t]
+\centering{\includegraphics[width=0.8\textwidth]{ar_sim2.eps}}
+\caption[A schematic of detected loops overlaid on a magnetogram.]{A schematic of detected loops overlaid on a magnetogram. The angle that the loops make with the polarity separation line is indicative of sheared magnetic fields.}
+\label{fig: loopschem}
+\end{figure}
+
+This work will utilize the coronal loop tracing method described in \cite{Aschwanden:2010} that relies on a novel directional ridge finding algorithm to extract the skeletons of bright loop-like structures. First, EUV images are filtered using a method similar to un-sharp mask to accentuate high-gradient features. The algorithm iterates through each observed loop by beginning at the brightest point in the image, detecting the direction of curvature by sampling the flux along a line in every direction, and moving in both directions along the ridge to trace out the loop to its foot points. The detection is then removed from the image and the process is repeated. The collection of loop skeletons for the sunspot group is extracted and will be analyzed in our work. The collective directionality of a set of extracted loop-skeletons will be determined by detecting the polarity of loops by overlaying the loop foot-points on a smoothed magnetogram. In this way we can construct a map of the horizontal trace of coronal loop directionality. A schematic of how the loop detections will be characterised is shown in Figure~\ref{fig: loopschem}. 
+
+Additionally, I am involved in work with a statistician aiming to identify statistical methods for forecasting flares using \gls{SMART} detections as input. In an earlier collaboration with another group \citep{Ahmed:2011}, machine learning was used to minimize incorrect forecasts. This resulted in a system that was able to produce the most accurate 24-hour forecasts to date. We now aim to use similar methods and incorporate dynamical information of sunspot group evolution.
+
+\section{Sunspot Groups and the Global Magnetic Field of the Sun}
+
+\begin{figure}[!t]
+\centering{\includegraphics[width=0.8\textwidth]{diff_rot_resid.eps}}
+\caption[A butterfly map of residual differential rotation.]{A butterfly map of residual differential rotation, overlaid with the bounds of the sunspot cycle.}
+\label{fig:torsosc}
+\end{figure}
+
+In this thesis the properties of magnetic features at the solar surface are investigated. One area we did not address in any detail is the nature of subsurface magnetic fields. Knowledge of their structure is important for determining how sunspot-group nests form. Statistically, magnetic flux tends to emerge repetitively in the same location \citep{Pojoga:2002}. So far there is no accepted reason for why this occurs. The aim of this project is to characterise the surface and subsurface nature of sunspot nests and determine why they form. We aim to answer the questions: \emph{What is the rate of flux emergence? What is the lag between emergence episodes? How much flux emerges all together? Do the nests drift with respect to the local solar rotation speed?} The drift speeds could indicate the anchoring depths of the nests and constituent sunspot groups. The improved feature tracking methods described in Section~\ref{sect:detecttracksolarar} will be useful for keeping track of the motion of sunspot groups over long periods of time and to know whether increases in flux are due to mergers or new emergence in within the same group.
+
+Knowledge of the subsurface magnetic field structure may give some clues as to the relationship between sunspot group emergence and the torsional oscillation. \citet{Hathaway:2011} present a plot of the residual differential rotation speed and a region of shear that progresses in latitude preceding the equator-ward progression of Sunspot emergence. It is thought that this dynamic shearing feature plays some role in destabilising subsurface magnetic flux ropes. Figure~\ref{fig:torsosc} shows a map of the residual rotation speed with the solar cycle bounds overlaid. It would be interesting to have an accurate measurement of the rotation speed of sunspot groups over the solar cycle, as well as that of small magnetic features, such as plage. There has not been a statistical study over time, comparing the rotation of these features to the background plasma rotation speed. The speed could also be compared to helioseismic measurements, possibly indicating the anchoring depths of the different features.
+
+%large-scale mag field above solar surface
+%-trace features in the solar wind back to ARs on the surface. 
+%-use PFSS to extrapolate outward (low beta) -> ballistic model (high beta) -> insitu boundary condition
+%-Lasco to identify streamers and relate to surface features using SMART detections and PFSS
+%-use SEPs to probe the magnetic field -> how well connected are fields to L1 or mars or saturn at a given time
+
+In addition to studies of subsurface magnetic structures, a substantial amount of work remains to be done in investigating the relationship between coronal holes and sunspot groups. Coronal holes are open magnetic field structures, that exhibit a decreased density in the corona. They appear to form in the decayed remains of sunspots, that emerge as closed magnetic field structures. We aim to answer the questions: \emph{At what point of decay does coronal hole emergence become likely to happen? How decayed must a sunspot be, before it becomes an open magnetic field structure?} A comparison between coronal hole and sunspot detections and the predicted topology of the surface magnetic field using a PFSS model may help to answer these questions. I have begun using the method described in \citet{Henney:2005} to detect coronal holes in He\,I images\footnote{The software is being developed in a github repository available at: \url{https://github.com/pohuigin/chole\_detect}. This software is written in IDL (\url{http://www.exelisvis.com/ProductsServices/IDL.aspx}) and is dependent on the SSW library (\url{http://www.lmsal.com/solarsoft/ssw\_whatitis.html}) and another general library (\url{https://github.com/pohuigin/gen\_library}).}, which are available from some ground-based observatories for multiple solar cycles. 
+
+\citet{Harvey:2002} have shown that the magnetic flux at the poles can be estimated from polar coronal hole detections. We aim to compare the polar coronal hole boundaries with the averaged magnetic field spatial distribution to determine if there is any tilt in the global dipole field with respect to the Sun's equator. In Chapter~\ref{chapter:results_diffusion} we showed that there is an apparent wobble in the 5\,G contour of the $\langle B_+ \rangle$ butterfly map, alluding to an offset in the magnetic axis to the rotational axis of the Sun. The inclination of the axes would wobble back and forth, and hence the boundary of the polar field, from the perspective of the Earth. This has important implications, since it implies that the magnetic dynamo is not azimuthally symmetric and that we must abandon our classical view \citep{Parker:1955} of magnetic field generation. The size of the temporarily stable (at solar minimum) polar field configuration also has implications for magnetic surface diffusion.
+
+%Compare CH detections to ARs
+%-comparing open fields to closed fields
+%-use shillelagh to determine how CHs develop on the surface to L1 to Jupiter... Ballistic? Use Ca K II images to detect CHs in archival data. Compare to skylab data, L1, and pioneer data at jupiter (~1970s) 
+%-relate the decaying portions of ARs to the emergence of CHs
+%-determine the amount of flux on the poles and in CHs
+%-compare with PFSS
+
+%-Use observations of polar field boundary to determine wobble -> dipole tilt WRT equator/ rotation axis.
+
+%-leads on to diffusion
+
+\section{Characterising the Transport of Diffuse Magnetic Flux}
+
+The shape and amount of flux of the static polar field configuration offers another method in which to estimate the diffusion coefficient, $D$, in addition to the method we have employed in Chapter~\ref{chapter:results_diffusion}. Assuming a meridional flow profile and an estimation of the amount of flux on the pole, there should be a characteristic size and profile of the polar field distribution. Diffusion acts to disperse the fields, but the meridional flow acts to collect them at the pole. At some point an equilibrium is reached. We can observe and measure this boundary, as shown in  Chapter~\ref{chapter:results_diffusion}. Thus, we can run a cellular random-walk simulation to predict what the boundary shape and position should be. We have begun testing methods to perform this simulation\footnote{See the supplementary movie available here: \url{http://dx.doi.org/10.6084/m9.figshare.96201}.} The simulation requires that we assume some statistical properties of supergranules. A 4th-year undergraduate student is currently working with us on simulations to theoretically predict their properties by combining the results of studies of the properties of the solar convection zone \citep{Bahcall:1992} and studies of the observed properties of supergranules using surface velocity measurements \citep{Hathaway:2000}.
+
+A further method of measuring $D$ to be explored is to directly track magnetic flux elements in high-resultution, high time-cadence image sequences and determine their rate of motion from some starting point to the point when they merge or cancel with another flux element. By analyzing large numbers of these features, we can determine their squared average displacement, $\langle R^2 \rangle$, and apply the equation given in Chapter~\ref{chapter:results_diffusion}. This method leaves open the possibility of determining the magnetic flux dependency of $D$. It is known that not all magnetic features exhibit the same $D$ \citep{Schrijver:1996}.
+
+A final exploration of the diffusion of magnetic elements across the solar surface involves analysing the birth and evolution of coronal holes. It is thought that coronal holes experience some form of diffusion that determines the rate of the expansion of their boundaries \citep{Krista:2011,Frisk:2005}. The evolution of coronal hole boundaries must be compared to the evolution of diffuse magnetic fields to determine their relationship and the mechanism by which they form. Very little work has been done on this topic.
+
+%-Use static polar field and merid flow measurements to determine D
+%-gives static boundary where diffusion equals meridional flow. Field bunches up at pole until diffusion is stronger and keeps it from bunching up any further
+
+%-Do physics based hydro convection sim, to determine what the velocity profile is of cells should be. Use prev. studies to determine the distribution of cell properties. Work with a 4th year student.
+
+%-Run cell-based diffusion sim to determine how much flux needed to recreate polar fields
+
+%-Do tracking studies of mag elements (compare data and simulations) to find the relationship between D and flux tube properties. Track elements in HMI. high-res, good time resolution and coverage.
+
+%-Determine how CHs form. Run PFSS with modeled AR diffusion, cellular or continuous.
+%-At what point do you get open fields in decaying AR?!
+
+
+\section{Outreach Activities}
+
+\begin{figure}[!t]
+\centering{\includegraphics[width=0.8\textwidth]{ranelagh_leo_sky.eps}}
+\caption[An example star map.]{An example star map from the Irish SkyMaps project.}
+\label{fig:starmap}
+\end{figure}
+
+There are several avenues I am pursuing to engage in public outreach, specifically those of  astronomy education and promoting science policy.
+I have begun work on a website to relate astronomy topics in an interactive way to primary and secondary school students, as well as the general public. The project, \url{http://SolarSurfer.org},
+will use a comic book style, story-oriented teaching methods, interactive physics widgets (phidgets), and videos to demonstrate and engage people in learning about the wonders of astronomy. This project differs from some similar projects (\url{http://UniverseAdventure.org} and \url{http://SunTrek.org}) in that it is oriented toward the Irish school curriculum and will offer corresponding classroom materials.
+
+As an auxiliary project, Irish SkyMaps will allow users to generate a star map for their location, by inputing their IP address into Google's geolocation API. This printable map will include the constellations with the names in both Irish and English. An example star map is shown in Figure~\ref{fig:starmap}.
+
+Finally, \url{http://LoveIrishScience.org}\footnote{Inspired by the logo of \url{http://www.loveirishfood.ie/}} is a politically motivated project meant to engage with the public and government to bring attention to the science funding crisis in Ireland. Currently, there are no substantial funding sources from the government for basic science. Politicians seem to be in denial that this is the case, so this project aims to present the statistics about which areas of research are awarded grants and which are rejected by Irish government funding bodies (e.g., IRCSET and SFI). Also, the amount of funding given to different areas of research will be presented. If the government does not take a stand on this issue soon, basic science will be nonexistent in Ireland and my career in Ireland will be over before it begins.
+
+% ---------------------------------------------------------------------------
+% ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------resolution of magnetogram
