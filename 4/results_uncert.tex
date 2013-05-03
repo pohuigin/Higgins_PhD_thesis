@@ -1,0 +1,206 @@
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+
+%: ----------------------- name of chapter  -------------------------
+\chapter[Uncertainties]{Observational and Method Related Uncertainties} % top level followed by section, subsection
+\label{chapter:results_uncert}
+
+\graphicspath{{4/figures/EPS/}{4/figures/}}
+
+\section{Introduction}\label{sect:uncertint}
+
+In this chapter we investigate the uncertainties involved in characterising the magnetic fields of sunspot groups using \gls{LOS} photospheric magnetograms. The material presented in Section~\ref{sect:smartmethuncert} is from \cite{higgins:2011} The finite resolution of the observations limits what can be said about the magnetic field magnitude, regardless of the method used to measure it (Section~\ref{sect:fillfact}). Uncertainties due to the method used to detect and characterise sunspot groups are manifested in the stability of tracked detections (Section~\ref{sect:smartmethuncert}). These uncertainties are investigated further by simulating a feature on the solar surface and tracking and its measured properties over time (Section~\ref{sect:simuncert}).
+
+Some calibration issues with the \gls{MDI} data used by \gls{SMART} are discussed in \citet{Wang:2009}. It was found that the 2008 calibration of level 1.8 data has been partially corrected, in that it does not suffer from a disk center-to-limb variation like the 2007 calibration. However, \gls{MDI} may largely underestimate the magnetic field as the ratio of \gls{MDI} values to those retrieved from \emph{Hinode}/Solar Optical Telescope data was found to be $\sim$$0.7$. This does not affect feature detections since the effect is consistent throughout the data set, but could contribute a considerable error of $\sim$$30\%$ for any magnetic field or flux measurements. 
+
+Strong magnetic field saturation in \gls{MDI} data is discussed in \citet{Liu:2007}. It is estimated that this phenomenon occurs in $\sim$$5\%$ of sunspot groups, in which the magnetic field measurements in the umbral areas of very strong sunspots behave non-linearly. In extreme cases, the umbra may appear to have a smaller magnetic field than the surrounding \gls{penumbra}. In reality, the field should continue to increase in the \gls{umbra}, but in level 1.8 data showing \gls{NOAA} 9002 at disk center, saturation is clearly observed at $\sim$$3000$~G. Feature boundaries are not affected because saturation only occurs for very strong sunspot \glspl{umbra}, although the derived magnetic properties of features which include strong sunspots will be underestimated. 
+
+Other issues with the calibration of \gls{MDI} magnetograms include a nonuniform sensitivity across the solar disk and geometrical effects from using \gls{LOS} fields.  In \cite{Tran:2005} it was shown that there is a longitude dependent bias in the \gls{MDI} magnetic field calibration. This has been improved in more recent \gls{MDI} calibrations. As sunspots progress toward the limbs, the apparent magnetic field of the limb-ward penumbra can change polarity. Since \gls{penumbra} are close to horizontal, their field vector can dip below the plane perpendicular to the \gls{LOS} causing false \gls{PSL} to emerge. This causes large errors in any property determination related to magnetic field gradient, such as \gls{PSL} length.
+
+
+\section{Magnetic Filling Factor}\label{sect:fillfact}
+
+\begin{figure}[!t]
+\centering{\includegraphics*[width=0.6\textwidth,angle=0,clip=0]{fluxtubeschem.eps}}
+\caption[A flux-tube observation schematic.]{A schematic of an observation of a vertical flux-tube at the solar surface.}\label{fig:ftschem}
+\end{figure}
+
+When magnetically imaging the solar surface, the smallest feature that can be defined is limited by the size of a single pixel. Consider a vertical magnetic \gls{fluxtube} at disk center imaged by a magnetograph. It is likely that strong magnetic fields are bound into \glspl{fluxtube} on the solar surface, so the magnetic field outside of them should be small in comparison. To simplify the problem we assume its magnetic field, $B_{FT}$, is constant over its cross-section. In reality the magnetic field must drop off at the edges of a flux tube since the field must be continuously differentiable. If the \gls{fluxtube} cross-section perfectly fills the magnetograph resolution element, then the magnetic field measurement of the \gls{fluxtube} has a filling factor of 1. In general the filling factor is given by,
+\begin{equation}
+f \equiv A_{F}/A_{px} \mbox{ ,}
+\end{equation}
+where $A_{F}$ is the cross-sectional area of a magnetic surface feature within a pixel and $A_{px}$ is the area of a pixel. A schematic of this is shown in Figure~\ref{fig:ftschem}.
+
+\begin{figure}[!t]
+\centering{
+\includegraphics*[width=0.5\textwidth,angle=0,clip=0]{fluxobspxschem.eps}
+}
+\caption[A schematic comparison between actual and observed flux-tubes.]{A schematic comparison between the actual configurations of flux-tubes in a pixel and what is observed. When two flux elements of equal area and field strength are present within a pixel, the observed field is 0.}\label{fig:ftschem2}
+\end{figure}
+
+The magnetic field measured, $B_{OB}$, is the average over a pixel. When $f < 1$, $B_{OB}$ is between $B_{F}$ and a presumably lower \gls{quietsun} field of the same polarity, $B_{QS}$. Thus,
+\begin{equation}
+B_{OB}=f B_{FT} + (1-f)B_{QS} \mbox{ .}
+\end{equation}
+While the observed magnetic field is strongly dependent on $f$, flux is less so, depending on $B_{QS}$. Flux is given by,
+\begin{eqnarray}
+\Phi_{FT} = A_{FT} B_{FT} \mbox{ ,} \\
+\Phi_{OB} = A_{px} B_{OB} \mbox{ ,}
+\end{eqnarray}
+where $\Phi_{FT}$ is the flux of the \gls{fluxtube} within a pixel and $\Phi_{OB}$ is the observed flux in a pixel. The measured flux will then be overestimated due to the \gls{quietsun} contribution. However, if we assume that $B_{QS} << B_{FT}$, then $\Phi_{FT} \approx \Phi_{OB}$ since,
+\begin{eqnarray}
+\Phi_{OB} &=& A_{px} (f B_{FT} + \underbrace{(1-f)B_{QS}}_{\mbox{negligible}}) \\
+ &\approx& A_{px} f B_{FT} \\
+ &=& A_{px} \frac{A_{FT}}{A_{px}} B_{FT} \\
+\Phi_{OB} &\approx& A_{FT} B_{FT} = \Phi_{FT} \mbox{ .}
+\end{eqnarray}
+
+So, diffuse magnetic fields are likely to be grossly underestimated where flux tubes are spread out. So far, higher resolution instruments resolve smaller and smaller magnetic features. Either we have not yet observed the fundamental \gls{fluxtube}, or magnetic fields on the sun are not bundled into \glspl{fluxtube} but are self similar and scale-free and we will continue to observe ever smaller and features of similar complexity. On the other hand, in sunspot \glspl{umbra} $f \approx 1$, since they are composed of strong vertical fields densely packed in to conntiguous structures with apparent sizes generally larger than a \gls{MDI} pixel.
+
+
+\section{SMART Method Uncertainties}\label{sect:smartmethuncert}
+
+In the following sections we analyse the performance of sunspot group detection using \gls{SMART}. These automatically detected and characterised data are compared to the manually detected \gls{NOAA} sunspot group data (Section~\ref{sect:noaacomp}). Also, the uncertainties due to the \gls{MDI} noise level are calculated (Section~\ref{sect:mdiuncert}) and the tracking stability is determined Section~\ref{sect:trackstab}. Tracking behavior deviating from what is expected from NOAA is discussed (Section~\ref{sect:nonnoaatrack}).
+
+\subsection{SMART-NOAA Comparison}\label{sect:noaacomp}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.9\textwidth,angle=0]{smart_compare_noaa.eps}
+\end{center}
+\caption{A comparison of NOAA and SMART AR detections over cycle 23. The data gap in 1998 is due to the loss of communications with the SOHO spacecraft for several months.}\label{noaa_comp}
+\end{figure}
+
+Figure~\ref{noaa_comp} summarizes a comparison of NOAA and SMART AR detections over the cycle 23, including numbers of detections and total feature area on disk. The top panel shows the total number of regions detected in each data set, arranged in monthly bins; the correlation coefficient between the (un-binned) daily data is $0.88$. We estimate the frequency of divergence between the detections using the ratio of NOAA to SMART AR daily detections: the ratio is between zero and one $6.4\%$, equal to one $21.6\%$, between one and two $60.3\%$, and greater than two $11.7\%$ of the time. We see a smaller number of SMART than NOAA AR detections $72.0\%$ of the time; the mean ratio of NOAA to SMART AR detections is $1.52$. This is likely due to the joining of two or more nearby sunspot groups by SMART, while NOAA identifies each individual sunspot group, regardless of proximity\footnote{NOAA may also detect very weak sunspots which may have a $\Phi_{uns,t,i}$ too small for designation as an AR by SMART.}. As such, SMART detections are representative of isolated magnetic systems, while NOAA detections represent a feature recognition approach. Additionally, NOAA records detections by eye, and only if they are visible in intensity data (i.e., if there is a magnetic flux concentration with no sunspot SMART may detect a region when NOAA does not). The bottom panel shows the total area of NOAA regions scaled to the total area of SMART regions. In fact, the NOAA area is lower by a factor of $\sim$$50$, since only the low-intensity area of sunspots is summed, while the area of extended magnetic features is recorded in SMART detections. Number and area are the only two feature properties which can be directly compared, as NOAA data do not contain any magnetic property measurements.
+
+
+\subsection{Data Uncertainties}\label{sect:mdiuncert}
+
+The determination of the magnetic properties of a feature is affected by MDI magnetogram noise levels, calibration, strong field saturation, and LOS effects. The feature detection itself is generally not affected by these phenomena, however. The instrument noise threshold of MDI is nominally $\pm20$~G \citep{Scherrer:1995}. This is smoothed by the gaussian convolution, and the segmentation threshold of $\pm70$~G is well above this. For magnetic property calculations, a gaussian convolution is not used, so noise contributes $20$~G to the uncertainty of pixel values above the QS threshold of $70$~G. For SMART region 20031026.MG.11 observed at disk center on 25 November 2003, which is found to have an area of $3.8\times10^{4}$~Mm$^2$ and a total magnetic flux of $5.9\times10^{22}$~Mx, the uncertainty is $7.9\times10^{21}$~Mx, or $5.2\%$.
+
+
+\subsection{Tracking NOAA 10488}\label{sect:trackstab}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.9\textwidth,angle=0]{tracking_10488_solrot.eps}
+\end{center}
+\caption{Tracking of 20031026.MG.11 as it rotates around the Sun from 26 October to 26 December 2003.}\label{ar_track}
+\end{figure}
+
+An example of the \gls{SMART} method of feature tracking and cataloging is shown in Figure~\ref{ar_track}. Region 20031026.MG.11 is tracked from 26 October 2003 to 26 December 2003. The AR rotates beyond the west limb and is detected again upon returning at the east limb twice. Although the AR is tracked to subsequent solar rotations its catalog name remains the same when it returns. \gls{NOAA} first detects this AR on 28 October 2003 designating it as \gls{NOAA} 10488. When the region returns it is designated a new region number, \gls{NOAA} 10507 and is renamed upon the second return as \gls{NOAA} 10525. \gls{SMART} persistent naming through multiple rotations allows independent measurements of the same feature to be grouped into a single time plot.
+
+The top panels in Figure~\ref{ar_track} show \gls{MDI} magnetograms of the region (clipped at $\pm1000$~G) on three different dates, with the extracted AR outlined by a thick white contour (other detections are outlined in blue). A connecting red line shows where each falls on the timeline below. The remaining panels show, from top to bottom, time series of total unsigned flux, heliographic longitude, \gls{PSL} length, and \gls{rvalue} extracted from 20031026.MG.11. Vertical dotted green (blue) lines denote crossings at $\pm60$~degrees of the leading (trailing) edge of the feature; in the second time plot, the green (blue) curve tracks this leading (trailing) edge in time. In the plot of \gls{PSL} length, the black curve sums the length of all detected \gls{PSL} segments, while the light-blue curve sums those having a gradient above $50$~G~Mm$^{-1}$. Finally, the plot of \gls{rvalue} shows $R^{*}$ in black and $R$ in blue.
+
+The stability of the algorithm is estimated using the plot of total flux between days 25.6 (20 November 14:24 UT) and 33.7 (28 November 16:48 UT). A quadratic fit is subtracted to remove the long timescale variation, resulting in an array of residuals. The two-sigma error of the residuals is determined to be $2.1\times10^{21}$~Mx or $3.4\%$ around the mean of total flux. The stability estimate is particular to this example, as cases such as those shown in Figure~\ref{detectcases} could result in much larger short timescale variation.
+
+
+\subsection{Tracking Behaviour Deviating from NOAA}\label{sect:nonnoaatrack}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.9\textwidth,angle=0]{detection_test_cases.eps}
+\end{center}
+\caption{Feature detection and tracking cases which diverge from NOAA. A) Two bipolar regions join and subsequently fragment. B) Several small bipolar regions merge into an AR complex. C) A bipolar region is first detected as two unipolar features and then as a single bipolar region.}\label{detectcases}
+\end{figure}
+
+There are several recurrent \gls{SMART} feature tracking cases which diverge from what would be expected of \gls{NOAA} (Figure~\ref{detectcases}). The \gls{SMART} tracking algorithm allows features to converge and split apart. However, there may be side-effects, such as when a fragment separates from a larger feature and is given a new catalog name, due to the centroids of the two being greater than the tracking association threshold (top row). Also, an active region complex  may be detected when there are multiple strong field ARs in close proximity (middle row). Finally, a bipolar region which is significantly disjointed and weak may not be properly grouped into a single region (bottom row). Here we see an example where each polarity is detected as a separate region. As this work is designed to aid in flare forecasting, many examples of each of these cases may be studied to determine if they possess unexpected flaring properties. Also, their evolution maybe studied by tracking the features from first emergence. The frequency of occurrence for these special cases can be estimated using the data and analysis of Figure~\ref{noaa_comp}: when $N_{NOAA}$ is greater than $N_{SMART}$ \gls{SMART} is likely grouping regions into AR complexes (or identifying NOAA ARs as EF or DF), and when $N_{SMART}$ is greater than $N_{NOAA}$ \gls{SMART} may be detecting individual unipolar features when NOAA groups them into bipolar regions.
+
+
+\section{Simulating Feature Tracking}\label{sect:simuncert}
+
+In the following subsections we run a series of simple simulations to test the reliability of methods used to determine the properties of sunspot groups. The longitude dependence of area for a circular spot (Section~\ref{sect:spotsim}) is tested. The test is repeated for magnetic properties with a tilted magnetic bipolar feature (Section~\ref{sect:bipolesim}).
+
+
+\subsection{Circular Feature}\label{sect:spotsim}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.9\textwidth,angle=0]{rot_compare020_ai.eps}
+\end{center}
+\caption{A simulation of a circular feature crossing the solar disk. The panels show the spot at disk center and past $60^{\circ}$ longitude.}\label{fig:spotsim}
+\end{figure}
+
+\gls{LOS} effects occur when features are not observed at disk center. To estimate the effects of this the disk passage of a circular feature on the solar surface is simulated. The \gls{SSWIDL} procedure \verb!DROT_MAP! is used to deproject and reproject the solar surface\footnote{\url{http://hesperia.gsfc.nasa.gov/rhessidatacenter/complementary_data/maps/\#s3.6}}. This uses interpolation and assumes the \cite{Howard:1990} differential rotation profile. The simulated feature is shown in Figure~\ref{fig:spotsim}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.7\textwidth,angle=0]{plot_correction_factor.eps}
+\end{center}
+\caption{The area correction factor related to the apparent distance from disk center in solar radii. This is the factor used to determine the deprojected solar surface area covered by a given pixel.}\label{fig:areacor}
+\end{figure}
+
+The area correction method used is described in Chapter~\ref{chapter:method_SMART}. It is a pixel-by-pixel cosine factor, where the angle is measured to the \gls{LOS}.
+Here we test limiting the correction factor to that of a \gls{MDI} pixel extending to the limb of the sun (the maximum correction any pixel would have). This factor is $\approx15$. Limiting the correction factor reduces errors in determining the properties of extended magnetic features that reach the solar limb. 
+
+\begin{figure}[!ht]
+%\begin{center}
+%{\renewcommand{\arraystretch}{1}\begin{tabular}{rl}
+\centering{
+\includegraphics*[width=0.8\textwidth,angle=0]{plot_area_w_correction_vs_hglon.eps} \\\includegraphics*[width=0.8\textwidth,angle=0]{plot_area_error2.eps}
+}
+%\end{tabular}}
+%\end{center}
+\caption{The reliability of surface feature area measurements with longitude.}\label{fig:spotareaerr}
+\end{figure}
+
+The comparison between the simulated apparent feature area, corrected area, and limited corrected area is shown in Figure~\ref{fig:spotareaerr}. In this case, limiting the area correction is not important due to the simplicity of the tracked feature. The error in the area is shown to be less than 1\% out to $60^{\circ}$ longitude. This error depends on morphology and will be more acute for complex feature boundaries.
+
+\subsection{Bipolar Feature}\label{sect:bipolesim}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.9\textwidth,angle=0]{psl_sim.eps}
+\end{center}
+\caption{A simulation of a magnetic bipole feature crossing the solar disk. Bipole connecting lines are indicated by the red lines in the bottom panels.}\label{fig:bipolesim}
+\end{figure}
+
+The superposition of a positive and negative 2D gaussian is used to simulate a bipolar magnetic feature crossing the solar disk. The \gls{FWHM} of the gaussians is $\sim$30~Mm and the maximum magnetic field is 3000~G. These values are characteristic of observed sunspots. This is a more realistic representation of a compact magnetic bipole with a trailing high latitude negative sunspot and a leading positive sunspot, tilted toward the equator. The projection method is the same as that described in Section~\ref{sect:spotsim}. In addition to area, we determine the total flux, horizontal magnetic gradient and inclination angle of the \gls{PSL} with respect to the \gls{BCL}. Chapter~\ref{chapter:method_SMART} describes the methods of determining these properties. Figure~\ref{fig:bipolesim} shows the resulting bipole simulation with the apparent \gls{LOS} projections in the top panels for disk center and near the limb. The bottom panels show the deprojections of the images into latitude-longitude space. Some distortion is observed at the limb-ward edge of the second projection.
+
+\begin{figure}[!ht]
+\centering{
+%\begin{tabular}{rl}
+\includegraphics*[width=0.8\textwidth,angle=0]{psl_area_hglon2.eps} \\\includegraphics*[width=0.8\textwidth,angle=0]{psl_flux_hglon2.eps}
+%\end{tabular}
+}
+\caption{Plots of the corrected area (\emph{left}) and total flux (\emph{right}).}\label{fig:bipoleareaflux}
+\end{figure}
+
+The area of the bipole is determined by creating a mask of the feature using a threshold of 70~G. This in the threshold used in Chapter~\ref{chapter:method_SMART} to detect magnetic features. The area is then corrected as described in Section~\ref{sect:spotsim}.  Likewise the total magnetic flux is summed within the masked region. Since no cosine die-off of the field due to the assumption of radial fields in included in the simulation, only a correction for the area is needed. The area and flux exhibit a $\sim$6\% error at 60 degrees longitude. The main source of the error is the over-estimation of area due to the concave shape of the feature at the \gls{PSL} edges, which cannot be resolved when the feature is near the limb.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.7\textwidth,angle=0]{psl_grad_hglon2.eps}
+\end{center}
+\caption{The longitude dependence of maximum and mean magnetic field gradient.}\label{fig:bipolegradient}
+\end{figure}
+
+The measurement of gradient is performed as described in Chapter~\ref{chapter:method_SMART}. The error in gradient increases rapidly as the bipole progresses toward the limb. This is not surprising as the apparent separation between the two polarities decreases, while the field strength is constant. The error at 30 degrees is already significant. Any statistical study of sunspot group properties using gradients will be strongly affected by the line of sight dependence of the observations.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics*[width=0.7\textwidth,angle=0]{psl_rotation_hglon2.eps}
+\end{center}
+\caption{The longitude dependence of the BCL and PSL orientation.}\label{fig:bipolerotation}
+\end{figure}
+
+The \gls{PSL} is detected using the method described in Chapter~\ref{chapter:method_SMART}. The error in the measurement of \gls{BCL} inclination and \gls{PSL} inclination are not strongly dependent on longitude. The errors in these inclinations range between 5\% and 15\%. The \gls{BCL} orientation varies smoothly but the \gls{PSL} orientation appears to vary randomly. The main source of the error in this simulation is likely due to the use of gaussians, which result in very small \gls{PSL} detections. Detecting the orientation of a line defined by only a few pixels is highly sensitive to any variance due to the deprojection interpolation.
+
+This simulation assumes that the fields in the bipole are perfectly radial and that we have corrected the fields perfectly. The uncertainty introduced by inclined penumbral fields has not been accounted for. When determining the flux of a sunspot at disk center, we will be underestimating the fields since there will be only a very small \gls{LOS} component of the penumbral field. Toward the limb, false \glspl{PSL} may be introduced as the horizontal penumbral fields dip below the plane of sky and are measured as the opposite magnetic polarity to what they are in relation to the solar surface. This causes a large error in any property determination using the horizontal field gradient.
+
+\section{Conclusions}
+
+The studies presented in this chapter show that essentially, \gls{MDI} magnetograms cannot be used to reliably determine the true magnetic field of the Sun. The combination of many sources of error accumulate to result in data products that can only indicate the order of magnitude of the magnetic field. These sources of error are a result of the instrument design, calibration, and the physical structure of sunspots. 
+
+The \gls{MDI} instrument performs a sparse sampling of the Ni~I spectral absorption line. Thus, strong magnetic fields are less trustworthy as the Zeeman splitting is more complex. Since only \gls{LOS} magnetic fields are measured, complicated magnetic field geometries, such as those in \glspl{penumbra}, are poorly measured. As mentioned in Section~\ref{sect:uncertint}, the use of onboard \gls{MDI} data processing has resulted in large errors within strong \glspl{penumbra}. Weak fields measured in the quiet-Sun suffer from the significant (nominally) 20~G noise of the instrument. However, plage fields are high enough above the noise level and low enough below the saturation level and should be at least linear. 
+
+With these problems in mind, it is sensible to ask why \gls{MDI} is used in this work. The instrument covers more than an entire solar cycle, allowing for long time-scale studies. The time coverage is extremely stable, with $\sim$15 evenly spaced images available per day, save for the period at the end of 1998 when \gls{SOHO} went missing. The instrument does not suffer from seeing, weather, or night time that ground-based instruments must deal with. So, \gls{MDI} is very useful for statistical studies of sunspot group properties, as the regimes over which the properties are reliable are predictable.
+
+The automatic detection and characterisation algorithm, \gls{SMART}, is shown to have very good stability in tracking features through time. This indicates that while the algorithm diverges from the detection and tracking behavior of \gls{NOAA}, it is very useful for performing studies of the evolution of sunspot group properties. With regards to physical properties, we have shown that flux values are more useful than magnetic field values since flux is conserved, while the magnetic field is averaged over a pixel. Also, the properties determined for features with more complex morphologies are less reliable away from disk center than those with simple morphologies. The gradient values are especially problematic away from disk center. Despite this, near disk center they are extremely useful as flare indicators, as shown in Chapter~\ref{chapter:results_activity}.
+
+Any future flare forecasting algorithm which makes use of magnetic properties output by \gls{SMART} will need to take into account several sources of error. Random errors including magnetogram noise and algorithm stability for the example presented in Section~\ref{results} result in an error of $\pm5.2\%$ and $\pm3.4\%$ in $\Phi_{uns,t,i}$, respectively. This will not affect the forecasting potential of properties involving ${\Phi}_{uns,t,i}$ for a sufficiently large sample of regions. Calibration errors in MDI result in an underestimate of the true magnetic field on average by $\sim$$30\%$. If the forecasting training set and test samples both exhibit this error, the prediction result will not be affected. However, for physical studies of energetics this must be taken into account. Finally, \gls{LOS} effects which occur as regions approach the limb cause large measurement errors past $60$~heliographic degrees from disk center, which limits the potential forecasting range of this algorithm. 
+
+% ---------------------------------------------------------------------------
+%: ----------------------- end of thesis sub-document ------------------------
+% ---------------------------------------------------------------------------
+
