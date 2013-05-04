@@ -7,94 +7,11 @@
 % corrected and extended in 2007 by Jakob Suckale, then MPI-CBG PhD programme
 % and made available through OpenWetWare.org - the free biology wiki
 
+
 %: Style file for Latex
 % Most style definitions are in the external file PhDthesisPSnPDF.
 % In this template package, it can be found in ./Latex/Classes/
 \documentclass[twoside,11pt]{Latex/Classes/PhDthesisPSnPDF}
-
-%GLOSSARIES STUFF ----------------------------------------------------------------
-%\usepackage[acronym]{glossaries}
-%\usepackage[colorlinks]{hyperref}
-%\usepackage{/usr/local/texlive/2012/texmf-dist/tex/latex/etoolbox/etoolbox}
-%\usepackage{/home/phiggins/texmf/glossaries/mfirstuc}
-%\usepackage[toc,makeindex]{/home/phiggins/texmf/glossaries/glossaries}
-
-%TEMP!!
-%\usepackage[toc,makeindex]{glossaries}
-\usepackage{glossaries}
-
-%TEMP!!
-%\makeglossaries
-
-%GLOSSARY TERMS
-\newglossaryentry{angstrom}{name={\AA\ },description={a unit of length measuring $10^{-10}$ meters}}
-\newacronym{AR}{AR}{active region}
-\newglossaryentry{activeregion}{name={active region},description={magnetic structures often associated with flaring sunspot groups that usually have loop structures reaching into the corona}}
-\newacronym{CCD}{CCD}{charge-coupled device}
-\newacronym{CC}{CC}{correlation coefficient}
-\newacronym{CME}{CME}{coronal mass ejection}
-\newacronym{FITS}{FITS}{Flexible Image Transport System}
-\newglossaryentry{fluxrope}{name={flux rope},description={a twisted collection of flux tubes}}
-\newacronym{HMI}{HMI}{Helioseismic Magnetic Imager}
-\newacronym{HWHM}{HWHM}{half width at half maximum}
-\newacronym{HXR}{HXR}{hard X-ray}
-\newacronym{LCT}{LCT}{local correlation tracking}
-\newacronym{LCP}{LCP}{left-hand-circularly-polarised}
-\newacronym{LOS}{LOS}{line-of-sight}
-\newacronym{LTE}{LTE}{local thermodynamic equilibrium}
-\newacronym{MDI}{MDI}{Michelson Doppler Imager}
-\newacronym{MHD}{MHD}{magnetohydrodynamics}
-\newacronym{PFSS}{PFSS}{potential field source surface}
-\newacronym{protonproton}{PP}{proton-proton}
-\newacronym{PSL}{PSL}{polarity separation line}
-\newglossaryentry{quietsun}{name={quiet-Sun},description={regions on the solar surface characterised by weak magnetic fields and a lack of eruptive activity},plural={quiet Sun}}
-\newacronym{RCP}{RCP}{right-hand-circularly-polarised}
-\newacronym{SDO}{SDO}{Solar Dynamics Observatory}
-\newacronym{SEP}{SEP}{solar energetic particle}
-\newacronym{SFT}{SFT}{surface flux transport}
-\newacronym{SHILLELAgh}{SHILLELAgh}{Solar Wind-Heliosperic Imaging in Latitude and Longitude by Estimating Large-scale Attributes}
-\newacronym{SMART}{SMART}{SolarMonitor Active Region Tracker}
-\newacronym{SOHO}{SOHO}{Solar and Heliospheric Observatory}
-\newacronym{STEREO}{STEREO}{Solar-Terrestrial Relations Observatory}
-\newacronym{SXR}{SXR}{soft X-ray}
-\newglossaryentry{wlsg}{name={$WL_{SG}$},description={a sum of the horizontal gradient along a detected PSL}}
-\newglossaryentry{rvalue}{name={R-value},description={the total magnetic flux near a detected PSL}}
-
-\newacronym{GOES}{GOES}{Geostationary Operational Environmental Satellites}
-\newacronym{GSFC}{GSFC}{Goddard Space Flight Center}
-\newacronym{SPoCA}{SPoCA}{Spatial Possibilistic Clustering Algorithm}
-\newacronym{EUV}{EUV}{extreme ultraviolet}
-\newacronym{STARA}{STARA}{Sunspot Tracking And Recognition Algorithm}
-\newacronym{ASAP}{ASAP}{Automated Solar Activity Prediction}
-\newacronym{RHESSI}{RHESSI}{Reuven Ramaty High Energy Solar Spectroscopic Imager}
-\newglossaryentry{cgs}{name=cgs,description={the unit system using centimeters, grams, and seconds for length, mass, and time}}
-\newacronym{FIP}{FIP}{first ionisation potential}
-\newacronym{EIT}{EIT}{Extreme ultraviolet Imaging Telescope}
-\newacronym{BCL}{BCL}{bipole connecting line}
-\newacronym{FWHM}{FWHM}{full-width at half-max}
-\newacronym{IDL}{IDL}{Interactive Data Language}
-\newglossaryentry{umbra}{name=umbra,description={the dark center of a sunspot where the magnetic fields are nearly vertical at the solar surface},plural=umbrae}
-\newglossaryentry{penumbra}{name=penumbra,description={the boundary of a sunspot where the magnetic fields are highly inclined to the solar surface and exhibit a filamentary structure},plural=penumbrae}
-\newacronym{NGDC}{NGDC}{National Geophysical Data Center}
-\newacronym{NOAA}{NOAA}{National Oceanic and Atmospheric Association}
-\newglossaryentry{fluxtube}{name={flux-tube},description={an elongated structure with a magnetic field along the longer axis, strongest at the center and dying off rapidly at the edges},plural={flux-tubes}}
-\newglossaryentry{SSWIDL}{name={SSWIDL},description={a repository of routines written in IDL generally pertaining to the analysis of solar data},plural={flux-tubes}}
-
-%\include{0_frontmatter/glossary}
-%The Glossary terms should be in this include file but there is an error in the version of glossaries package I am using...
-
-%---------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
 
 \usepackage{lineno}
 \usepackage{amsbsy}
@@ -175,27 +92,85 @@
 
 %allow terms to be cancelled in equations
 \usepackage{cancel}
-
 %allow landscape pages
-%TEMP!!
 \usepackage{lscape}
-
 %turn off colors in hyperlinking
-%\usepackage[colorlinks=false]{hyperref}
-\hypersetup{colorlinks=false,pdfborder={0 0 0}}%draft=false}%hidelinks=true
+\usepackage[]{hyperref}
+\hypersetup{hypertexnames=false,colorlinks=false,pdfborder={0 0 0},draft=false}%colorlinks=false,pdfborder={0 0 0},hypertexnames=false,draft=false}%draft=false}%hidelinks=true
 %set spacing between paragraphs to 0.
 \setlength{\parskip}{0pt}
 %allow multiline comments
 \newcommand{\comment}[1]{{!!!commented!!!}}
-
 %for smart methods property table
-%TEMP!!
-\usepackage{threeparttable}
-
+%\usepackage{threeparttable}
 %for publications list
-%TEMP!!
 \usepackage{bibunits}
+%\usepackage[acronym]{glossaries}
+%\usepackage[colorlinks]{hyperref}
+\usepackage[toc,makeindex]{glossaries}
+\usepackage{multirow}
 
+%TEMP!!!
+\makeglossaries
+
+%GLOSSARY TERMS
+%\newglossaryentry{angstrom}{name={\AA\ },description={a unit of length measuring $10^{-10}$ meters}}
+%\newacronym{AR}{AR}{active region}
+%\newglossaryentry{activeregion}{name={active region},description={magnetic structures often associated with flaring sunspot groups that usually have loop structures reaching into the corona}}
+%\newacronym{CCD}{CCD}{charge-coupled device}
+%\newacronym{CC}{CC}{correlation coefficient}
+%\newacronym{CME}{CME}{coronal mass ejection}
+%\newacronym{FITS}{FITS}{Flexible Image Transport System}
+%\newglossaryentry{fluxrope}{name={flux rope},description={a twisted collection of flux tubes}}
+%\newacronym{HMI}{HMI}{Helioseismic Magnetic Imager}
+%\newacronym{HWHM}{HWHM}{half width at half maximum}
+%\newacronym{HXR}{HXR}{hard X-ray}
+%\newacronym{LCT}{LCT}{local correlation tracking}
+%\newacronym{LCP}{LCP}{left-hand-circularly-polarised}
+%\newacronym{LOS}{LOS}{line-of-sight}
+%\newacronym{LTE}{LTE}{local thermodynamic equilibrium}
+%\newacronym{MDI}{MDI}{Michelson Doppler Imager}
+%\newacronym{MHD}{MHD}{magnetohydrodynamics}
+%\newacronym{PFSS}{PFSS}{potential field source surface}
+%\newacronym{protonproton}{PP}{proton-proton}
+%\newacronym{PSL}{PSL}{polarity separation line}
+%\newglossaryentry{quietsun}{name={quiet-Sun},description={regions on the solar surface characterised by weak magnetic fields and a lack of eruptive activity},plural={quiet Sun}}
+%\newacronym{RCP}{RCP}{right-hand-circularly-polarised}
+%\newacronym{SDO}{SDO}{Solar Dynamics Observatory}
+%\newacronym{SEP}{SEP}{solar energetic particle}
+%\newacronym{SFT}{SFT}{surface flux transport}
+%\newacronym{SHILLELAgh}{SHILLELAgh}{Solar Wind-Heliosperic Imaging in Latitude and Longitude by Estimating Large-scale Attributes}
+%\newacronym{SMART}{SMART}{SolarMonitor Active Region Tracker}
+%\newacronym{SOHO}{SOHO}{Solar and Heliospheric Observatory}
+%\newacronym{STEREO}{STEREO}{Solar-Terrestrial Relations Observatory}
+%\newacronym{SXR}{SXR}{soft X-ray}
+%\newglossaryentry{wlsg}{name={$WL_{SG}$},description={a sum of the horizontal gradient along a detected PSL}}
+%\newglossaryentry{rvalue}{name={R-value},description={the total magnetic flux near a detected PSL}}
+
+%\newacronym{GOES}{GOES}{Geostationary Operational Environmental Satellites}
+%\newacronym{GSFC}{GSFC}{Goddard Space Flight Center}
+%\newacronym{SPoCA}{SPoCA}{Spatial Possibilistic Clustering Algorithm}
+%\newacronym{EUV}{EUV}{extreme ultraviolet}
+%\newacronym{STARA}{STARA}{Sunspot Tracking And Recognition Algorithm}
+%\newacronym{ASAP}{ASAP}{Automated Solar Activity Prediction}
+%\newacronym{RHESSI}{RHESSI}{Reuven Ramaty High Energy Solar Spectroscopic Imager}
+%\newglossaryentry{cgs}{name=cgs,description={the unit system using centimeters, grams, and seconds for length, mass, and time}}
+%\newacronym{FIP}{FIP}{first ionisation potential}
+%\newacronym{EIT}{EIT}{Extreme ultraviolet Imaging Telescope}
+%\newacronym{BCL}{BCL}{bipole connecting line}
+%\newacronym{FWHM}{FWHM}{full-width at half-max}
+%\newacronym{IDL}{IDL}{Interactive Data Language}
+%\newglossaryentry{umbra}{name=umbra,description={the dark center of a sunspot where the magnetic fields are nearly vertical at the solar surface},plural=umbrae}
+%\newglossaryentry{penumbra}{name=penumbra,description={the boundary of a sunspot where the magnetic fields are highly inclined to the solar surface and exhibit a filamentary structure},plural=penumbrae}
+%\newacronym{NGDC}{NGDC}{National Geophysical Data Center}
+%\newacronym{NOAA}{NOAA}{National Oceanic and Atmospheric Association}
+%\newglossaryentry{fluxtube}{name={flux-tube},description={an elongated structure with a magnetic field along the longer axis, strongest at the center and dying off rapidly at the edges},plural={flux-tubes}}
+%\newglossaryentry{SSWIDL}{name={SSWIDL},description={a repository of routines written in IDL generally pertaining to the analysis of solar data},plural={flux-tubes}}
+
+\include{0_frontmatter/glossary}
+%The Glossary terms should be in this include file but there is an error in the version of glossaries package I am using...
+
+%---------------------------------------------------------------------------------
 
 %: Macro file for Latex
 % Macros help you summarise frequently repeated Latex commands.
@@ -332,8 +307,8 @@
 
 %\frontmatter
 %TEMP!!!!! Have to comment out to run the rest of the thesis
-%\singlespacing
-%	\include{9_backmatter/publications}
+\singlespacing
+	\include{9_backmatter/publications}
 \newpage\null\thispagestyle{empty}\newpage
 \newpage\null\thispagestyle{empty}\newpage
 
@@ -379,10 +354,6 @@
 
 	\include{2/method_SMART}		% Methods
 
-%	\include{2b/method_other}		%Other Methods (combined back into the work chapters they came from...)
-
-%	\include{4/results_uncert}			%SMART uncertainties and simulations (combined into smart method)
-
 	\include{5/results_activity}		%SMART Tracking and Flare association
 
 	\include{6/results_global}			%Global magnetic field results
@@ -390,6 +361,13 @@
 	\include{7/results_diffusion}		%Diffusion tracking results
 
 	\include{8/discussion}			% discussion of results and future direction.
+
+
+
+
+%	\include{2b/method_other}		%Other Methods (combined back into the work chapters they came from...)
+
+%	\include{4/results_uncert}			%SMART uncertainties and simulations (combined into smart method)
 
 
 
@@ -420,11 +398,11 @@
 % Tie in external source file for definitions: /0_frontmatter/glossary.tex
 % Glossary entries can also be defined in the main text. See glossary.tex
 
-%TEMP!!
-%\singlespacing
-%	\printglossaries
+%TEMP!!!
+\singlespacing
+	\printglossaries
 
-\appendix
+%\appendix
 % Include a table of physical constants used
 \singlespacing
 	\include{9_backmatter/constants}
