@@ -44,7 +44,7 @@ where $n^+$ is the number density of ions and $n$ is the summed number density o
 \begin{equation}\label{eqn:sahap}
 \frac{(n^+/n)^2}{1-(n^+/n)}=\frac{4\times10^{-9}}{\rho^{5/2}} {\frac{P\mu m_H}{k_B}}^{3/2} e^{(-1.6 \times 10^5 \rho k_B /\mu m_H P)} \mbox{\,,}
 \end{equation}
-Hydrogen transitions from nearly neutral to almost completely ionised over a narrow transition region in temperature centered at $\sim$10\,000\,K. This temperature occurs at outer layers of the solar convection zone. The Saha equation can not be applied in most of the solar atmosphere where local thermodynamic equilibrium does not hold. Also, in the core of the Sun, the pressure is so immense and the density so large that adjacent hydrogen atoms are close enough to effect each other's ionisation energies. Thus, in the core, the ionisation fraction approaches unity due to the added effect of ``pressure ionisation".
+Hydrogen transitions from nearly neutral to almost completely ionised over a narrow transition region in temperature centered at $\sim$10\,000\,K. This temperature occurs at outer layers of the solar convection zone. The Saha equation can not be applied in most of the solar atmosphere where local thermodynamic equilibrium does not hold. Also, in the core of the Sun, the pressure is so immense and the density so large that adjacent hydrogen atoms are close enough to affect each other's ionisation energies. Thus, in the core, the ionisation fraction approaches unity due to the added effect of ``pressure ionisation".
 %Deep in the solar interior, this fraction approaches unity, due to the added effect of pressure ionisation, which is not taken into account by Equation \ref{eqn:saha}. 
 
 The average random kinetic (thermal) energy for a plasma is given by,
@@ -75,11 +75,12 @@ This is the distance over which an electron's charge is ``felt" by other charged
 \Lambda = 4 \pi n \lambda_D^3 \mbox{\,,}
 \end{equation}
 and indicates the number of particles within a Debye sphere. If $\Lambda >> 1$, the plasma is strongly coupled (regarding collective effects), or weakly coupled if $\Lambda << 1$. Generally, strongly coupled plasmas are ``cold" and dense (as in white dwarf and neutron star atmospheres), while weakly coupled plasmas are diffuse and hot (as in solar and space plasmas).
-In a ``collisional plasma"\footnote{Collisional plasmas include those in collisional equilibrium, such as the solar corona.}, the mean free path of particles within the plasma is small compared to the observational length scale\footnote{The observational length-scale determines the scale on which plasma phenomena are observed.} and is given by,
+In a ``collisional plasma"\footnote{Collisional plasmas include those in collisional equilibrium, such as the solar corona.}, the mean free path of electrons within the plasma is small compared to the observational length scale\footnote{The observational length-scale determines the scale on which plasma phenomena are observed.}. The dominant electron collision process depends on which region of the Sun is considered, as mentioned in Section\,\ref{sect:radzone}. 
+The electron mean free path is given by,
 \begin{equation}
-\lambda_{mfp} = 1/\sigma_{cs} n \mbox{\,,}
+\lambda_{mfp} = \frac{1}{n_- \sigma_{cs}} \mbox{\,,}
 \end{equation}
-where $\sigma_{cs}$ is the the collisional cross-section. For charged particles $\sigma_{cs}$ is much larger than for neutrals due to the Coulomb force,
+where $n_-$ is the number of negatively charged particles, and $\sigma_{cs}$ is the electron collisional cross-section. For charged particles $\sigma_{cs}$ is much larger than for neutrals due to the Coulomb force. 
 %\begin{equation}
 %\sigma_{cs} = \pi \left( \frac{e^2}{6\pi k_B \epsilon_0} \right) \frac{1}{T^2} \mbox{\,,}
 %\end{equation}
@@ -88,11 +89,11 @@ where $\sigma_{cs}$ is the the collisional cross-section. For charged particles 
 F = \frac{1}{4\pi \epsilon_0}\frac{q_1 q_2}{r^2} \mbox{\,,}
 \end{equation}
 where $q_1$ and $q_2$ are the charges of each particle, and $r$ is the distance between the particles.
-The collision frequency is,
+The electron collision frequency is,
 \begin{equation}
 \nu \approx \frac{\sqrt{2} \omega_p^4}{64 \pi n_e} \left( \frac{k_B T}{m_e} \right)^{-3/2} \ln \Lambda \mbox{\,,}
 \end{equation}
-where $n_e$ is the electron number density. 
+where $n_e$ is the electron number density. Since the mass of an electron is $\sim$$1/1000$ that of a proton, collisions result in a much higher velocity for electrons and so the electron collision frequency is much higher as well. Thus, proton collisions may be neglected.
 In the absence of magnetic fields, disturbances in the plasma travel at the sound speed,
 \begin{equation}
 v_s = \sqrt{\frac{\gamma p}{\rho}} \mbox{\,,}
@@ -572,7 +573,7 @@ M_{in}=\frac{v_{in}}{v_A}
 %v_{in} = v_A L_u^{-1/2} \mbox{ ,}
 %\end{equation}
 %where $L_u$ is 
-The Lundquist number is roughly equivalent to the magnetic Reynolds number (as defined in Equation\,\ref{eqn:magreynolds}) and indicates the ratio of the strength of advection to diffusion of the magnetic field,
+The Lundquist number is roughly equivalent to the magnetic Reynolds number (as defined in Equation\,\ref{eqn:reynum}) and indicates the ratio of the strength of advection to diffusion of the magnetic field,
 \begin{equation}
 L_u = \frac{\mu_0 L v_A}{\eta} \mbox{\,,}
 \end{equation}
@@ -616,17 +617,17 @@ Net flux is defined as the sum of positive and negative flux,
 \begin{equation}
 \Phi_{\mathrm{net}}=\Phi_{+}+\Phi_{-}=\int{\vec{B_{+}}\cdot d\vec{A}} + \int{\vec{B_{-}}\cdot d\vec{A}} \mbox{\,,}
 \end{equation}
-where $\vec{B_{+}}$ is positive magnetic field and $\vec{B_{-}}$ is negative magnetic field. Locally on the Solar surface, non-zero positive (negative) net flux may exist as they may be connected to far-away negative (positive) flux concentrations, or may be quasi-open and balanced by non-local quasi-open negative (positive) flux concentrations.
+where $\vec{B_{+}}$ is positive magnetic field and $\vec{B_{-}}$ is negative magnetic field. At a given location on the Solar surface, non-zero positive (negative) net flux may exist as they may be connected to far-away negative (positive) flux concentrations, or may be quasi-open and balanced by non-local quasi-open negative (positive) flux concentrations.
 
 %P4 A combination of the above results in global flux imbalances, compare to flux of ephemeral regions. Does the hemispheric flux imbalance compare to the flux at the poles??
-Since net flux is conserved, the polarity-preferential transport of flux to high latitudes necessarily results in an local $\Phi_{\mathrm{net}}$ at lower latitudes. A fractional measure of $\Phi_{\mathrm{net}}$, flux imbalance, is given by,
+Since net flux is conserved, the polarity-preferential transport of flux to high latitudes necessarily results in a local $\Phi_{\mathrm{net}}$ at lower latitudes. A fractional measure of $\Phi_{\mathrm{net}}$, the fractional flux imbalance, is given in general by,
 %EQN Flux imbalance
 \begin{equation}
 \Phi_{\mathrm{imb}} = \frac{\Phi_{\mathrm{net}}}{\Phi_{\mathrm{tot}}}  
 \end{equation}
-A $\Phi_{\mathrm{imb}}$ of zero is a region of equal parts $\Phi_{+}$ and $\Phi_{-}$, while $\Phi_{\mathrm{imb}}$ of unity is a region of completely unipolar flux. %In this paper we define unipolar regions as having a $\Phi_{imb}$ greater than 0.9 and bipolar regions less than 0.9. 
+A measured $\Phi_{\mathrm{imb}}$ value of zero indicates there are equal parts $\Phi_{+}$ and $\Phi_{-}$, while a $\Phi_{\mathrm{imb}}$ value of unity indicates completely unipolar flux. %In this paper we define unipolar regions as having a $\Phi_{imb}$ greater than 0.9 and bipolar regions less than 0.9. 
 
-While flux imbalances have implications for the global magnetic field configuration, helicity has implications for flare potential energy. It can indicate the amount of rotation in the magnetic field of a particular feature; a large twist indicates that a feature is highly non-potential, as discussed in Section~\ref{sect:magcorona}. Non-potential fields can carry currents, which are important for flaring, as discussed in Section~\ref{sect:magreconnect}. 
+While large-scale magnetic polarity imbalances have implications for the global field configuration, helicity has implications for flare potential energy within a magnetic feature. It can indicate the amount of rotation in the magnetic field of a particular feature; a large twist indicates that a feature is highly non-potential, as discussed in Section~\ref{sect:magcorona}. Non-potential fields can carry currents, which are important for flaring, as discussed in Section~\ref{sect:magreconnect}. 
 
 %%%%
 %change V to gray

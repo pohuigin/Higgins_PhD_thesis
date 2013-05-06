@@ -33,11 +33,13 @@ The material in this chapter will be published in \emph{\citetalias{higgins:2012
 %\newpage
 %END ABS---------------------------------------------------------
 
- \section{Introduction}
+\section{Introduction}
+
+\nocite{Smithson:1973,Devore:1985,Schrijver:1990,Komm:1995,Wang:2000,Wang:2002}
 
 Weak magnetic flux elements observed in the photosphere move across the solar surface under the influence of the differential solar rotation, meridional flow, and both granulation and supergranulation (rolling convection). Differential solar rotation and the meridional flow result in bulk motion, while supergranulation has a dispersive effect, resulting in the cellular distribution of flux seen in Figure\,\ref{fig:maggranboundary}). The random surface motions can be modeled as a diffusive process \citep{Sheeley:2005}. The rate at which flux disperses is indicated by the diffusion coefficient \citep[$D$][]{Einstein:1905}. 
 
-$D$ can be measured directly from observations of evolving magnetic flux. Alternatively, simulations of flux evolution can be run, assuming a value for $D$, and the results can be compared to observations. Previous work has measured a wide range of values that are, in general, too small to reproduce the observed solar cycle using flux transport simulations. This is thought to be due to the temporal and spatial scales of the observations used \citep{Schrijver:1996}. In this chapter, we attempt to reconcile the difference between values of $D$ used in most simulations ($\sim$600\,km$^2$s$^{-1}$) and those determined from observations ($\sim$100\,--\,300\,km$^2$s$^{-1}$). A data driven simulation of magnetic flux diffusion is directly compared to observations of several decaying active regions for over 1\,year.
+$D$ can be measured directly from observations of evolving magnetic flux. Alternatively, simulations of flux evolution can be run, assuming a value for $D$, and the results can be compared to observations. Previous work has measured a wide range of values that are, in general, too small to reproduce the observed solar cycle using flux transport simulations. This is thought to be due to the temporal and spatial scales of the observations used \citep{Schrijver:1996}. In this chapter, we attempt to reconcile the difference between values of $D$ used in most simulations ($\sim$600\,km$^2$s$^{-1}$) and those determined from observations ($\sim$100\,--\,300\,km$^2$s$^{-1}$). A data driven simulation of magnetic flux diffusion is directly compared to observations of several decaying active regions over 1\,year.
 
 \subsection{Modeling Supergranular Diffusion}
 
@@ -49,11 +51,11 @@ $D$ can be measured directly from observations of evolving magnetic flux. Altern
    \end{figure}
 
 %model of diffusion
-The motion of weak magnetic elements can be described as a stochastic random walk process, similar to the Brownian motion of microscopic particles. \cite{Einstein:1905} showed that statistically, the mean-squared distance a random walking particle has traveled from its starting location, $\langle r^2 \rangle$, is directly related to the time elapsed, $t$, and a constant describing the rate of diffusion, $D$ (the diffusion coefficient). Considering diffusion across a surface this relation is,
+The motion of weak magnetic elements can be described as a stochastic random walk process, similar to the Brownian motion of microscopic particles. \cite{Einstein:1905} showed that statistically, the mean-squared distance a random walking particle has traveled from its starting location, $\langle R^2 \rangle$, is directly related to the time elapsed, $t$, and a constant describing the rate of diffusion, $D$ (the diffusion coefficient). Considering diffusion across a surface this relation is,
 \begin{equation}\label{eqn:einstein}
-\langle r^2 \rangle=4Dt \mbox{\,.}
+\langle R^2 \rangle=4Dt \mbox{\,.}
 \end{equation}
-A schematic of how $\langle r^2 \rangle$ might be measured from random walking particles is shown in the right image of Figure~\ref{fig:diffschematic}.
+A schematic of how $\langle R^2 \rangle$ might be measured from random walking particles is shown in the right image of Figure~\ref{fig:diffschematic}.
 
 Assuming a continuous particle distribution, the ordinary two-dimensional diffusion equation is conventionally invoked to describe the dispersal of magnetic flux,
 \begin{equation}\label{eqn:distdiff}
@@ -122,7 +124,7 @@ Another random-walk simulation is explored in \cite{Schrijver:1997b}, but does n
 %reasoning of measurements
 As shown in Figure~\ref{fig:prevdiffcoeff}, previous flux dispersal and magnetic solar cycle simulation studies assume $D$ values of $\sim$500\,--\,600\,km$^2$\,s$^{-1}$, which are generally larger than  values determined more directly from observations ($\sim$100\,--\,300\,km$^2$\,s$^{-1}$). Simulations require larger values of $D$ to match the observed properties of the solar cycle (polar field values and cycle length). 
 
-\cite{Schrijver:1996} show that the dispersion of magnetic elements decreases with magnetic flux density, $B$, by measuring their mean squared speed, $\langle v^2 \rangle$. Since $D$ scales with $\langle v^2 \rangle$, assuming a dependency of $\langle v^2 \rangle$ on $B$. Studies tracking magnetic features are biased toward tracking larger, slow moving features, since these have longer lifetimes and are easier to follow. It is argued that $D$ may be underestimated by up to a factor of three, as measured in the observational studies, and is likely to be around 600\,km$^2$s$^{-1}$. 
+\cite{Schrijver:1996} show that the dispersion of magnetic elements decreases with magnetic flux density, $B$, by measuring their mean squared speed, $\langle v^2 \rangle$. Since $D$ scales with $\langle v^2 \rangle$, assuming a dependency of $\langle v^2 \rangle$ on $B$. Studies tracking magnetic features are biased toward tracking larger, slow moving features, since these have longer lifetimes and are easier to follow. It is argued that $D$ may be underestimated by up to a factor of three, as measured in the observational studies, and it is likely that the true value is $\sim$600\,km$^2$s$^{-1}$. 
 
 %ASSUMES D not a function of R,T
 Here we seek to get around the problems arising from tracking individual flux features. In this work we detect and analyse the progressing poleward boundary of two distinct large-scale decaying magnetic features for 10 solar rotations ($\sim$1\,year). The feature boundaries are observed in a magnetic butterfly diagram \citep{Harvey:1992} using LOS magnetograms.  \cite{Svanda:2007} use wavelet methods and cross correlation to determine the speed of poleward drifting diffuse flux in a  magnetic butterfly diagram with time binning of over a solar rotation, but they only attribute this to the meridional flow, not supergranular diffusion. %,Svanda:2008}. 
@@ -215,11 +217,11 @@ The process described above is repeated, with negative pixels zeroed from the pr
 We predict the motion of a point on the Sun over time, affected by differential rotation and the meridional flow. This allows the prediction of disk-centre crossing times for the features of interest.
 Experimental profiles for the meridional flow and differential rotation velocities over latitude are extracted from the surface velocity profiles presented in \cite{Hathaway:2011}. These profiles are determined by cross-correlating segments of MDI magnetograms in images subsequent in time. Corresponding segments are correlated in the East-West direction to determine the speed of solar rotation and correlated in the North-South direction to determine the speed of the meridional flow.
 
-As both flows are variable over long time-scales, we average the profiles over the interval of interest, 1996\,--\,1999, as shown in Figure~\ref{fig:modelinput}. Averaged profiles for the periods 1999\,--\,2002 (gray lines) and 1996\,--\,2012 (dashed lines) are shown for comparison. The differential rotation profiles only deviate slightly at high latitudes, while the meridional flow profiles deviate significantly at all latitudes. The meridional flow and differential rotation profiles are then boxcar-smoothed by 100 and 10 points, respectively (Figure~\ref{fig:modelinput}). The profiles obtained from \cite{Hathaway:2011} are calibrated in m\,s$^{-1}$ and are presently converted to degrees\,s$^{-1}$. Additionally, the differential rotation profile is originally given relative to the Carrington angular rotation speed. To convert the differential rotation speed into heliographic longitudinal degrees\,s$^{-1}$ we use,
+As both flows are variable over long time-scales, we average the profiles over the interval of interest, 1996\,--\,1999, as shown in Figure~\ref{fig:modelinput}. Averaged profiles for the periods 1999\,--\,2002 (gray lines) and 1996\,--\,2012 (dashed lines) are shown for comparison. The differential rotation profiles only deviate slightly at high latitudes, while the meridional flow profiles deviate significantly at all latitudes. The meridional flow and differential rotation profiles are then boxcar-smoothed by 100 and 10 points, respectively (Figure~\ref{fig:modelinput}). The profiles obtained from \cite{Hathaway:2011} are calibrated in m\,s$^{-1}$ and are presently converted to degrees\,day$^{-1}$. Additionally, the differential rotation profile is originally given relative to the Carrington angular rotation speed. To convert the differential rotation speed into heliographic longitudinal degrees\,day$^{-1}$ we use,
 \begin{equation}\label{eqn:convdiffrotdeg}
 v_{\phi}=v_\mathrm{s} \left( \frac{360^{\circ}}{2 \pi R_{\odot} \cos{\theta}} \right) + v_{\mathrm{c}} \mbox{\,,}
 \end{equation}
-where $\phi$ is longitude, $v_\mathrm{s}$ is the rotation speed in m\,s$^{-1}$, $R_{\odot}$ is the radius of the Sun in meters, $\theta$ is latitude, and $v_{\mathrm{c}}$ is the Carrington speed, 14.184$^\circ$day$^{-1}$. The meridional flow velocities are converted to degrees\,s$^{-1}$ using,
+where $\phi$ is longitude, $v_\mathrm{s}$ is the rotation speed in m\,day$^{-1}$, $R_{\odot}$ is the radius of the Sun in meters, $\theta$ is latitude, and $v_{\mathrm{c}}$ is the Carrington speed, 14.184$^\circ$day$^{-1}$. The meridional flow velocities are converted to degrees\,day$^{-1}$ using,
 \begin{equation}\label{eqn:convmeriddeg}
 v_{\theta}=v_\mathrm{s} \left( \frac{360^{\circ}}{2 \pi R_{\odot}} \right) \mbox{.}
 \end{equation}
@@ -249,7 +251,7 @@ v_{\theta}=v_\mathrm{s} \left( \frac{360^{\circ}}{2 \pi R_{\odot}} \right) \mbox
 The evolution of a distribution of magnetic elements on large scales is simulated in latitude-longitude space. First the diffusion is simulated using the continuous diffusion equation (Equation~\ref{eqn:sft}). The algorithm convolves a discrete Laplacian operator (shown in Table~\ref{table:lapker}) with the distribution ($\Phi_0$) to calculate its change over a time step ($\Delta \Phi_0$) and adds it to the distribution to calculate the resulting distribution ($\Phi_1$). This conserves total flux in the distribution while smearing it radially. An example of the process is shown in Figure\,\ref{fig:laplaceexamp}.
 
 % show the equations used to determine the laplacian kernel!! written on a paper in my diffusion file...
-Next, the meridional flow and differential rotation are simulated with sub-pixel image shifting using cubic interpolation\footnote{The SSWIDL {FSHIFT} routine is used.}. The pixel shifts are determined for both, and then the differential rotation and then the meridional flow are simulated in turn. Because the time steps are only 12\,minutes apart, the order of operations does not affect the resulting distribution.
+Next, the meridional flow and differential rotation are simulated with sub-pixel image shifting using four pixel bi-linear interpolation\footnote{The SSWIDL {FSHIFT} routine is used.}. The pixel shifts are determined for both, and then the differential rotation and then the meridional flow are simulated in turn. Because the time steps are only 12\,minutes apart, the order of operations does not affect the resulting distribution.
 For differential rotation, each row of pixels is shifted separately, where the fractional pixel shift is determined by the speed of rotation at a given latitude in the profile shown in the top-left panel of Figure~\ref{fig:modelinput}. The same method is used for the meridional flow, but a single flow speed is used to shift all of the columns in the image. The speed is measured at the location best matched to the tracked diffusing point in the butterfly diagram. This point is located where the latitude profile of magnetic field ($\langle B_\mathrm{sign} \rangle$) values crosses zero (i.e., where the diffusing feature and static polar field average to zero over longitude; the north-most location in panel \emph{C} of Figure~\ref{fig:butterflymethod}) and is discussed in Section\,\ref{sect:difftrack}. 
 
 
@@ -318,21 +320,27 @@ Subsequently, a continuous simulation is run with an opposite polarity polar fie
    \label{fig:fitrandomwalk}
    \end{figure}
 
-The diffusion of magnetic flux elements is simulated in 2D by allowing a group of particles to step in random directions with time-steps ($\tau_c$) and step lengths ($L_c$) chosen based on previous observational studies of the supergranular flow field. To simultaneously test Equation~\ref{eqn:einstein} and \ref{eqn:hwhm}, we position 500 particles at position [0,0] in a 2D box (having a non-normalised $\delta$-function spatial distribution). The box is effectively divided into a lattice of supergranular cells so that each particle is randomly positioned within a cell. The probability of sitting at a given distance from a cell's center increases with radius (the area of concentric circular rings $\propto r_c \partial r_c$). Over a time-step, particles move radially to the cell boundaries with a speed equal to $r_c / \tau_c$. The $\tau_c$ is held constant over a simulation run, but $r_c$ is determined from a random distribution with a chosen mean and HWHM of 10\,Mm. Runs cover 5\,000 time-steps. Figure~\ref{fig:randomwalk} shows the distribution of particles after a simulation time of 1\,year, 6\,years, and 12\,years, assuming the minimum diffusion case\footnote{A supplementary movie of a representative random-walk simulation is available: \url{http://dx.doi.org/10.6084/m9.figshare.96148}.}. Each particle is random-walking on a different cellular pattern, but trajectories are considered collectively to statistically determine the diffusion coefficient from the cellular properties. 
+The diffusion of magnetic flux elements is simulated in 2D by allowing a collection of particles to step in random directions under the influence of a supergranular flow field. The supergranular cells are assumed to have a Gaussian distribution of radii with a mean radius, $R_c = \langle L_c \rangle/2$ and HWHM of 10\,Mm. The cell lifetimes, $\tau_c$, are assumed to be uniform. The supergranular cell radius, $R_c$ defines the maximum particle step length for a given cell. The cell lifetimes define the simulation time step length. 
 
-Time-steps, $\tau_c$, are chosen from statistical studies of supergranular life-time. This quantity is relatively poorly constrained, since the majority of studies have been performed on ground-based data, only allowing a total observation sequence on the order of the measured cell life-times. Previous values have been obtained in \cite{Worden:1976} (36\,hr; correlation time-scale method), \cite{Wang:1989b} (10, 20, and 48\,hr; correlation time-scale method), and \cite{Hirzberger:2008} (38.4 and 43.2\,hr; helioseismology method). The spread of values between the studies is a result of differences in both analysis technique and observation type.
+ To simultaneously test Equation~\ref{eqn:einstein} and \ref{eqn:hwhm}, we position 500 particles at position [0,0] in a 2D box (having a non-normalised $\delta$-function spatial distribution). The box is effectively divided into a lattice of (non-uniform) supergranular cells so that each particle is randomly positioned within a cell. The probability of sitting at a given distance from a cell's center increases with radius. %(the area of concentric circular rings $\propto r_c \partial r_c$). 
+ Over a time-step, each particle moves a step length ($r_s$) radially to cell boundaries with a speed equal to $r_s / \tau_c$.  Runs cover 5\,000 time-steps. 
+Effectively each particle is random-walking on a different cellular pattern, but trajectories are considered collectively to statistically determine the diffusion coefficient from the cellular properties. 
+Figure~\ref{fig:randomwalk} shows the distribution of particles after a simulation time of 1\,year, 6\,years, and 12\,years, assuming the minimum diffusion case\footnote{A supplementary movie of a representative random-walk simulation is available: \url{http://dx.doi.org/10.6084/m9.figshare.96148}.}. 
+
+Cell lifetimes ($\tau_c$) and diameters ($L_c$) are chosen from statistical studies of supergranules. This quantity is relatively poorly constrained, since the majority of studies have been performed on ground-based data, only allowing a total observation sequence on the order of the measured cell lifetimes. Previous values have been obtained in \cite{Worden:1976} (36\,hr; correlation time-scale method), \cite{Wang:1989b} (10, 20, and 48\,hr; correlation time-scale method), and \cite{Hirzberger:2008} (38.4 and 43.2\,hr; helioseismology method). The spread of values between the studies is a result of differences in both analysis technique and observation type. 
 %!!!ADD CITATIONS TO REFERENCES.TEX
-The supergranular cell sizes, $L_c$ (with cell radius $r_c = L_c/2$), determine the step lengths for the random walk. The generally accepted cell size is 32\,Mm \citep{Leighton:1962}. %,Simon:1964}. 
-However, recent studies using \gls{LCT} determine a distribution of cell sizes peaking at 36\,Mm with half-maximum values at 20 and 63\,Mm \citep{Hathaway:2000,Hathaway:2002} and 20 and 75\,Mm \citep{Rieutord:2008}.
+ The generally accepted supergranular cell diameter is 32\,Mm \citep{Leighton:1962}.  %,Simon:1964}. 
+ However, recent studies using \gls{LCT} determine a distribution of cell diameters peaking at 36\,Mm with half-maximum values at 20 and 63\,Mm \citep{Hathaway:2000,Hathaway:2002} and 20 and 75\,Mm \citep{Rieutord:2008}.
 
 \begin{table}[!t]
-\caption[A summary of random-walk simulation runs.]{A summary of random-walk simulation runs. The mean supergranular cell diameter ($r_c$) and life-time ($\tau_c$) for each run is given. The results of determining $D$ by fitting time series of particle $\langle R^2 \rangle$ and spatial distribution HWHM are given in the last two columns.}\label{table:simrandwalk}
+\caption[A summary of random-walk simulation runs.]{A summary of random-walk simulation runs. The mean supergranular cell diameter ($L_c$) and lifetime ($\tau_c$) for each run is given. The results of determining $D$ by fitting time series of particle $\langle R^2 \rangle$ and spatial distribution HWHM are given in the last two columns.}\label{table:simrandwalk}
 \centering{
 \begin{tabular}{l|c|c|c|c}
-\hline \hline
-\multicolumn{3}{|c|}{} & \multicolumn{2}{|c|}{$D$ [km$^2$s$^{-1}$]} \\
-Run & $L_c$ [Mm] & $\tau_c$ [hr] & Using $\langle R^2 \rangle$ & Using HWHM \\
 \hline
+\multicolumn{3}{c|}{} & \multicolumn{2}{|c}{$D$ [km$^2$s$^{-1}$]} \\
+\hline
+Run & $\langle L_c \rangle$ [Mm] & $\tau_c$ [hr] & Using $\langle R^2 \rangle$ & Using HWHM \\
+\hline \hline
 Minimum & 30 & 48 & 81.7 & 85.3 \\
 \hline
 Medium & 36 & 36 & 129.4 & 133.7 \\
@@ -345,9 +353,9 @@ Simon \emph{et al.} (1995) & 30 & 30 & 84.4 & 87.4 \\
 }
 \end{table}
 
-For this simulation, we test 24 (maximum case), 36 (medium case), and 48\,hr life times with mean cell diameters of 47.5, 36, 30\,Mm, respectively. We also run a test using cell properties adopted in one of the random-walk simulations run by \citet{Simon:1995} which assumes cell size of 30\,Mm, but no spread in cell sizes, and cell life-time of 30\,hours. 
+For this simulation, we test 24 (maximum $D$ case), 36 (medium $D$ case), and 48\,hr life times with mean cell diameters of 47.5, 36, 30\,Mm, respectively. We also run a test using cell properties adopted in one of the random-walk simulations run by \citet{Simon:1995} which assumes cell diameter of 30\,Mm, but no spread in cell sizes, and cell lifetime of 30\,hours. 
 
-The particle trajectories for each run (summarised in Table\,\ref{table:simrandwalk}) are then analysed. The average mean-squared displacement, $\langle r^2 \rangle$, of particles from the origin over time allows a calculation of $D$ using a linear fit to Equation~\ref{eqn:einstein}. Additionally, the number of particles is summed over one dimension and we fit a Gaussian to the distribution. This allows the \gls{HWHM} of the Gaussian fit to be tracked over time and fit using Equation~\ref{eqn:hwhm}, as shown in the middle panel of Figure~\ref{fig:randomwalk}. The two different fits for an example run are shown in Figure~\ref{sect:simrandwalk}. The results of all of the simulation runs are summarised in Table~\ref{table:simrandwalk}. We find an agreement between the two methods of determining $D$ of within 5$\%$. 
+The particle trajectories for each run (summarised in Table\,\ref{table:simrandwalk}) are then analysed. The average mean-squared displacement, $\langle R^2 \rangle$, of particles from the origin over time allows a calculation of $D$ using a linear fit to Equation~\ref{eqn:einstein}. Additionally, the number of particles is summed over one dimension and we fit a Gaussian to the distribution. This allows the \gls{HWHM} of the Gaussian fit to be tracked over time and fit using Equation~\ref{eqn:hwhm}, as shown in the middle panel of Figure~\ref{fig:randomwalk}. The two different fits for an example run are shown in Figure~\ref{sect:simrandwalk}. The results of all of the simulation runs are summarised in Table~\ref{table:simrandwalk}. We find an agreement between the two methods of determining $D$ of within 5$\%$. 
 
 The cell parameters in the model runs are chosen to represent the range of possible $D$ values. The minimum, medium and maximum $D$ values are all significantly lower than 600\,km$^2$s$^{-1}$. This should not be surprising since \cite{Simon:1995} investigate a similar model and find values of $D$ close to ours when considering motion of particles to cell boundaries rather than to ``sinks". Magnetic elements are observed to collect in the intersection between multiple supergranules. \cite{Simon:1995} shows that when the motion of particles into sinks over $\tau_c$ is considered, $D$ values of $350$ to $500$\,km$^2$s$^{-1}$ are found.
 
@@ -356,7 +364,7 @@ The cell parameters in the model runs are chosen to represent the range of possi
 \begin{figure}[!t]
 \centering{\includegraphics[width=1.0\textwidth,clip=]{cont_diff_gauss_d_83.eps}
 }
-\caption[Continuous diffusion simulation.]{The results of a continuous (laplacian) diffusion simulation. The minimum diffusion case is assumed. Vertical slices represent the magnetic field profile of the diffusing Gaussian blob. The $1/e$-point is tracked (black line) and compared to the prediction of the random-walk simulation for the same value of $D$ (gray dashed line).}
+\caption[Continuous diffusion simulation.]{The results of a continuous (Laplacian) diffusion simulation. The minimum diffusion case is assumed. Vertical slices represent the magnetic field profile of the diffusing Gaussian blob. The $1/e$-point is tracked (black line) and compared to the prediction of the random-walk simulation for the same value of $D$ (gray dashed line). The two curves are almost completely indistinguishable at this scale.}
 \label{fig:comprandcont}
 \end{figure}
 %gaussian blob
@@ -369,28 +377,28 @@ A Gaussian is used to represent the negative portion of a decaying sunspot group
 \begin{figure}[!t]
 \centering{\includegraphics[width=1.0\textwidth,clip=]{test_sim_compare_diff_merid.eps}
 }
-\caption[Continuous diffusion and flow simulation.]{The results of a continuous (Laplacian) diffusion simulation including differential and meridional flows. A $D$ of 600\,km\,s$^{-1}$ is assumed. The zero-crossing point is tracked with a simulation including only diffusion (black line), diffusion and the meridional flow (blue line), and a simulation including diffusion, differential rotation, and the meridional flow (red line). the starting point of the blob is shown by the gray line.}
-\label{fig:comprandcont}
+\caption[Continuous diffusion and flow simulation.]{The results of a continuous (Laplacian) diffusion simulation including differential and meridional flows. A $D$ of 600\,km$^2$\,s$^{-1}$ is assumed. The zero-crossing point is tracked with a simulation including only diffusion (black line), diffusion and the meridional flow (blue line), and a simulation including diffusion, differential rotation, and the meridional flow (red line). the starting point of the blob is shown by the gray line.}
+\label{fig:comprandcont2}
 \end{figure}
 
 A sigmoid curve is fit to the observed polar profile in Figure\,\ref{fig:butterfly_raw} and is used to represent the positive polar field,
 \begin{equation}
 B_{\mathrm{sig}} = 5/(1+\exp(15-x/4))+0.01 \mbox{ ,}
 \end{equation}
-where $x$ is heliographic latitude. The simulation time-step is chosen to be only 12\,minutes to maintain stability. The discrete Laplacian operator tends to cause run-away gradients to appear (rather than the expected smearing of strong gradients) if the time-step is chosen to be too large. 
+where $x$ is heliographic latitude. The simulation time-step is chosen to be only 12\,minutes to maintain stability. The discrete Laplacian operator tends to cause runaway gradients to appear (rather than the expected smearing of strong gradients) if the time-step is chosen to be too large. 
 
-For the first run, we ignore the polar field and the $1/e$-point of the diffusing Gaussian is tracked over time, for each run. A $D$ of 83\,km$^2$\,s$^{-1}$ (minimum diffusion case) is assumed. The results of this are compared with the random-walk results assuming the same parameters ($D\approx83$\,km$^2$\,s$^{-1}$) and is shown in Figure~\ref{fig:comprandcont}. The random-walk (gray dashed line) and continuous (black line) agree well. This indicates that the Laplacian method of simulating diffusion (as described in Section~\ref{sect:meriddiffinteg}) is roughly equivalent to the random-walk method.
+For the first run, we ignore the polar field and the $1/e$-point of the diffusing Gaussian is tracked over time, for each run. A $D$ of 83\,km$^2$\,s$^{-1}$ (minimum diffusion case) is assumed. The results of this are compared with the random-walk results assuming the same parameters ($D\approx83$\,km$^2$\,s$^{-1}$) and is shown in Figure~\ref{fig:comprandcont}. The random-walk (gray dashed line) and continuous (black line) agree well. At this scale the two curves are almost indistinguishable. This indicates that the Laplacian method of simulating diffusion (as described in Section~\ref{sect:meriddiffinteg}) is nearly equivalent to the random-walk method.
 
 For the second run, a $D$ of 600\,km$^2$s$^{-1}$ is input and the simulation is covers an interval of 8\,months. We track the zero-crossing point between the negative feature and the polar field. This is done by averaging the negative field between $\pm$30$^{\circ}$ longitude. This is the same averaging window used to generate the magnetic butterfly diagram as described in Section~\ref{sect:lattimemeth}.
 
-The results of this simulation are shown in Figure~\ref{fig:comprandcont}. The black line represents the zero-crossing point including only diffusion, while the blue line includes both diffusion and the meridional flow. It is clear that the meridional flow plays a large part in moving flux toward the pole. The red line shows the effects of including diffusion, the meridional flow, and differential rotation. The shearing effect of differential rotation helps to diffuse the fields laterally and thus decreases the concentration of flux in a given area. This causes the zero point to be lower in latitude, as the flux density is weaker.
+The results of this simulation are shown in Figure~\ref{fig:comprandcont2}. The black line represents the zero-crossing point including only diffusion, while the blue line includes both diffusion and the meridional flow. It is clear that the meridional flow plays a large part in moving flux toward the pole. The red line shows the effects of including diffusion, the meridional flow, and differential rotation. The shearing effect of differential rotation helps to diffuse the fields laterally and thus decreases the concentration of flux in a given area. This causes the zero point to be lower in latitude, as the flux density is weaker.
 
 \subsubsection{Data-driven}\label{sect:simdatdriv}
 
 \begin{figure}[!t]
 \centering{\includegraphics[width=0.7\textwidth,clip=]{simulation_data_compare_source_d100.eps}
 }
-\caption[Data-driven diffusion simulations.]{A data-driven simulation using the inputs specified in Section~\ref{sect:meriddiffinteg} and a $D$ of 100\,km\,s$^{-1}$ (top panel). The diffusion zero-points of the feature of interest, tracked in the magnetic butterfly diagram, are shown in red. The simulated zero-point track is shown in green. The simulation is repeated for a $D$ of 500\,km\,s$^{-1}$. The black curve indicates the smoothed zero-crossing points.}
+\caption[Data-driven diffusion simulations.]{A data-driven simulation using the inputs specified in Section~\ref{sect:meriddiffinteg} and a $D$ of 100\,km$^2$\,s$^{-1}$ (top panel). The diffusion zero-points of the feature of interest, tracked in the magnetic butterfly diagram, are shown in red. The simulated zero-point track is shown in green. The simulation is repeated for a $D$ of 500\,km$^2$\,s$^{-1}$. The black curve indicates the smoothed zero-crossing points.}
 \label{fig:datasimcomp}
 \end{figure}
 
@@ -452,7 +460,7 @@ A $D$ of 100\,km$^2$\,s$^{-1}$ (top panel) and 500\,km$^2$\,s$^{-1}$ are tested.
 
 \section{Conclusions}\label{sect:conc}
 
-The tests performed in this work have not allowed us to arrive at a definitive value for the diffusion coefficient. A larger number of data sets must be simulated and compared in order to arrive at a conclusion. An important factor in our result is that the meridional flow is not well constrained and is in fact dynamic on a timescale of years (Figure\,\ref{fig:modelinput}). This may make it impossible to compare a simulation using a static model of the meridional flow to a observations.
+The tests performed in this work have not allowed us to arrive at a definitive value for the diffusion coefficient. A larger number of data sets must be simulated and compared in order to arrive at a conclusion. An important factor in our result is that the meridional flow is not well constrained and is in fact dynamic on a timescale of years (Figure\,\ref{fig:modelinput}). This may make it impossible to compare a simulation using a static model of the meridional flow to observations.
 
 That said, our results support the idea that the diffusion process is scale dependent as discussed by \cite{Hagenaar:1999}. The data-driven simulation matches observations on small scales when assuming $D=100$\,km$^2$\,s$^{-1}$ and matches observations on large scales when assuming $D=500$\,km$^2$\,s$^{-1}$. A signature of convection that operates on a larger scale than supergranulation, such as giant cells, may play a part in the dispersal of magnetic flux across the solar surface.
 
@@ -464,7 +472,7 @@ That said, our results support the idea that the diffusion process is scale depe
 There is a lack of observational constraint on the supergranule diffusion coefficient, $D$. The same is true of other subsurface parameters, such as turbulent diffusivity, the subsurface meridional flow, and the magnitude of the $\alpha$ effect \cite{Dikpati:2002,Dikpati:2004}. Thus, for more realistic and complicated simulations the system is under constrained. The value of $D$ necessary to reproduce solar-like solutions using flux transport simulations cannot be definitively determined at present.
 
 %Combined Sim/experimental
-\cite{Wang:1989} track the decay of 4 active regions for several rotations by calculating the flux in $\pm$3\,G contours and find that simulating their decay assuming the widely used flux transport equation (Equation~\ref{eqn:sft}), the best fit to $D$ is 600$\pm$200\,km$^2$s$^{-1}$. This work compares continuous diffusion simulations to observations of dispersing magnetic flux fragments. An effect not taken into account by this model is the fragment clustering effect of converging supergranular flows \citep{Schrijver:1992}. This causes dispersing flux to maintain larger magnetic field values than the continuous model gives. Thus, \cite{Wang:1989} likely measure a smaller value of $D$ since flux is lost from the 3\,G contours more quickly in the simulation than in the observations.
+\cite{Wang:1989} track the decay of 4 active regions for several rotations by calculating the flux in $\pm$3\,G contours and find that simulating their decay assuming the widely used flux transport equation (Equation~\ref{eqn:sft}), the best fit to $D$ is 600$\pm$200\,km$^2$s$^{-1}$. This work compares continuous diffusion simulations to observations of dispersing magnetic flux fragments. An effect not taken into account by this model is the fragment clustering effect of converging supergranular flows \citep{Schrijver:1992}. This causes dispersing flux to maintain larger magnetic field values than the continuous model gives. Thus, \cite{Wang:1989} likely measure a smaller value of $D$ since flux is lost from the 3\,G contours more quickly in the simulation than in the observations. This value of $D$ is at the upper limit measured values, so taking the clustering effect into account could result in the highest $D$ value measured since the original \cite{Leighton:1964} study. 
 
 %Simulations tend to use a larger magnitude of meridional flow velocity that is outside the uncertainty of the flow velocity measured in \cite{Hathaway:2011}. A $D$ larger than 600\,km$^2$s$^{-1}$ would allow certain simulations \cite{Wang:2009} to use a more accurate meridional flow.
 
