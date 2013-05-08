@@ -241,19 +241,18 @@ v_{\theta}=v_\mathrm{s} \left( \frac{360^{\circ}}{2 \pi R_{\odot}} \right) \mbox
 }
 \end{table}
 
- \begin{figure}[!t]    %%%%%%%%%%%%%%%%%% FIGURE 2
-   \centerline{\includegraphics[width=1.0\textwidth,clip=]{examp_laplace_diff.eps}
-              }
-              \caption[An example of applying the Laplacian operator to simulate diffusion.]{An example of applying the Laplacian operator to simulate diffusion. \emph{Left}: An initial circular distribution of flux. \emph{Middle}: The Laplacian of the initial distribution. \emph{Right}: The diffused distribution.}
-   \label{fig:laplaceexamp}
-   \end{figure}
-
 The evolution of a distribution of magnetic elements on large scales is simulated in latitude-longitude space. First the diffusion is simulated using the continuous diffusion equation (Equation~\ref{eqn:sft}). The algorithm convolves a discrete Laplacian operator (shown in Table~\ref{table:lapker}) with the distribution ($\Phi_0$) to calculate its change over a time step ($\Delta \Phi_0$) and adds it to the distribution to calculate the resulting distribution ($\Phi_1$). This conserves total flux in the distribution while smearing it radially. An example of the process is shown in Figure\,\ref{fig:laplaceexamp}.
 
 % show the equations used to determine the laplacian kernel!! written on a paper in my diffusion file...
 Next, the meridional flow and differential rotation are simulated with sub-pixel image shifting using four pixel bi-linear interpolation\footnote{The SSWIDL {FSHIFT} routine is used.}. The pixel shifts are determined for both, and then the differential rotation and then the meridional flow are simulated in turn. Because the time steps are only 12\,minutes apart, the order of operations does not affect the resulting distribution.
 For differential rotation, each row of pixels is shifted separately, where the fractional pixel shift is determined by the speed of rotation at a given latitude in the profile shown in the top-left panel of Figure~\ref{fig:modelinput}. The same method is used for the meridional flow, but a single flow speed is used to shift all of the columns in the image. The speed is measured at the location best matched to the tracked diffusing point in the butterfly diagram. This point is located where the latitude profile of magnetic field ($\langle B_\mathrm{sign} \rangle$) values crosses zero (i.e., where the diffusing feature and static polar field average to zero over longitude; the north-most location in panel \emph{C} of Figure~\ref{fig:butterflymethod}) and is discussed in Section\,\ref{sect:difftrack}. 
 
+ \begin{figure}[!t]    %%%%%%%%%%%%%%%%%% FIGURE 2
+   \centerline{\includegraphics[width=1.0\textwidth,clip=1]{examp_laplace_diff.eps}
+              }
+              \caption[An example of applying the Laplacian operator to simulate diffusion.]{An example of applying the Laplacian operator to simulate diffusion. \emph{Left}: An initial circular distribution of flux. \emph{Middle}: The Laplacian of the initial distribution. \emph{Right}: The diffused distribution.}
+   \label{fig:laplaceexamp}
+   \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion}\label{sect:resdisc}
@@ -472,7 +471,7 @@ That said, our results support the idea that the diffusion process is scale depe
 There is a lack of observational constraint on the supergranule diffusion coefficient, $D$. The same is true of other subsurface parameters, such as turbulent diffusivity, the subsurface meridional flow, and the magnitude of the $\alpha$ effect \cite{Dikpati:2002,Dikpati:2004}. Thus, for more realistic and complicated simulations the system is under constrained. The value of $D$ necessary to reproduce solar-like solutions using flux transport simulations cannot be definitively determined at present.
 
 %Combined Sim/experimental
-\cite{Wang:1989} track the decay of 4 active regions for several rotations by calculating the flux in $\pm$3\,G contours and find that simulating their decay assuming the widely used flux transport equation (Equation~\ref{eqn:sft}), the best fit to $D$ is 600$\pm$200\,km$^2$s$^{-1}$. This work compares continuous diffusion simulations to observations of dispersing magnetic flux fragments. An effect not taken into account by this model is the fragment clustering effect of converging supergranular flows \citep{Schrijver:1992}. This causes dispersing flux to maintain larger magnetic field values than the continuous model gives. Thus, \cite{Wang:1989} likely measure a smaller value of $D$ since flux is lost from the 3\,G contours more quickly in the simulation than in the observations. This value of $D$ is at the upper limit measured values, so taking the clustering effect into account could result in the highest $D$ value measured since the original \cite{Leighton:1964} study. 
+\cite{Wang:1989} track the decay of four active regions for several rotations by calculating the flux in $\pm$3\,G contours. By simulating the decay of the active regions, assuming the widely used flux transport equation (Equation~\ref{eqn:sft}), the best fit to $D$ is 600$\pm$200\,km$^2$s$^{-1}$. Their work compares continuous diffusion simulations to observations of dispersing magnetic flux fragments. An effect not taken into account by this model is the fragment clustering effect of converging supergranular flows \citep{Schrijver:1992}. This causes dispersing flux to maintain larger magnetic field values than the continuous model gives. Thus, \cite{Wang:1989} likely measure a smaller value of $D$ since flux is lost from the 3\,G contours more quickly in the simulation than in the observations. This value of $D$ is at the upper limit measured values, so taking the clustering effect into account could result in the highest $D$ value measured since the original \cite{Leighton:1964} study. 
 
 %Simulations tend to use a larger magnitude of meridional flow velocity that is outside the uncertainty of the flow velocity measured in \cite{Hathaway:2011}. A $D$ larger than 600\,km$^2$s$^{-1}$ would allow certain simulations \cite{Wang:2009} to use a more accurate meridional flow.
 
